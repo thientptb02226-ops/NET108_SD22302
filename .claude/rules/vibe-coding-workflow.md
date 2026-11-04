@@ -54,3 +54,4 @@
 ### Bước 10: Kỷ luật Git
 - Commit ngay sau mỗi tính năng hoạt động ổn định.
 - Giữ lịch sử commit nguyên tử làm điểm tựa rollback (`git reset`).
+

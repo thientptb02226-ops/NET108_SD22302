@@ -208,3 +208,4 @@ CREATE TABLE IF NOT EXISTS ai_action_approvals (
   created_at timestamptz NOT NULL DEFAULT now()
 );
 ```
+

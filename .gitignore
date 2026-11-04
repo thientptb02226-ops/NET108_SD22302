@@ -19,4 +19,6 @@ venv/
 .cache/
 coverage/
 .turbo/
+~$*
+*.tmp
 
