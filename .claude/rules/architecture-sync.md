@@ -10,3 +10,4 @@
 - **Trigger 1**: Code vừa đổi kiến trúc (thêm route, thêm controller, thêm table) -> Cập nhật docs ngay.
 - **Trigger 2**: User chốt quyết định kỹ thuật mới -> Ghi nhận vào docs trước khi bắt tay viết code.
 - **Trigger 3**: Phát hiện tài liệu lệch với mã nguồn thực tế -> Đồng bộ hóa ngay lập tức.
+

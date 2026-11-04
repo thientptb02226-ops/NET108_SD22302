@@ -11,3 +11,4 @@
 - Đọc file đúng phạm vi (dùng `StartLine` / `EndLine` khi file lớn).
 - Không search vô định, dùng query chính xác.
 - Commit nguyên tử, kiểm tra syntax trước khi hoàn tất lượt.
+

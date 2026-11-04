@@ -10,3 +10,4 @@ Mọi file markdown tài liệu phải được sắp xếp đúng nhóm:
 - `docs/04-van-hanh/`: Hướng dẫn deploy, checklist an toàn, runbooks khi gặp sự cố.
 
 > **Ngoại lệ**: Chỉ `AGENTS.md`, `CLAUDE.md`, `README.md` được phép nằm ở thư mục gốc.
+

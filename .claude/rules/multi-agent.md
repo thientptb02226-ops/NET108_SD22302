@@ -20,3 +20,4 @@
 - Fix bug nhỏ (1 dòng code hoặc 1 file).
 - Chưa có hợp đồng API (Interface Contract) rõ ràng giữa 2 bên.
 - Chỉnh sửa cùng 1 file (dễ gây conflict).
+

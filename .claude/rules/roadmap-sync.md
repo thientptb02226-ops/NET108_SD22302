@@ -9,3 +9,4 @@
 ## 2. Trigger
 - **Trigger 1**: Code xong 1 tính năng -> Checkbox `[x]` trong `roadmap.md` và ghi ngày hoàn thành.
 - **Trigger 2**: User đưa ra ý tưởng mới -> Thêm vào phần Backlog / Future Scope trong `roadmap.md`.
+
