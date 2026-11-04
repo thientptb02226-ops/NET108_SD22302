@@ -1,0 +1,32 @@
+{
+  "name": "trello-clone-monorepo",
+  "version": "1.0.0",
+  "description": "Multi-agent AI-powered Trello clone monorepo",
+  "private": true,
+  "workspaces": [
+    "Trello-Clone-Backend",
+    "Trello-Clone-Frontend",
+    "Trello-Clone-MCP",
+    "Chatbot-Frontend",
+    "Trello-Clone-Desktop"
+  ],
+  "scripts": {
+    "dev:backend": "npm --workspace=Trello-Clone-Backend run dev",
+    "dev:frontend": "npm --workspace=Trello-Clone-Frontend run dev",
+    "dev:mcp": "npm --workspace=Trello-Clone-MCP run dev",
+    "dev:chatbot": "npm --workspace=Chatbot-Frontend run dev",
+    "build:all": "npm run --workspaces --if-present build",
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down"
+  },
+  "keywords": [
+    "trello",
+    "multi-agent",
+    "claude-code",
+    "antigravity",
+    "codex",
+    "mcp",
+    "rag"
+  ],
+  "license": "MIT"
+}
