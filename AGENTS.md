@@ -85,10 +85,16 @@ Refer to `mcp-reference-architecture.md` for tool schemas and connection paramet
 
 ---
 
-## 5. Agent Workflow Guidelines
+## 5. Agent Workflow & Karpathy Guidelines
 
-1. **Check Requirements**: Always review `docs/` and task plans in `.claude/plans/` or `.codex/plans/` before beginning code generation.
-2. **Type Safety**: Maintain strict TypeScript interfaces between Backend and Frontend. Never use `any` where explicit domain types exist.
-3. **Environment Variables**: Always define defaults in `.env.example` in each sub-project. Never commit plain `.env` with secret keys.
-4. **Testing**: When adding a feature, provide unit or integration tests in the corresponding submodule.
+All agents (Antigravity, Claude Code, Codex, Cursor) MUST strictly follow the **Karpathy Guidelines** (`skills/karpathy-guidelines/SKILL.md`):
+
+1. **Think Before Coding**: State assumptions explicitly, surface tradeoffs, ask when uncertain.
+2. **Simplicity First**: Minimum code that solves the problem. Nothing speculative.
+3. **Surgical Changes**: Touch only what you must. Never "improve" adjacent code or refactor things that aren't broken.
+4. **Goal-Driven Execution**: State verifiable success criteria (`Step` ➔ `verify`). Loop until tests pass.
+5. **Check Requirements**: Review `docs/` and task plans before code generation.
+6. **Type Safety**: Maintain strict TypeScript interfaces between Backend and Frontend. Never use `any`.
+7. **Environment Variables**: Always define defaults in `.env.example`. Never commit `.env` with secret keys.
+8. **Testing**: Provide unit or integration tests mapping to `docs/02-ky-thuat/test-cases-p0-p1.csv`.
 

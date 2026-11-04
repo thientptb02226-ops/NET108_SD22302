@@ -27,21 +27,24 @@ Dự án được xây dựng theo chuẩn công nghiệp, ứng dụng phương
 
 ```
 NET108_SD22302/
-├── 📄 BaoCao_Lab1_NET108_QuanLyDoUong.docx  # File Word Báo cáo Lab 1 hoàn chỉnh
+├── 📄 BaoCao_Lab1_NET108_Nhom5_QuanLyQuanCaPhe.docx  # File Word Báo cáo Lab 1 (Nhóm 5)
+├── 🖼️ usecase_tongquat.png                           # Sơ đồ Use Case tổng quát Lab 1
 │
-├── 📚 docs/                                  # HỒ SƠ TÀI LIỆU KỸ THUẬT & HỌC THUẬT
+├── 📚 docs/                                          # HỒ SƠ TÀI LIỆU KỸ THUẬT & HỌC THUẬT
 │   ├── 01-tong-quan/
-│   │   ├── BaoCao_Lab1_NET108_QuanLyDoUong.docx  # Bản lưu báo cáo đề cương
-│   │   ├── ai-native-commerce-blueprint.md      # Đặc tả tổng thể hệ thống
-│   │   └── vibe-coding-workflow.md              # Quy trình Vibe Coding chuẩn 10 bước
+│   │   ├── BaoCao_Lab1_NET108_Nhom5_QuanLyQuanCaPhe.docx # Bản lưu báo cáo đề cương
+│   │   ├── usecase_tongquat.png                         # Sơ đồ Use Case
+│   │   ├── ai-native-commerce-blueprint.md              # Đặc tả tổng thể hệ thống
+│   │   ├── vibe-coding-workflow.md                      # Quy trình Vibe Coding chuẩn 10 bước
+│   │   └── karpathy-examples.md                         # Mẫu đối chiếu Karpathy Guidelines
 │   ├── 02-ky-thuat/
-│   │   ├── schema-transactional.sql             # Thiết kế CSDL PostgreSQL DDL
-│   │   ├── openapi.yaml                         # Hợp đồng API chuẩn OpenAPI 3.1
-│   │   └── test-cases-p0-p1.csv                 # Ma trận 30 kịch bản kiểm thử P0/P1
+│   │   ├── schema-transactional.sql                     # Thiết kế CSDL PostgreSQL DDL
+│   │   ├── openapi.yaml                                 # Hợp đồng API chuẩn OpenAPI 3.1
+│   │   └── test-cases-p0-p1.csv                         # Ma trận 30 kịch bản kiểm thử P0/P1
 │   ├── 03-san-pham/
-│   │   └── roadmap.md                           # Lộ trình Sprint & Nhật ký Changelog
+│   │   └── roadmap.md                                   # Lộ trình Sprint & Nhật ký Changelog
 │   └── 04-van-hanh/
-│       └── deployment-guide.md                  # Hướng dẫn triển khai & vận hành
+│       └── deployment-guide.md                          # Hướng dẫn triển khai & vận hành
 │
 ├── 💻 Mã nguồn các Module:
 │   ├── Trello-Clone-Frontend/     # Giao diện Web / Kanban Board
@@ -52,9 +55,9 @@ NET108_SD22302/
 │   ├── Trello-Clone-Desktop/      # Ứng dụng Desktop
 │   └── Trello-Clone-Mobile/       # Ứng dụng Di động
 │
-├── 🤖 .agent/ & .claude/ & .codex/ # Cấu hình Multi-Agent Personas & Karpathy Rules
+├── 🤖 .agent/ & .claude/ & .cursor/ # Cấu hình Multi-Agent, Karpathy Skills & Rules
 ├── 📜 AGENTS.md                   # Thỏa ước điều phối đa tác nhân AI
-├── 📜 CLAUDE.md                   # Hướng dẫn thực thi cho Claude Code
+├── 📜 CLAUDE.md                   # Hướng dẫn thực thi cho Claude Code (tích hợp Karpathy)
 ├── 🐳 docker-compose.yml          # Hạ tầng PostgreSQL, Redis, ChromaDB
 ├── 📦 package.json                # Root Monorepo Workspaces
 └── 📜 README.md                   # Tài liệu hướng dẫn này
@@ -66,12 +69,14 @@ NET108_SD22302/
 
 | Tài liệu | Định dạng | Mô tả nội dung |
 | :--- | :---: | :--- |
-| [**Báo Cáo Lab 1 Word**](docs/01-tong-quan/BaoCao_Lab1_NET108_QuanLyDoUong.docx) | `.docx` | Báo cáo chi tiết theo biểu mẫu FPT Poly (Use Case, 2 Actor, 13 Chức năng). |
+| [**Báo Cáo Lab 1 Word (Nhóm 5)**](docs/01-tong-quan/BaoCao_Lab1_NET108_Nhom5_QuanLyQuanCaPhe.docx) | `.docx` | Báo cáo chi tiết theo biểu mẫu FPT Poly (Use Case, 2 Actor, 13 Chức năng). |
+| [**Sơ Đồ Use Case Tổng Quát**](docs/01-tong-quan/usecase_tongquat.png) | `.png` | Sơ đồ 13 Use Cases & 2 Actor (Nhân viên, Quản lý). |
 | [**Đặc Tả Hệ Thống**](docs/01-tong-quan/ai-native-commerce-blueprint.md) | `.md` | Kiến trúc 7 lớp, 16 Module, 12 Agent, Quy trình nghiệp vụ. |
 | [**Thiết Kế CSDL DDL**](docs/02-ky-thuat/schema-transactional.sql) | `.sql` | Schema PostgreSQL: Quotes, Idempotency, Reservations, Outbox. |
 | [**Hợp Đồng OpenAPI 3.1**](docs/02-ky-thuat/openapi.yaml) | `.yaml` | Đặc tả chi tiết các REST Endpoint theo chuẩn OpenAPI. |
 | [**Ma Trận Kiểm Thử P0/P1**](docs/02-ky-thuat/test-cases-p0-p1.csv) | `.csv` | 30 kịch bản test case (Precondition, Steps, Expected). |
 | [**Quy Trình Vibe Coding**](docs/01-tong-quan/vibe-coding-workflow.md) | `.md` | Quy trình phát triển phần mềm chuẩn mực cùng AI. |
+| [**Karpathy Guidelines & Examples**](docs/01-tong-quan/karpathy-examples.md) | `.md` | 4 nguyên tắc kỹ thuật chuẩn Andrej Karpathy (Think, Simplicity, Surgical, Goals). |
 
 ---
 
