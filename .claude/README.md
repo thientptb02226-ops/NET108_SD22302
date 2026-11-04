@@ -10,3 +10,4 @@ This directory manages all commands, hooks, execution plans, safety policies, re
 - `references/`: Architecture specs, schema references, and API contracts.
 - `rules/`: Strict coding standards, TypeScript conventions, and git workflow.
 - `skills/`: Custom tooling scripts or prompt routines.
+

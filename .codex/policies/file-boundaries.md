@@ -7,3 +7,4 @@
    - Do NOT edit UI components inside `Trello-Clone-Frontend/src/components` unless coordinating an API schema change.
 3. **Synchronization**:
    - Always export updated types to shared contracts or `docs/api/` when backend models change.
+

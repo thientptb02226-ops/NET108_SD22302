@@ -113,3 +113,4 @@ The MCP server implements the official `@modelcontextprotocol/sdk` and exposes t
 
 ### Adding MCP to Antigravity:
 Configure in `.agent/rules/` or via Antigravity MCP settings using the same executable entry point.
+

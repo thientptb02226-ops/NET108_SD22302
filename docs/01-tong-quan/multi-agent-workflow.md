@@ -24,3 +24,4 @@ agy
 
 ### Step 4: Automatic Synchronization
 Both agents commit to the shared git repo with tagged commits (`[agent:claude]` and `[agent:anti]`), ensuring smooth collaboration without merge conflicts.
+

@@ -10,3 +10,4 @@
 
 3. **Status Reporting**:
    - Record significant task completions in the active plan file or git commit log.
+

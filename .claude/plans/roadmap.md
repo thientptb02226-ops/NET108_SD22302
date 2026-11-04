@@ -15,3 +15,4 @@
 - [ ] Mobile app with offline sync (`Trello-Clone-Mobile`).
 - [ ] Desktop app with native system notifications (`Trello-Clone-Desktop`).
 - [ ] Production infrastructure with Docker Compose & Kubernetes (`Trello-Clone-Infra`).
+

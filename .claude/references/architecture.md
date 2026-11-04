@@ -13,3 +13,4 @@
   - Exposes `/query` and `/ingest` endpoints.
 - **MCP Server (`Trello-Clone-MCP`)**:
   - Acts as the tool interface between Claude Code CLI / Antigravity and the Trello data layer.
+

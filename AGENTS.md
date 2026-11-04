@@ -91,3 +91,4 @@ Refer to `mcp-reference-architecture.md` for tool schemas and connection paramet
 2. **Type Safety**: Maintain strict TypeScript interfaces between Backend and Frontend. Never use `any` where explicit domain types exist.
 3. **Environment Variables**: Always define defaults in `.env.example` in each sub-project. Never commit plain `.env` with secret keys.
 4. **Testing**: When adding a feature, provide unit or integration tests in the corresponding submodule.
+

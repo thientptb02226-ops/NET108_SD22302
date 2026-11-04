@@ -37,3 +37,4 @@ The Trello-Clone Monorepo contains:
 |  - Chatbot-Frontend         - PostgreSQL / Redis     - AI-RAG       |
 +---------------------------------------------------------------------+
 ```
+

@@ -87,3 +87,4 @@ run().catch((err) => {
   console.error('[MCP] Fatal error running MCP server:', err);
   process.exit(1);
 });
+

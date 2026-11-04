@@ -18,3 +18,4 @@ All endpoints prefixed with `/api/v1`.
 - `PUT /lists/:id/reorder` - `{ newPosition }`
 - `POST /cards` - Create card `{ listId, title, description, position }`
 - `PUT /cards/:id/move` - Move card `{ targetListId, position }`
+

@@ -7,3 +7,4 @@
    - Commits by Antigravity should use `[agent:anti] <type>(<scope>): <summary>`.
 3. **Safe Execution**:
    - Run tests before finalizing major refactoring across packages.
+

@@ -11,3 +11,4 @@
 - Always wrap asynchronous fetch calls in `try/catch` and provide user feedback via toast notifications.
 - Ensure all interactive elements have accessible `aria-label` tags for screen readers.
 - Support keyboard shortcuts for quick card navigation (e.g. `n` for new card, `esc` to close modal).
+

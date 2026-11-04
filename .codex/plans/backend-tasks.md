@@ -11,3 +11,4 @@
    - Socket.io rooms per board ID for instant card movement sync.
 4. **MCP Server Integration**:
    - Provide direct DB / internal service methods for `Trello-Clone-MCP`.
+

@@ -4,10 +4,21 @@ Welcome to the **Trello Clone Multi-Agent Monorepo**. This file guides Claude Co
 
 ---
 
-## 1. Primary Operating Scope
+## 1. Primary Operating Scope & Agent Personas
+
+This workspace implements the standard **6-Step Agentic Loop** (from Code Web Không Khó - Agent Hub):
+`Plan` ➔ `Design` ➔ `Build` ➔ `Test` ➔ `Deploy` ➔ `Maintain`
+
+Available Agent Personas in `.claude/agents/`:
+- `project-manager`: Planning, user stories, roadmap tracking (`docs/03-san-pham/roadmap.md`).
+- `ui-ux-designer`: Wireframes, responsive layouts, TailwindCSS, accessibility.
+- `software-engineer`: Clean code, TypeScript, API implementations.
+- `qa-test-engineer`: Unit tests, edge case verification, integration tests.
+- `devops-engineer`: Docker, CI/CD pipelines, release rollback mechanisms.
+- `sre-ops-engineer`: Monitoring, structured logging, incident triaging.
 
 - **Primary Focus**: Frontend Web (`Trello-Clone-Frontend`), Chatbot Assistant (`Chatbot-Frontend`), Mobile (`Trello-Clone-Mobile`), and Desktop (`Trello-Clone-Desktop`).
-- **Secondary / Collaborative**: You may modify `Trello-Clone-Backend` or `Trello-Clone-MCP` when required for end-to-end feature delivery, following the contracts defined in `docs/api/`.
+- **Secondary / Collaborative**: You may modify `Trello-Clone-Backend` or `Trello-Clone-MCP` when required for end-to-end feature delivery, following the contracts defined in `docs/02-ky-thuat/`.
 
 ---
 
@@ -74,3 +85,4 @@ npm start
 - Refer to `.claude/policies/` for concurrency handling and safety rules.
 - Refer to `.claude/rules/` for detailed coding standards.
 - Do not modify `.codex/` or `.agent/` folders.
+
