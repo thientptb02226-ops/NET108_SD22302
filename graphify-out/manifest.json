@@ -1340,9 +1340,9 @@
     "semantic_hash": ""
   },
   "graphify-out/converted/Lab1_NET108_AINativeCommerce_6b69684c.md": {
-    "mtime": 1793885879.5707648,
-    "seen": 1793885881.3376002,
-    "ast_hash": "bcefea678b617c47cad4d5ec7d86cbf1",
+    "mtime": 1793886637.0256557,
+    "seen": 1793886638.5566864,
+    "ast_hash": "223b9a24c742d19ed82bf563f665cbdb",
     "semantic_hash": ""
   },
   "usecase_ainative_admin.png": {
@@ -1370,9 +1370,9 @@
     "semantic_hash": ""
   },
   "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_06d6073a.md": {
-    "mtime": 1793885879.7641366,
-    "seen": 1793885881.3376002,
-    "ast_hash": "18a1b780b4af825340b7ac653efcac03",
+    "mtime": 1793886637.1437433,
+    "seen": 1793886638.5566864,
+    "ast_hash": "03806fd14c04c054a5598a26a62933ed",
     "semantic_hash": ""
   },
   "generate_enhanced_diagrams.py": {
@@ -1397,6 +1397,12 @@
     "mtime": 1793884729.4230695,
     "seen": 1793885881.341187,
     "ast_hash": "f896757a227ca26604777e6a2f63e2f4",
+    "semantic_hash": ""
+  },
+  "insert_missing_entities.py": {
+    "mtime": 1793886541.513562,
+    "seen": 1793886638.5426059,
+    "ast_hash": "b30dc166d3893645f7dfa51af9afaa98",
     "semantic_hash": ""
   }
 }

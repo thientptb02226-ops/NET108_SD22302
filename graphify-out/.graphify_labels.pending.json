@@ -10,7 +10,7 @@
   "8": "Trello-Clone-Desktop/package.json",
   "9": "compilerOptions",
   "10": "compilerOptions",
-  "11": "@types/react",
+  "11": "create_full_lab1_document",
   "12": "main.py",
   "13": "ref_node_fs",
   "14": "App.tsx",
@@ -21,6 +21,5 @@
   "19": "skills/idea-refine/scripts/idea-refine.sh",
   "20": "typescript",
   "21": "devDependencies",
-  "22": "scripts",
-  "23": "scripts"
+  "22": "scripts"
 }
