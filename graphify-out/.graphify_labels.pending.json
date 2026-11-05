@@ -10,16 +10,17 @@
   "8": "Trello-Clone-Desktop/package.json",
   "9": "compilerOptions",
   "10": "compilerOptions",
-  "11": "create_full_lab1_document",
+  "11": "@types/react",
   "12": "main.py",
   "13": "ref_node_fs",
   "14": "App.tsx",
-  "15": "generate_diagram.py",
+  "15": "generate_enhanced_diagrams.py",
   "16": "vite.config.ts",
   "17": ".agent/skills/idea-refine/scripts/idea-refine.sh",
   "18": ".claude/skills/idea-refine/scripts/idea-refine.sh",
   "19": "skills/idea-refine/scripts/idea-refine.sh",
-  "20": "devDependencies",
+  "20": "typescript",
   "21": "devDependencies",
-  "22": "scripts"
+  "22": "scripts",
+  "23": "scripts"
 }

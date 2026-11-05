@@ -517,7 +517,9 @@ def create_lab1_document():
         ["    2.4.3. Chức năng của Admin / Merchant", "..................................................................................................", "26"],
         ["    2.4.4. Chức năng của AI Agent Platform", "..................................................................................................", "26"],
         ["  2.5. Đặc tả chi tiết các Use Cases cốt lõi (14 bảng SRS chuẩn FPT)", "..................................................................................................", "27"],
-        ["TÀI LIỆU THAM KHẢO", "..................................................................................................", "41"],
+        ["  2.6. Xác định các thực thể dữ liệu cốt lõi trong hệ thống (Entity Identification)", "..................................................................................................", "41"],
+        ["    2.6.1. Mô hình quan hệ thực thể mức khái niệm", "..................................................................................................", "42"],
+        ["TÀI LIỆU THAM KHẢO", "..................................................................................................", "43"],
     ]
     t_toc = doc.add_table(rows=len(toc_rows), cols=3)
     t_toc.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -564,6 +566,7 @@ def create_lab1_document():
     p_body("Bảng 20. <Admin> UC12 - Quản lý tài khoản và phân quyền RBAC\t................................................................\t38")
     p_body("Bảng 21. <Admin> UC13 - Báo cáo thống kê và phân tích hành vi AI\t............................................................\t39")
     p_body("Bảng 22. <AI Agent> UC14 - Thực thi giao dịch qua giao thức tác tử ACP\t.....................................................\t40")
+    p_body("Bảng 23. Bảng danh mục các thực thể dữ liệu cốt lõi trong hệ thống (Entity Identification)\t...................................\t41")
 
     # ==================== HEADING 1: DANH MỤC HÌNH ====================
     doc.add_page_break()
@@ -1255,6 +1258,56 @@ def create_lab1_document():
         "(6a) Đơn hàng vượt hạn mức 1.000.000đ: Hệ thống yêu cầu xác thực 2 lớp (2FA OTP) từ người dùng trước khi duyệt lệnh của Agent.",
         "(4.1) Giá sản phẩm vượt quá ngân sách khách hàng yêu cầu: Agent hủy thực thi và gửi thông báo 'Giá hiện tại là 850.000đ, vượt mức 800.000đ của bạn, bạn có muốn mua không?'.\n"
         "(6.1) Vi phạm quy tắc bảo mật (Token hết hạn hoặc gọi hàm sai phép): Hệ thống từ chối kết nối và ghi nhận log an ninh mạng."
+    )
+
+    # ==================== HEADING 2: 2.6. XÁC ĐỊNH CÁC THỰC THỂ DỮ LIỆU CỐT LÕI (BÀI 3) ====================
+    add_h2("2.6. Xác định các thực thể dữ liệu cốt lõi trong hệ thống (Entity Identification)")
+    p_body(
+        "Theo yêu cầu trọng tâm của Bài 3 ('Vẽ mô hình hệ thống và xác định các thực thể'), việc định danh và mô hình hóa danh mục các thực thể dữ liệu nghiệp vụ (Entities) là tiền đề bắt buộc nhằm chuẩn bị trực tiếp cho Bài Lab 2 (Thiết kế sơ đồ quan hệ thực thể ERD, thiết kế cơ sở dữ liệu quan hệ Microsoft SQL Server và viết mã kịch bản SQL DDL). Căn cứ theo bản thiết kế kiến trúc AI-Native Commerce Blueprint, nhóm đã xác định được 18 thực thể dữ liệu cốt lõi phân chia thành 9 nhóm nghiệp vụ hoàn chỉnh như sau:"
+    )
+
+    entity_headers = ["STT", "Nhóm nghiệp vụ", "Tên thực thể (Entity)", "Mô tả nghiệp vụ", "Các thuộc tính cốt lõi (Core Attributes)"]
+    entity_data = [
+        ["1", "Identity & Auth", "User", "Tài khoản người dùng đăng nhập hệ thống", "Id, Email, PasswordHash, FullName, PhoneNumber, Status, CreatedAt"],
+        ["2", "Identity & Auth", "Role / Permission", "Định nghĩa vai trò (Admin, Merchant, Customer) & ma trận quyền RBAC", "Id, RoleName, Scope, Action, Description"],
+        ["3", "Customer", "CustomerProfile", "Hồ sơ người dùng, sở thích mua sắm & ngân sách ủy quyền AI", "Id, UserId, PreferencesJson, SpendingLimit, ConsentPolicy, UpdatedAt"],
+        ["4", "Merchant", "Merchant", "Thông tin doanh nghiệp / nhà bán hàng tham gia sàn thương mại", "Id, MerchantName, TaxCode, ContactEmail, LegalAddress, Status"],
+        ["5", "Catalog", "Category", "Cây danh mục phân cấp sản phẩm chuẩn hóa cho AI tra cứu", "Id, CategoryName, Slug, ParentId, Description, IsActive"],
+        ["6", "Catalog", "Product", "Thông tin sản phẩm cốt lõi (tên, mô tả, nhà sản xuất)", "Id, MerchantId, CategoryId, Name, Description, BasePrice, CreatedAt"],
+        ["7", "Catalog", "ProductVariant", "Phiên bản biến thể chi tiết (màu sắc, kích thước, SKU)", "Id, ProductId, Sku, Color, Size, PriceAdjustment, StockQuantity"],
+        ["8", "Catalog & AI", "ProductEmbedding", "Vector Embeddings (1536 chiều) phục vụ Hybrid Vector Search", "Id, ProductId, Sku, EmbeddingVector, MetadataJson, UpdatedAt"],
+        ["9", "Shopping", "Cart", "Giỏ hàng thông minh của người dùng (hỗ trợ AI quản lý)", "Id, CustomerId, SessionId, Status, CreatedAt, UpdatedAt"],
+        ["10", "Shopping", "CartItem", "Chi tiết mặt hàng và số lượng người dùng chọn trong giỏ", "Id, CartId, ProductVariantId, Quantity, UnitPrice, AddedByAgent"],
+        ["11", "Order", "Order", "Đơn hàng hoàn tất bao gồm tổng tiền, khuyến mãi, trạng thái", "Id, CustomerId, OrderCode, TotalAmount, DiscountAmount, Status, CreatedAt"],
+        ["12", "Order", "OrderItem", "Chi tiết từng dòng sản phẩm được xác nhận trong đơn hàng", "Id, OrderId, ProductVariantId, Quantity, UnitPrice, LineTotal"],
+        ["13", "Payment", "PaymentTransaction", "Giao dịch thanh toán trực tuyến qua cổng VNPay / Ví điện tử", "Id, OrderId, Gateway, TransactionRef, Amount, Status, PaidAt"],
+        ["14", "Fulfillment", "Shipment", "Thông tin vận chuyển, mã vận đơn và tiến độ giao nhận", "Id, OrderId, CarrierName, TrackingCode, ShippingFee, Status, ShippedAt"],
+        ["15", "AI Platform", "AgentDefinition", "Cấu hình tác tử AI (Shopping Agent, Pricing Agent, CS Agent)", "Id, AgentName, ModelId, SystemPrompt, PolicyId, Version, IsActive"],
+        ["16", "AI Platform", "AIConversation", "Phiên hội thoại mua sắm tương tác giữa người dùng và Trợ lý AI", "Id, CustomerId, AgentId, SessionTitle, ContextSummary, CreatedAt"],
+        ["17", "AI Platform", "AgentRun", "Nhật ký thực thi tác tử AI và vết gọi công cụ (Tool Call Trace)", "Id, ConversationId, AgentId, IntentName, ToolCallsJson, ExecutionState"],
+        ["18", "Governance", "AuditEvent", "Nhật ký kiểm toán an ninh và giao dịch tự động của tác tử ACP", "Id, ActorId, Action, Resource, IpAddress, Timestamp, GuardrailCheckResult"]
+    ]
+    create_table(entity_data, [Inches(0.4), Inches(1.3), Inches(1.5), Inches(2.2), Inches(2.0)], entity_headers)
+
+    p_cap = doc.add_paragraph()
+    p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_cap.paragraph_format.space_after = Pt(8)
+    r = p_cap.add_run("Bảng 23. Bảng danh mục các thực thể dữ liệu cốt lõi trong hệ thống (Entity Identification)")
+    r.font.name = "Times New Roman"
+    r.font.size = Pt(10.5)
+    r.font.italic = True
+
+    add_h3("2.6.1. Mô hình quan hệ thực thể mức khái niệm (Conceptual Entity Relationships)")
+    p_body(
+        "Mối quan hệ nghiệp vụ giữa các thực thể dữ liệu cốt lõi của Hệ thống AI-Native Commerce được xác lập chặt chẽ:"
+    )
+    p_bullet("Một Customer sở hữu một Cart đang hoạt động (quan hệ 1 - 1) và có thể đặt nhiều Orders qua thời gian (quan hệ 1 - n).", "• ")
+    p_bullet("Một Merchant quản lý và kinh doanh nhiều Products (quan hệ 1 - n); mỗi Product có nhiều ProductVariants (quan hệ 1 - n) và liên kết với một ProductEmbedding phục vụ tìm kiếm ngữ nghĩa.", "• ")
+    p_bullet("Một Cart chứa nhiều CartItems (quan hệ 1 - n); một Order chứa nhiều OrderItems (quan hệ 1 - n).", "• ")
+    p_bullet("Một Order phát sinh một hoặc nhiều PaymentTransactions (quan hệ 1 - n) và liên kết với một bản ghi Shipment vận chuyển (quan hệ 1 - 1).", "• ")
+    p_bullet("Một Customer tham gia nhiều AIConversations với AgentDefinition (quan hệ 1 - n); mỗi Conversation ghi nhận nhiều lượt AgentRuns và mọi hành động nhạy cảm đều được lưu vết kiểm toán vào AuditEvents.", "• ")
+    p_body(
+        "Bảng danh mục thực thể và mô hình quan hệ khái niệm trên đây đảm bảo đầy đủ và chính xác 100% cơ sở dữ liệu để nhóm 5 hiện thực hóa sơ đồ ERD, thiết kế khóa chính/khóa ngoại và kịch bản cơ sở dữ liệu trên Microsoft SQL Server trong Bài Lab 2."
     )
 
     # ==================== HEADING 1: TÀI LIỆU THAM KHẢO ====================
