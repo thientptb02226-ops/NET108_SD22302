@@ -5,7 +5,12 @@ Topic: HỆ THỐNG THƯƠNG MẠI ĐIỆN TỬ AI-NATIVE (AI-NATIVE COMMERCE)
 Course: DỰ ÁN .NET 1 (NET108) - Class: SD22302
 School: TRƯỜNG CAO ĐẲNG FPT POLYTECHNIC ĐỒNG NAI
 Instructor: ThS. Phan Hoàng Khải
-Strictly follows FPT Polytechnic report template structure and Anthropic docx skill guidelines.
+
+Fixes:
+1. Only ONE single cover page (no duplicate).
+2. ONLY page 1 (cover page) has border frame. Page 2 onwards has NO borders.
+3. Full Heading hierarchy (Heading 1, 2, 3, 4) with outlineLevel so that Word/WPS Navigation Pane displays the exact tree as in user screenshot.
+4. Correct MSSVs and Jira tracking for NET108.
 """
 
 import os
@@ -13,30 +18,29 @@ import docx
 from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
-from docx.oxml import parse_xml, OxmlElement
-from docx.oxml.ns import nsdecls, qn
+from docx.oxml import parse_xml
+from docx.oxml.ns import nsdecls
 
-def create_lab1_ainative_document():
+def create_lab1_document():
     doc = docx.Document()
 
-    # Base margins: Top 2.0cm, Bottom 2.0cm, Left 3.0cm, Right 2.0cm (standard Vietnamese academic report)
+    # Standard A4 Margins: Top 2.0cm, Bottom 2.0cm, Left 3.0cm (1.18in), Right 2.0cm
     for sec in doc.sections:
-        sec.page_width = Inches(8.27)   # A4 width
-        sec.page_height = Inches(11.69) # A4 height
+        sec.page_width = Inches(8.27)
+        sec.page_height = Inches(11.69)
         sec.top_margin = Inches(0.79)
         sec.bottom_margin = Inches(0.79)
-        sec.left_margin = Inches(1.18)  # 3.0 cm
+        sec.left_margin = Inches(1.18)
         sec.right_margin = Inches(0.79)
 
-    # Helper: set page borders (khung viền bìa)
-    def apply_page_borders(section):
+    # Helper: Set border on cover page ONLY
+    def apply_cover_border(section):
         sectPr = section._sectPr
-        # Remove existing pgBorders if any
         for child in list(sectPr):
-            if child.tag.endswith('pgBorders'):
+            if child.tag.endswith("pgBorders"):
                 sectPr.remove(child)
         pg_borders = parse_xml(
-            f'<w:pgBorders {nsdecls("w")} w:display="allPages" w:offsetFrom="page">'
+            f'<w:pgBorders {nsdecls("w")} w:display="firstPage" w:offsetFrom="page">'
             f'  <w:top w:val="thinThickSmallGap" w:sz="24" w:space="24" w:color="1F4E79"/>'
             f'  <w:left w:val="thinThickSmallGap" w:sz="24" w:space="24" w:color="1F4E79"/>'
             f'  <w:bottom w:val="thickThinSmallGap" w:sz="24" w:space="24" w:color="1F4E79"/>'
@@ -45,7 +49,23 @@ def create_lab1_ainative_document():
         )
         sectPr.append(pg_borders)
 
-    # Helper: setup header and footer
+    # Helper: Ensure NO borders on subsequent sections
+    def remove_borders(section):
+        sectPr = section._sectPr
+        for child in list(sectPr):
+            if child.tag.endswith("pgBorders"):
+                sectPr.remove(child)
+        no_borders = parse_xml(
+            f'<w:pgBorders {nsdecls("w")} w:display="allPages">'
+            f'  <w:top w:val="none"/>'
+            f'  <w:left w:val="none"/>'
+            f'  <w:bottom w:val="none"/>'
+            f'  <w:right w:val="none"/>'
+            f'</w:pgBorders>'
+        )
+        sectPr.append(no_borders)
+
+    # Helper: Set header and footer
     def setup_header_footer(section, header_title=None, is_linked=False):
         section.header.is_linked_to_previous = is_linked
         section.footer.is_linked_to_previous = is_linked
@@ -63,12 +83,12 @@ def create_lab1_ainative_document():
             r.font.italic = True
             r.font.color.rgb = RGBColor(100, 100, 100)
 
-            # Bottom border line for header
+            # Bottom line under header
             pPr = p_hdr._p.get_or_add_pPr()
             pBdr = parse_xml(f'<w:pBdr {nsdecls("w")}><w:bottom w:val="single" w:sz="6" w:space="3" w:color="A0A0A0"/></w:pBdr>')
             pPr.append(pBdr)
 
-        # Footer with page number
+        # Footer: Trang [PAGE]
         ftr = section.footer
         p_ftr = ftr.paragraphs[0] if ftr.paragraphs else ftr.add_paragraph()
         p_ftr.alignment = WD_ALIGN_PARAGRAPH.RIGHT
@@ -80,42 +100,74 @@ def create_lab1_ainative_document():
         fld = parse_xml(f'<w:fldSimple {nsdecls("w")} w:instr="PAGE"/>')
         p_ftr._p.append(fld)
 
-    # Helper styling functions
-    def heading_1(text):
-        p = doc.add_paragraph()
+    # Heading helpers that guarantee appearance in Word & WPS Navigation Pane
+    def add_h1(text):
+        p = doc.add_heading(text, level=1)
         p.paragraph_format.space_before = Pt(16)
         p.paragraph_format.space_after = Pt(6)
         p.paragraph_format.keep_with_next = True
-        r = p.add_run(text)
-        r.font.name = "Times New Roman"
-        r.font.size = Pt(14)
-        r.font.bold = True
-        r.font.color.rgb = RGBColor(31, 78, 121)
+        pPr = p._p.get_or_add_pPr()
+        for child in list(pPr):
+            if child.tag.endswith("outlineLvl"):
+                pPr.remove(child)
+        pPr.append(parse_xml(f'<w:outlineLvl {nsdecls("w")} w:val="0"/>'))
+        for r in p.runs:
+            r.font.name = "Times New Roman"
+            r.font.size = Pt(14)
+            r.font.bold = True
+            r.font.color.rgb = RGBColor(31, 78, 121)
         return p
 
-    def heading_2(text):
-        p = doc.add_paragraph()
+    def add_h2(text):
+        p = doc.add_heading(text, level=2)
         p.paragraph_format.space_before = Pt(12)
         p.paragraph_format.space_after = Pt(4)
         p.paragraph_format.keep_with_next = True
-        r = p.add_run(text)
-        r.font.name = "Times New Roman"
-        r.font.size = Pt(13)
-        r.font.bold = True
-        r.font.color.rgb = RGBColor(46, 117, 182)
+        pPr = p._p.get_or_add_pPr()
+        for child in list(pPr):
+            if child.tag.endswith("outlineLvl"):
+                pPr.remove(child)
+        pPr.append(parse_xml(f'<w:outlineLvl {nsdecls("w")} w:val="1"/>'))
+        for r in p.runs:
+            r.font.name = "Times New Roman"
+            r.font.size = Pt(13)
+            r.font.bold = True
+            r.font.color.rgb = RGBColor(46, 117, 182)
         return p
 
-    def heading_3(text):
-        p = doc.add_paragraph()
+    def add_h3(text):
+        p = doc.add_heading(text, level=3)
         p.paragraph_format.space_before = Pt(8)
         p.paragraph_format.space_after = Pt(3)
         p.paragraph_format.keep_with_next = True
-        r = p.add_run(text)
-        r.font.name = "Times New Roman"
-        r.font.size = Pt(12)
-        r.font.bold = True
-        r.font.italic = True
-        r.font.color.rgb = RGBColor(0, 32, 96)
+        pPr = p._p.get_or_add_pPr()
+        for child in list(pPr):
+            if child.tag.endswith("outlineLvl"):
+                pPr.remove(child)
+        pPr.append(parse_xml(f'<w:outlineLvl {nsdecls("w")} w:val="2"/>'))
+        for r in p.runs:
+            r.font.name = "Times New Roman"
+            r.font.size = Pt(12)
+            r.font.bold = True
+            r.font.color.rgb = RGBColor(0, 32, 96)
+        return p
+
+    def add_h4(text):
+        p = doc.add_heading(text, level=4)
+        p.paragraph_format.space_before = Pt(6)
+        p.paragraph_format.space_after = Pt(2)
+        p.paragraph_format.keep_with_next = True
+        pPr = p._p.get_or_add_pPr()
+        for child in list(pPr):
+            if child.tag.endswith("outlineLvl"):
+                pPr.remove(child)
+        pPr.append(parse_xml(f'<w:outlineLvl {nsdecls("w")} w:val="3"/>'))
+        for r in p.runs:
+            r.font.name = "Times New Roman"
+            r.font.size = Pt(11.5)
+            r.font.bold = True
+            r.font.italic = True
+            r.font.color.rgb = RGBColor(46, 117, 182)
         return p
 
     def p_body(text, bold_prefix="", italic=False, space_after=4):
@@ -263,15 +315,15 @@ def create_lab1_ainative_document():
 
         doc.add_paragraph().paragraph_format.space_after = Pt(6)
 
-    # ==================== SECTION 0: TRANG BÌA CHÍNH ====================
+    # ==================== SECTION 0: TRANG BÌA CHÍNH (CHỈ 1 TRANG DUY NHẤT CÓ KHUNG VIỀN) ====================
     sec_cover = doc.sections[0]
-    apply_page_borders(sec_cover)
+    apply_cover_border(sec_cover)
     sec_cover.header.is_linked_to_previous = False
     sec_cover.footer.is_linked_to_previous = False
 
     p_c1 = doc.add_paragraph()
     p_c1.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_c1.paragraph_format.space_before = Pt(15)
+    p_c1.paragraph_format.space_before = Pt(20)
     r = p_c1.add_run("TRƯỜNG CAO ĐẲNG FPT POLYTECHNIC ĐỒNG NAI\n")
     r.font.name = "Times New Roman"
     r.font.size = Pt(14)
@@ -290,12 +342,12 @@ def create_lab1_ainative_document():
 
     p_c2 = doc.add_paragraph()
     p_c2.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_c2.paragraph_format.space_before = Pt(36)
+    p_c2.paragraph_format.space_before = Pt(40)
     p_c2.paragraph_format.space_after = Pt(15)
 
     r = p_c2.add_run("BÁO CÁO LAB 1\n")
     r.font.name = "Times New Roman"
-    r.font.size = Pt(22)
+    r.font.size = Pt(24)
     r.font.bold = True
     r.font.color.rgb = RGBColor(31, 78, 121)
 
@@ -318,7 +370,7 @@ def create_lab1_ainative_document():
 
     p_c3 = doc.add_paragraph()
     p_c3.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_c3.paragraph_format.space_before = Pt(30)
+    p_c3.paragraph_format.space_before = Pt(35)
     p_c3.paragraph_format.line_spacing = 1.3
 
     r = p_c3.add_run("GIẢNG VIÊN HƯỚNG DẪN:\n")
@@ -345,87 +397,32 @@ def create_lab1_ainative_document():
 
     p_c4 = doc.add_paragraph()
     p_c4.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_c4.paragraph_format.space_before = Pt(40)
+    p_c4.paragraph_format.space_before = Pt(45)
     r = p_c4.add_run("ĐỒNG NAI, NĂM 2026")
     r.font.bold = True
     r.font.size = Pt(12)
     r.font.color.rgb = RGBColor(100, 100, 100)
 
-    # ==================== SECTION 1: TRANG BÌA PHỤ ====================
-    sec_cover2 = doc.add_section()
-    # No page border for sub-cover
-    sec_cover2.header.is_linked_to_previous = False
-    sec_cover2.footer.is_linked_to_previous = False
+    # ==================== SECTION 1: NỘI DUNG TỪ TRANG 2 TRỞ ĐI (HOÀN TOÀN KHÔNG CÓ KHUNG VIỀN) ====================
+    sec_body = doc.add_section()
+    remove_borders(sec_body)
+    setup_header_footer(sec_body, "BÁO CÁO LAB 1 - NET108 | NHÓM 5")
 
-    p_sub1 = doc.add_paragraph()
-    p_sub1.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_sub1.paragraph_format.space_before = Pt(15)
-    r = p_sub1.add_run("TRƯỜNG CAO ĐẲNG FPT POLYTECHNIC ĐỒNG NAI\nKHOA CÔNG NGHỆ THÔNG TIN\n")
-    r.font.name = "Times New Roman"
-    r.font.size = Pt(13)
-    r.font.bold = True
-    r.font.color.rgb = RGBColor(31, 78, 121)
+    # Trang Nhận xét & Đánh giá
+    p_nx = doc.add_paragraph()
+    p_nx.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r_nx = p_nx.add_run("NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN\n")
+    r_nx.font.name = "Times New Roman"
+    r_nx.font.size = Pt(14)
+    r_nx.font.bold = True
+    r_nx.font.color.rgb = RGBColor(31, 78, 121)
 
-    p_sub2 = doc.add_paragraph()
-    p_sub2.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_sub2.paragraph_format.space_before = Pt(45)
-    p_sub2.paragraph_format.space_after = Pt(20)
-
-    r = p_sub2.add_run("BÁO CÁO LAB 1\n")
-    r.font.size = Pt(20)
-    r.font.bold = True
-    r.font.color.rgb = RGBColor(31, 78, 121)
-
-    r = p_sub2.add_run("DỰ ÁN MÔN HỌC .NET 1 (NET108) - LỚP: SD22302\n\n")
-    r.font.size = Pt(13)
-    r.font.bold = True
-
-    r = p_sub2.add_run("ĐỀ TÀI:\n")
-    r.font.size = Pt(12.5)
-    r.font.italic = True
-
-    r = p_sub2.add_run("XÂY DỰNG HỆ THỐNG THƯƠNG MẠI ĐIỆN TỬ\nAI-NATIVE (AI-NATIVE COMMERCE)\n")
-    r.font.size = Pt(16)
-    r.font.bold = True
-    r.font.color.rgb = RGBColor(242, 107, 33)
-
-    p_sub3 = doc.add_paragraph()
-    p_sub3.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_sub3.paragraph_format.space_before = Pt(45)
-    p_sub3.paragraph_format.line_spacing = 1.3
-
-    r = p_sub3.add_run("GIẢNG VIÊN HƯỚNG DẪN:\n")
-    r.font.bold = True
-    r.font.size = Pt(12)
-    r = p_sub3.add_run("ThS. Phan Hoàng Khải\n\n")
-    r.font.bold = True
-    r.font.size = Pt(12.5)
-
-    r = p_sub3.add_run("NHÓM SINH VIÊN THỰC HIỆN: NHÓM 5\n")
-    r.font.bold = True
-    r.font.size = Pt(12)
-
-    r = p_sub3.add_run(members_text)
-    r.font.size = Pt(11.5)
-
-    p_sub4 = doc.add_paragraph()
-    p_sub4.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_sub4.paragraph_format.space_before = Pt(50)
-    r = p_sub4.add_run("ĐỒNG NAI, NĂM 2026")
-    r.font.bold = True
-    r.font.size = Pt(12)
-
-    # ==================== SECTION 2: NHẬN XÉT, KẾ HOẠCH & MỤC LỤC ====================
-    sec_meta = doc.add_section()
-    setup_header_footer(sec_meta, "BÁO CÁO LAB 1 - NET108 | NHÓM 5")
-
-    heading_1("NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN")
     p_body("Họ và tên giảng viên: ThS. Phan Hoàng Khải")
-    p_body("Bộ môn: Công nghệ thông tin - FPT Polytechnic Đồng Nai")
-    p_body("1. Tiến độ và thái độ thực hiện của nhóm:")
+    p_body("Bộ môn: Công nghệ thông tin - Trường Cao đẳng FPT Polytechnic Đồng Nai")
+    p_body("1. Đánh giá về tiến độ và thái độ thực hiện của nhóm:")
     for _ in range(3):
         doc.add_paragraph("....................................................................................................................................................................")
-    p_body("2. Đánh giá chất lượng nội dung báo cáo Lab 1 (Khảo sát AI, Giới thiệu & Phân tích Use Case SRS):")
+    p_body("2. Đánh giá chất lượng báo cáo Lab 1 (Khảo sát AI, Giới thiệu & Phân tích Use Case SRS):")
     for _ in range(4):
         doc.add_paragraph("....................................................................................................................................................................")
     p_body("3. Điểm đánh giá:")
@@ -435,21 +432,28 @@ def create_lab1_ainative_document():
     doc.add_paragraph("                                                                                                              ThS. Phan Hoàng Khải")
 
     doc.add_page_break()
-    heading_1("KẾ HOẠCH THỰC HIỆN VÀ THEO DÕI JIRA CLOUD")
+    p_kh = doc.add_paragraph()
+    p_kh.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r_kh = p_kh.add_run("KẾ HOẠCH THỰC HIỆN VÀ THEO DÕI JIRA CLOUD\n")
+    r_kh.font.name = "Times New Roman"
+    r_kh.font.size = Pt(14)
+    r_kh.font.bold = True
+    r_kh.font.color.rgb = RGBColor(31, 78, 121)
+
     p_body(
         "Nhóm 5 áp dụng quy trình Agile / Scrum trong khuôn khổ môn NET108, toàn bộ kế hoạch triển khai đề tài AI-Native Commerce được cấu trúc thành các Epic và Task, theo dõi trực tiếp trên hệ thống Atlassian Jira Cloud (Workspace: thientptb02226.atlassian.net - Project: NET108):"
     )
 
-    jira_headers = ["Mã Jira", "Tên công việc / Hạng mục triển khai", "Loại", "Người phụ trách (MSSV)", "Tiến độ"]
+    jira_headers = ["Mã Jira", "Hạng mục triển khai đồ án NET108", "Loại", "Người phụ trách (MSSV)", "Tiến độ"]
     jira_data = [
         ["NET-2", "[EPIC 1] Lab 1: Khảo sát AI, Giới thiệu Dự án & Đặc tả SRS", "Epic", "Trần Phúc Thiên (TB02226)", "Hoàn thành"],
         ["NET-3", "NET108-L1.1: Khảo sát AI (Perplexity, ChatGPT, Gemini) & Prompt log", "Task", "Trần Phúc Thiên (TB02226)", "100%"],
         ["NET-4", "NET108-L1.2: Phân tích hiện trạng, tính cấp thiết và đề xuất hệ thống", "Task", "Cho Hoàng Hiếu Trung (TB02324)", "100%"],
         ["NET-5", "NET108-L1.3: Xác định Actors (Customer, Merchant, Agent) & Phân quyền", "Task", "Nguyễn Hoàng Quốc Anh (TB02232)", "100%"],
-        ["NET-6", "NET108-L1.4: Xây dựng sơ đồ Use Case tổng quát & Sơ đồ phân rã module", "Task", "Trần Phạm Hoàng Minh (Tb02231)", "100%"],
+        ["NET-6", "NET108-L1.4: Xây dựng sơ đồ Use Case tổng quát & Sơ đồ phân rã module", "Task", "Trần Phạm Hoàng Minh (TB02231)", "100%"],
         ["NET-7", "NET108-L1.5: Viết tài liệu đặc tả yêu cầu hệ thống (SRS chi tiết 14 UCs)", "Task", "Toàn bộ Nhóm 5", "100%"],
-        ["NET-8", "[EPIC 2] Lab 2: Thiết kế Kiến trúc & Cơ sở Dữ liệu Hệ thống", "Epic", "Trần Phạm Hoàng Minh (Tb02231)", "Sắp tới"],
-        ["NET-9", "NET108-L2.1: Thiết kế kiến trúc tổng thể 7 lớp (Experience to Infra)", "Task", "Trần Phạm Hoàng Minh (Tb02231)", "Chưa bắt đầu"],
+        ["NET-8", "[EPIC 2] Lab 2: Thiết kế Kiến trúc & Cơ sở Dữ liệu Hệ thống", "Epic", "Trần Phạm Hoàng Minh (TB02231)", "Sắp tới"],
+        ["NET-9", "NET108-L2.1: Thiết kế kiến trúc tổng thể 7 lớp (Experience đến Infra)", "Task", "Trần Phạm Hoàng Minh (TB02231)", "Chưa bắt đầu"],
         ["NET-10", "NET108-L2.2: Thiết kế sơ đồ ERD và Data DDL (SQL Server)", "Task", "Cho Hoàng Hiếu Trung (TB02324)", "Chưa bắt đầu"],
         ["NET-11", "NET108-L2.3: Thiết kế Schema Agentic Commerce Protocol (ACP)", "Task", "Nguyễn Châu Văn Phát (TB02274)", "Chưa bắt đầu"],
         ["NET-12", "[EPIC 3] Lab 3: Thiết kế Giao diện (UI/UX) & Phát triển API Core", "Epic", "Cho Hoàng Hiếu Trung (TB02324)", "Sắp tới"],
@@ -458,50 +462,62 @@ def create_lab1_ainative_document():
         ["NET-15", "NET108-L3.3: Hiện thực hóa Module Cart, Checkout & Payment Gateway", "Task", "Nguyễn Châu Văn Phát (TB02274)", "Chưa bắt đầu"],
         ["NET-16", "[EPIC 4] Lab 4: Tích hợp AI Agent Platform, RAG & Triển khai", "Epic", "Nguyễn Hoàng Quốc Anh (TB02232)", "Sắp tới"],
         ["NET-17", "NET108-L4.1: Tích hợp AI Shopping Assistant & Intent Router", "Task", "Trần Phúc Thiên (TB02226)", "Chưa bắt đầu"],
-        ["NET-18", "NET108-L4.2: Xây dựng Agentic Search & RAG Vector Database", "Task", "Trần Phạm Hoàng Minh (Tb02231)", "Chưa bắt đầu"],
+        ["NET-18", "NET108-L4.2: Xây dựng Agentic Search & RAG Vector Database", "Task", "Trần Phạm Hoàng Minh (TB02231)", "Chưa bắt đầu"],
         ["NET-19", "NET108-L4.3: Kiểm thử toàn diện, Docker hóa và đóng gói đồ án", "Task", "Toàn bộ Nhóm 5", "Chưa bắt đầu"],
     ]
     create_table(jira_data, [Inches(0.8), Inches(2.8), Inches(0.6), Inches(1.5), Inches(0.8)], jira_headers)
 
+    # ==================== HEADING 1: MỤC LỤC ====================
     doc.add_page_break()
-    p_toc_title = doc.add_paragraph()
-    p_toc_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p_toc_title.add_run("MỤC LỤC")
-    r.font.name = "Times New Roman"
-    r.font.size = Pt(16)
-    r.font.bold = True
-    r.font.color.rgb = RGBColor(31, 78, 121)
+    add_h1("MỤC LỤC")
 
     toc_rows = [
-        ["NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN", "..................................................................................................", "3"],
-        ["KẾ HOẠCH THỰC HIỆN VÀ THEO DÕI JIRA CLOUD", "..................................................................................................", "4"],
-        ["DANH MỤC HÌNH VÀ BẢNG BIỂU", "..................................................................................................", "5"],
+        ["NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN", "..................................................................................................", "2"],
+        ["KẾ HOẠCH THỰC HIỆN VÀ THEO DÕI JIRA CLOUD", "..................................................................................................", "3"],
+        ["DANH MỤC BẢNG", "..................................................................................................", "4"],
+        ["DANH MỤC HÌNH", "..................................................................................................", "5"],
         ["PHẦN MỞ ĐẦU", "..................................................................................................", "6"],
-        ["  1.1. Tính cấp thiết của đề tài AI-Native Commerce", "..................................................................................................", "6"],
+        ["  1.1. Tính cấp thiết của đề tài", "..................................................................................................", "6"],
         ["  1.2. Mục tiêu của đề tài", "..................................................................................................", "6"],
         ["  1.3. Đối tượng và phạm vi nghiên cứu", "..................................................................................................", "7"],
         ["  1.4. Phương pháp nghiên cứu", "..................................................................................................", "7"],
         ["PHẦN NỘI DUNG", "..................................................................................................", "8"],
-        ["CHƯƠNG 1: GIỚI THIỆU DỰ ÁN VÀ ỨNG DỤNG AI (BÀI 1 & BÀI 2)", "..................................................................................................", "8"],
-        ["  1.1. BÀI 1: Ứng dụng AI trong tìm kiếm thông tin (2.0 Điểm)", "..................................................................................................", "8"],
-        ["    1.1.1. Khảo sát mẫu tài liệu đặc tả SRS bằng Perplexity AI", "..................................................................................................", "8"],
-        ["    1.1.2. Nghiên cứu nghiệp vụ AI Commerce bằng ChatGPT Deepsearch", "..................................................................................................", "8"],
-        ["    1.1.3. Nghiên cứu hệ thống Multi-Agent bằng Google Gemini", "..................................................................................................", "9"],
-        ["    1.1.4. Nhật ký Prompting chi tiết", "..................................................................................................", "9"],
-        ["    1.1.5. Đánh giá, đối sánh và chọn lọc giải pháp từ kết quả AI", "..................................................................................................", "10"],
-        ["  1.2. BÀI 2: Thực hiện tài liệu giới thiệu dự án (4.0 Điểm)", "..................................................................................................", "11"],
-        ["    1.2.1. Giới thiệu tổng quan hệ thống AI-Native Commerce", "..................................................................................................", "11"],
-        ["    1.2.2. Phân tích hiện trạng thị trường và nhu cầu khách hàng", "..................................................................................................", "11"],
-        ["    1.2.3. Các thành phần người dùng (Actors) trong hệ thống", "..................................................................................................", "12"],
-        ["    1.2.4. Danh mục các module chức năng hệ thống", "..................................................................................................", "13"],
-        ["    1.2.5. Phân tích luồng hoạt động tổng thể và sự liên kết", "..................................................................................................", "14"],
-        ["CHƯƠNG 2: KHẢO SÁT VÀ PHÂN TÍCH YÊU CẦU (BÀI 3)", "..................................................................................................", "16"],
-        ["  2.1. Quy tắc vẽ sơ đồ Use Case UML chuẩn", "..................................................................................................", "16"],
-        ["  2.2. Sơ đồ Use Case tổng quát hệ thống AI-Native Commerce", "..................................................................................................", "16"],
-        ["  2.3. Sơ đồ Use Case phân rã theo phân hệ", "..................................................................................................", "18"],
-        ["  2.4. Phân loại danh sách chức năng theo từng Actor", "..................................................................................................", "20"],
-        ["  2.5. Đặc tả chi tiết các Use Cases cốt lõi (14 bảng SRS)", "..................................................................................................", "22"],
-        ["TÀI LIỆU THAM KHẢO", "..................................................................................................", "36"],
+        ["CHƯƠNG 1: CƠ SỞ LÝ THUYẾT VÀ ỨNG DỤNG AI (BÀI 1 & BÀI 2)", "..................................................................................................", "8"],
+        ["  1.1. Giới thiệu về Technical Stack", "..................................................................................................", "8"],
+        ["    1.1.1. Technical Stack là gì?", "..................................................................................................", "8"],
+        ["    1.1.2. Một số Stack thông dụng", "..................................................................................................", "8"],
+        ["  1.2. Giới thiệu về AI-Native Commerce Stack", "..................................................................................................", "9"],
+        ["    1.2.1. Định nghĩa AI-Native Commerce Stack", "..................................................................................................", "9"],
+        ["    1.2.2. Cách thức hoạt động của AI-Native Commerce", "..................................................................................................", "9"],
+        ["    1.2.3. Vai trò của AI Agent Platform", "..................................................................................................", "10"],
+        ["  1.3. Ứng dụng AI trong tìm kiếm thông tin (Bài 1 - 2.0 Điểm)", "..................................................................................................", "10"],
+        ["    1.3.1. Khảo sát mẫu tài liệu đặc tả SRS bằng Perplexity AI", "..................................................................................................", "10"],
+        ["    1.3.2. Nghiên cứu nghiệp vụ AI Commerce bằng ChatGPT Deepsearch", "..................................................................................................", "11"],
+        ["    1.3.3. Nghiên cứu hệ thống Multi-Agent bằng Google Gemini", "..................................................................................................", "11"],
+        ["    1.3.4. Nhật ký Prompting chi tiết", "..................................................................................................", "12"],
+        ["    1.3.5. Đánh giá, đối sánh và chọn lọc giải pháp từ kết quả AI", "..................................................................................................", "13"],
+        ["  1.4. Giới thiệu tổng quan dự án AI-Native Commerce (Bài 2 - 4.0 Điểm)", "..................................................................................................", "14"],
+        ["    1.4.1. Khái niệm và bối cảnh hình thành hệ thống", "..................................................................................................", "14"],
+        ["    1.4.2. Phân tích hiện trạng thị trường và nhu cầu khách hàng", "..................................................................................................", "14"],
+        ["    1.4.3. Các thành phần người dùng (Actors) trong hệ thống", "..................................................................................................", "15"],
+        ["    1.4.4. Danh mục các module chức năng hệ thống", "..................................................................................................", "16"],
+        ["    1.4.5. Phân tích luồng hoạt động tổng thể và sự liên kết", "..................................................................................................", "17"],
+        ["CHƯƠNG 2: KHẢO SÁT VÀ PHÂN TÍCH YÊU CẦU (BÀI 3 - 4.0 ĐIỂM)", "..................................................................................................", "19"],
+        ["  2.1. Khảo sát hiện trạng và quy tắc vẽ Use Case (Bài 3)", "..................................................................................................", "19"],
+        ["    2.1.1. Khảo sát các giải pháp E-Commerce hiện nay", "..................................................................................................", "19"],
+        ["    2.1.2. Các quy tắc vẽ sơ đồ Use Case UML chuẩn", "..................................................................................................", "19"],
+        ["  2.2. Sơ đồ Use Case tổng quát hệ thống AI-Native Commerce", "..................................................................................................", "20"],
+        ["  2.3. Sơ đồ Use Case phân rã theo phân hệ", "..................................................................................................", "22"],
+        ["    2.3.1. Phân hệ Khách hàng (Guest & Customer)", "..................................................................................................", "22"],
+        ["    2.3.2. Phân hệ Quản trị & Nhà bán hàng (Merchant & Admin)", "..................................................................................................", "23"],
+        ["    2.3.3. Phân hệ Nền tảng Tác tử AI (AI Agent Platform)", "..................................................................................................", "24"],
+        ["  2.4. Phân loại danh sách chức năng theo từng Actor", "..................................................................................................", "25"],
+        ["    2.4.1. Chức năng của Guest", "..................................................................................................", "25"],
+        ["    2.4.2. Chức năng của User / Customer", "..................................................................................................", "25"],
+        ["    2.4.3. Chức năng của Admin / Merchant", "..................................................................................................", "26"],
+        ["    2.4.4. Chức năng của AI Agent Platform", "..................................................................................................", "26"],
+        ["  2.5. Đặc tả chi tiết các Use Cases cốt lõi (14 bảng SRS chuẩn FPT)", "..................................................................................................", "27"],
+        ["TÀI LIỆU THAM KHẢO", "..................................................................................................", "41"],
     ]
     t_toc = doc.add_table(rows=len(toc_rows), cols=3)
     t_toc.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -518,18 +534,51 @@ def create_lab1_ainative_document():
             p.paragraph_format.space_after = Pt(2)
             if c_idx == 2:
                 p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-            if row[0].startswith("PHẦN") or row[0].startswith("CHƯƠNG") or row[0].startswith("NHẬN"):
+            if row[0].startswith("PHẦN") or row[0].startswith("CHƯƠNG") or row[0].startswith("MỤC"):
                 p.runs[0].font.bold = True
             p.runs[0].font.name = "Times New Roman"
             p.runs[0].font.size = Pt(11)
 
-    # ==================== SECTION 3: PHẦN MỞ ĐẦU ====================
-    sec_intro = doc.add_section()
-    setup_header_footer(sec_intro, "PHẦN MỞ ĐẦU")
+    # ==================== HEADING 1: DANH MỤC BẢNG ====================
+    doc.add_page_break()
+    add_h1("DANH MỤC BẢNG")
+    p_body("Bảng 1. Kế hoạch thực hiện đề tài và theo dõi trên Jira Cloud\t.....................................................................\t3")
+    p_body("Bảng 2. Bảng nhật ký Prompting khảo sát AI (Perplexity, ChatGPT, Gemini)\t..................................................\t12")
+    p_body("Bảng 3. Bảng phân tích thành phần tác nhân (Actors) trong hệ thống\t.......................................................\t15")
+    p_body("Bảng 4. Bảng danh mục 16 module nền tảng hệ thống AI-Native Commerce\t...................................................\t16")
+    p_body("Bảng 5. Chức năng của Khách vãng lai (Guest)\t................................................................................\t25")
+    p_body("Bảng 6. Chức năng của Khách hàng (User / Customer)\t..........................................................................\t25")
+    p_body("Bảng 7. Chức năng của Quản trị viên & Nhà bán hàng (Admin / Merchant)\t....................................................\t26")
+    p_body("Bảng 8. Chức năng của Nền tảng Tác tử AI (AI Agent Platform)\t..............................................................\t26")
+    p_body("Bảng 9. <Guest> UC01 - Đăng ký tài khoản người dùng\t........................................................................\t27")
+    p_body("Bảng 10. <User> UC02 - Đăng nhập hệ thống\t..................................................................................\t28")
+    p_body("Bảng 11. <User> UC03 - Quên mật khẩu\t......................................................................................\t29")
+    p_body("Bảng 12. <User> UC04 - Tìm kiếm sản phẩm bằng ngôn ngữ tự nhiên\t...........................................................\t30")
+    p_body("Bảng 13. <User> UC05 - Mua sắm tương tác với Trợ lý AI\t.....................................................................\t31")
+    p_body("Bảng 14. <User> UC06 - Quản lý giỏ hàng thông minh\t..........................................................................\t32")
+    p_body("Bảng 15. <User> UC07 - Đặt hàng và áp dụng khuyến mãi tự động\t..............................................................\t33")
+    p_body("Bảng 16. <User> UC08 - Thanh toán trực tuyến qua VNPay\t.....................................................................\t34")
+    p_body("Bảng 17. <User> UC09 - Tra cứu đơn hàng và theo dõi vận chuyển\t.............................................................\t35")
+    p_body("Bảng 18. <Admin> UC10 - Quản lý danh mục & sản phẩm chuẩn hóa cho AI\t........................................................\t36")
+    p_body("Bảng 19. <Admin> UC11 - Quản lý đơn hàng và trạng thái đơn hàng\t............................................................\t37")
+    p_body("Bảng 20. <Admin> UC12 - Quản lý tài khoản và phân quyền RBAC\t................................................................\t38")
+    p_body("Bảng 21. <Admin> UC13 - Báo cáo thống kê và phân tích hành vi AI\t............................................................\t39")
+    p_body("Bảng 22. <AI Agent> UC14 - Thực thi giao dịch qua giao thức tác tử ACP\t.....................................................\t40")
 
-    heading_1("PHẦN MỞ ĐẦU")
+    # ==================== HEADING 1: DANH MỤC HÌNH ====================
+    doc.add_page_break()
+    add_h1("DANH MỤC HÌNH")
+    p_body("Hình 1. Định nghĩa mô hình kiến trúc AI-Native Commerce so với E-Commerce truyền thống\t....................................\t9")
+    p_body("Hình 2. Sơ đồ Use Case tổng quát Hệ thống Thương mại Điện tử AI-Native\t.......................................................\t21")
+    p_body("Hình 3. Sơ đồ Use Case Phân hệ Khách hàng (Guest & Customer)\t................................................................\t22")
+    p_body("Hình 4. Sơ đồ Use Case Phân hệ Quản trị & Nhà bán hàng (Merchant & Admin)\t..................................................\t23")
+    p_body("Hình 5. Sơ đồ Use Case Phân hệ Nền tảng Tác tử AI (AI Agent Platform)\t......................................................\t24")
 
-    heading_2("1.1. Tính cấp thiết của đề tài")
+    # ==================== HEADING 1: PHẦN MỞ ĐẦU ====================
+    doc.add_page_break()
+    add_h1("PHẦN MỞ ĐẦU")
+
+    add_h2("1.1. Tính cấp thiết của đề tài")
     p_body(
         "Thương mại điện tử (E-Commerce) đã trải qua nhiều giai đoạn phát triển, từ các website bán hàng tĩnh (Web 1.0) đến các sàn giao dịch tương tác quy mô lớn (Web 2.0). Tuy nhiên, hầu hết các nền tảng thương mại điện tử hiện nay vẫn đang vận hành dựa trên cơ chế tìm kiếm từ khóa cứng nhắc (Keyword Search), duyệt danh mục phân tầng và giao diện tĩnh thụ động. Khi người tiêu dùng đối mặt với hàng triệu sản phẩm, việc tìm kiếm một món hàng phù hợp với nhu cầu ngữ cảnh cụ thể (ví dụ: 'Tìm một chiếc laptop mỏng nhẹ dưới 20 triệu cho sinh viên công nghệ, pin bền và lập trình mượt mà') trở nên vô cùng tốn thời gian và mệt mỏi."
     )
@@ -540,14 +589,14 @@ def create_lab1_ainative_document():
         "Nhận thức được xu thế tất yếu đó, Nhóm 5 lựa chọn đề tài 'Xây dựng Hệ thống Thương mại Điện tử AI-Native (AI-Native Commerce)' cho học phần Dự án .NET 1 (NET108) nhằm nghiên cứu, mô hình hóa và hiện thực hóa một giải pháp thương mại điện tử thông minh, an toàn và có tính ứng dụng cao."
     )
 
-    heading_2("1.2. Mục tiêu của đề tài")
+    add_h2("1.2. Mục tiêu của đề tài")
     p_bullet("Xây dựng nền tảng thương mại điện tử thế hệ mới lấy AI làm hạt nhân điều phối giao dịch và tương tác khách hàng.", "Mục tiêu tổng quát: ")
     p_bullet("Nghiên cứu ứng dụng các công cụ AI hiện đại (Perplexity AI, ChatGPT Deepsearch, Google Gemini) trong khảo sát và đặc tả SRS.", "Mục tiêu khảo sát: ")
     p_bullet("Phát triển tính năng tìm kiếm bằng ngôn ngữ tự nhiên (Natural Language Discovery) và Trợ lý mua sắm AI (Shopping Assistant).", "Mục tiêu nghiệp vụ: ")
     p_bullet("Mô hình hóa toàn diện hệ thống bằng UML chuẩn quốc tế: Sơ đồ Use Case tổng quát, sơ đồ phân rã phân hệ và 14 bảng đặc tả SRS 10 hàng chuẩn FPT Polytechnic.", "Mục tiêu phân tích: ")
     p_bullet("Thiết lập giao thức giao dịch thương mại tác tử (Agentic Commerce Protocol - ACP) chuẩn hóa cho các AI Agent thực thi giao dịch.", "Mục tiêu kiến trúc: ")
 
-    heading_2("1.3. Đối tượng và phạm vi nghiên cứu")
+    add_h2("1.3. Đối tượng và phạm vi nghiên cứu")
     p_body(
         "Đối tượng nghiên cứu: Kiến trúc hệ thống thương mại điện tử tích hợp AI; các quy trình nghiệp vụ mua sắm hội thoại (Conversational Commerce); mô hình phân quyền vai trò (RBAC); và các giao thức kết nối Agentic Commerce.",
         bold_prefix="Đối tượng nghiên cứu: "
@@ -557,35 +606,69 @@ def create_lab1_ainative_document():
         bold_prefix="Phạm vi bài Lab 1: "
     )
 
-    heading_2("1.4. Phương pháp nghiên cứu")
+    add_h2("1.4. Phương pháp nghiên cứu")
     p_bullet("Sử dụng các công cụ Generative AI hàng đầu ở chế độ Deepsearch để nghiên cứu các bài toán kỹ thuật và nghiệp vụ phức tạp.", "Phương pháp nghiên cứu AI: ")
     p_bullet("Sử dụng ngôn ngữ mô hình hóa UML để trực quan hóa cấu trúc, hành vi và phân quyền người dùng trong hệ thống.", "Phương pháp mô hình hóa: ")
     p_bullet("Áp dụng khung làm việc Agile / Scrum, quản lý toàn bộ các hạng mục triển khai qua Jira Cloud (thientptb02226.atlassian.net) với Project NET108.", "Phương pháp quản lý dự án: ")
 
-    # ==================== SECTION 4: PHẦN NỘI DUNG - CHƯƠNG 1 ====================
-    sec_c1 = doc.add_section()
-    setup_header_footer(sec_c1, "PHẦN NỘI DUNG\t\tChương 1: GIỚI THIỆU DỰ ÁN VÀ ỨNG DỤNG AI")
+    # ==================== HEADING 1: PHẦN NỘI DUNG ====================
+    doc.add_page_break()
+    add_h1("PHẦN NỘI DUNG")
 
-    heading_1("PHẦN NỘI DUNG")
-    heading_1("CHƯƠNG 1: GIỚI THIỆU DỰ ÁN VÀ ỨNG DỤNG AI")
+    # ---------- CHƯƠNG 1 ----------
+    add_h2("CHƯƠNG 1: CƠ SỞ LÝ THUYẾT VÀ ỨNG DỤNG AI")
 
-    heading_2("1.1. BÀI 1 (2.0 ĐIỂM): ỨNG DỤNG AI TRONG TÌM KIẾM THÔNG TIN")
-    heading_3("1.1.1. Khảo sát mẫu tài liệu đặc tả SRS bằng Perplexity AI")
+    add_h3("1.1. Giới thiệu về Technical Stack")
+    add_h4("1.1.1. Technical Stack là gì?")
+    p_body(
+        "Technical Stack (Ngăn xếp công nghệ) là một tập hợp các công nghệ phần mềm, thư viện, ngôn ngữ lập trình, hệ quản trị cơ sở dữ liệu và cơ sở hạ tầng phối hợp chặt chẽ với nhau để xây dựng và vận hành một ứng dụng hoàn chỉnh. Một Technical Stack điển hình bao gồm tầng giao diện người dùng (Frontend), tầng xử lý nghiệp vụ (Backend), tầng lưu trữ dữ liệu (Database) và tầng hạ tầng triển khai (DevOps/Cloud)."
+    )
+
+    add_h4("1.1.2. Một số Stack thông dụng")
+    p_body(
+        "Trong ngành công nghiệp phần mềm hiện nay, một số Technical Stack phổ biến bao gồm:\n"
+        "- MERN Stack: MongoDB, ExpressJS, ReactJS, NodeJS (phổ biến cho các ứng dụng web JavaScript).\n"
+        "- LAMP Stack: Linux, Apache, MySQL, PHP (ngăn xếp mã nguồn mở truyền thống).\n"
+        "- .NET Enterprise Stack: C#, ASP.NET Core, Microsoft SQL Server, Entity Framework Core (tiêu chuẩn vàng cho các hệ thống doanh nghiệp, thương mại điện tử quy mô lớn đòi hỏi tính ổn định, bảo mật cao và hiệu năng xử lý giao dịch vượt trội)."
+    )
+
+    add_h3("1.2. Giới thiệu về AI-Native Commerce Stack")
+    add_h4("1.2.1. Định nghĩa AI-Native Commerce Stack")
+    p_body(
+        "AI-Native Commerce Stack là sự kết hợp đột phá giữa nền tảng ứng dụng doanh nghiệp chuẩn Microsoft .NET 8 / C# với hệ sinh thái Trí tuệ Nhân tạo Tạo sinh (Generative AI) và Cơ sở dữ liệu Vector (Vector Database). Trong ngăn xếp này, AI không phải là một module phụ trợ bên ngoài mà được tích hợp ngay tại tầng điều phối lõi (AI Orchestration Layer)."
+    )
+
+    add_h4("1.2.2. Cách thức hoạt động của AI-Native Commerce")
+    p_body(
+        "Hệ thống vận hành theo cơ chế vòng lặp tương tác đa tác tử (Multi-Agent Loop):\n"
+        "(1) Người dùng đưa ra yêu cầu bằng ngôn ngữ tự nhiên qua giao diện Web/Mobile/Chat.\n"
+        "(2) Bộ định tuyến ý định (Intent Router) phân tích ngữ cảnh và chuyển tiếp cho Tác tử chuyên trách (Shopping Agent, Search Agent, Support Agent).\n"
+        "(3) AI Agent gọi các Tool API an toàn để truy vấn cơ sở dữ liệu sản phẩm, kiểm tra tồn kho và áp dụng voucher khuyến mãi.\n"
+        "(4) Giao thức Agentic Commerce Protocol (ACP) giám sát và xác thực lệnh mua sắm trước khi gửi đến Cổng thanh toán trực tuyến."
+    )
+
+    add_h4("1.2.3. Vai trò của AI Agent Platform")
+    p_body(
+        "AI Agent Platform đóng vai trò là 'bộ não điều hành' của hệ thống, giúp xóa bỏ rào cản duyệt web truyền thống, mang lại trải nghiệm mua sắm siêu cá nhân hóa (Hyper-personalized Shopping), tối ưu hóa tỷ lệ chuyển đổi cho nhà bán hàng và giảm thiểu 80% thời gian xử lý khiếu nại khách hàng."
+    )
+
+    add_h3("1.3. Ứng dụng AI trong tìm kiếm thông tin (Bài 1 - 2.0 Điểm)")
+    add_h4("1.3.1. Khảo sát mẫu tài liệu đặc tả SRS bằng Perplexity AI")
     p_body(
         "Nhóm 5 đã sử dụng Perplexity AI (https://www.perplexity.ai/) với chế độ Pro Search để tìm kiếm các tài liệu đặc tả yêu cầu phần mềm chuẩn quốc tế (IEEE 830) và mẫu tài liệu của FPT Polytechnic. Kết quả thu được giúp nhóm chuẩn hóa bảng phân tích Use Case 10 trường dữ liệu bắt buộc: Use Case ID, Use Case, Short Description, Actors, Trigger, Pre-conditions, Post-conditions, Main Flow, Alternative Flow và ExceptionFlow."
     )
 
-    heading_3("1.1.2. Nghiên cứu nghiệp vụ AI Commerce bằng ChatGPT Deepsearch")
+    add_h4("1.3.2. Nghiên cứu nghiệp vụ AI Commerce bằng ChatGPT Deepsearch")
     p_body(
         "Bằng việc kích hoạt chế độ Deepsearch trên ChatGPT, nhóm đã phân tích sâu các bài toán thực tiễn trong thương mại điện tử AI-Native: cơ chế hội thoại thông minh, nhận diện ý định mua hàng (Intent Recognition), quản lý giỏ hàng thông minh (Smart Cart) và các điểm rủi ro giao dịch khi để AI Agent thực hiện lệnh thay cho người dùng."
     )
 
-    heading_3("1.1.3. Nghiên cứu hệ thống Multi-Agent bằng Google Gemini")
+    add_h4("1.3.3. Nghiên cứu hệ thống Multi-Agent bằng Google Gemini")
     p_body(
         "Nhóm sử dụng Google Gemini 1.5 Pro ở chế độ suy luận chuyên sâu (Deep Thinking) để mô hình hóa kiến trúc điều phối đa tác tử (Multi-Agent System). Gemini cung cấp góc nhìn toàn diện về luồng dữ liệu giữa Shopping Agent, Order Agent và Customer Service Agent, đảm bảo tính phân quyền chặt chẽ theo mô hình RBAC."
     )
 
-    heading_3("1.1.4. Bảng nhật ký Prompting chi tiết")
+    add_h4("1.3.4. Nhật ký Prompting chi tiết")
     p_body("Dưới đây là nhật ký câu lệnh (AI Prompting Log) được thực hiện trong quá trình nghiên cứu bài Lab 1:")
 
     prompt_headers = ["STT", "Công cụ AI", "Nội dung câu lệnh Prompt", "Kết quả trích xuất & Tiếp thu", "Đánh giá chất lượng"]
@@ -614,18 +697,18 @@ def create_lab1_ainative_document():
     ]
     create_table(prompt_rows, [Inches(0.4), Inches(1.3), Inches(2.2), Inches(2.0), Inches(1.1)], prompt_headers)
 
-    heading_3("1.1.5. Đánh giá, đối sánh và chọn lọc giải pháp từ kết quả AI")
+    add_h4("1.3.5. Đánh giá, đối sánh và chọn lọc giải pháp từ kết quả AI")
     p_bullet("Tiếp thu và giữ nguyên cấu trúc bảng đặc tả SRS 10 cột theo chuẩn của trường.", "Chuẩn hóa định dạng: ")
     p_bullet("Không đưa các công nghệ không kiểm soát được vào phạm vi, tập trung giải quyết bài toán cốt lõi trên nền tảng .NET Core và SQL Server.", "Chắt lọc thực tiễn: ")
     p_bullet("Bổ sung đầy đủ các kịch bản ngoại lệ xử lý lỗi mạng, hết hàng trong kho, sai lệch giá khuyến mãi và kiểm toán giao dịch của Agent.", "Tối ưu an toàn hệ thống: ")
 
-    heading_2("1.2. BÀI 2 (4.0 ĐIỂM): THỰC HIỆN TÀI LIỆU GIỚI THIỆU DỰ ÁN")
-    heading_3("1.2.1. Giới thiệu tổng quan hệ thống AI-Native Commerce")
+    add_h3("1.4. Giới thiệu tổng quan hệ thống AI-Native Commerce (Bài 2 - 4.0 Điểm)")
+    add_h4("1.4.1. Khái niệm và bối cảnh hình thành hệ thống")
     p_body(
         'Hệ thống "AI-Native Commerce" là nền tảng thương mại điện tử thế hệ mới được thiết kế với Trí tuệ Nhân tạo là thành phần cốt lõi, tham gia trực tiếp vào toàn bộ hành trình mua sắm của khách hàng và quy trình vận hành của nhà bán hàng. Khác với các hệ thống truyền thống chỉ tích hợp chatbot làm công cụ hỏi đáp ngoại vi, AI-Native Commerce tích hợp sâu các tác tử tự hành (AI Agents) có khả năng đọc hiểu ngữ cảnh, tra cứu kho hàng thời gian thực, tư vấn cá nhân hóa và tự động tạo đơn hàng thông qua giao thức chuẩn.'
     )
 
-    heading_3("1.2.2. Phân tích hiện trạng thị trường và nhu cầu khách hàng")
+    add_h4("1.4.2. Phân tích hiện trạng thị trường và nhu cầu khách hàng")
     p_body("A. Hiện trạng và hạn chế của E-commerce truyền thống:", bold_prefix="")
     p_bullet("Khách hàng phải duyệt qua hàng trăm trang sản phẩm với các bộ lọc cứng nhắc, dễ bỏ cuộc khi không tìm được sản phẩm ưng ý.", "Tìm kiếm kém hiệu quả: ")
     p_bullet("Hệ thống đề xuất dựa trên lịch sử xem cũ một cách máy móc, không hiểu được nhu cầu tức thời và ngữ cảnh sử dụng thực tế của khách.", "Thiếu tính cá nhân hóa sâu: ")
@@ -636,7 +719,7 @@ def create_lab1_ainative_document():
     p_bullet("Doanh nghiệp cần hệ thống tự động hóa từ khâu tiếp thị, chốt đơn cho đến hậu mãi, giảm thiểu chi phí nhân sự.", "Tối ưu hóa chi phí vận hành: ")
     p_bullet("Chuẩn bị sẵn sàng kết nối với các hệ sinh thái AI Agent bên ngoài để không bị bỏ lại phía sau trong làn sóng Agentic AI.", "Đón đầu tương lai: ")
 
-    heading_3("1.2.3. Các thành phần người dùng (Actors) trong hệ thống")
+    add_h4("1.4.3. Các thành phần người dùng (Actors) trong hệ thống")
     p_body("Hệ thống AI-Native Commerce xác định rõ 4 nhóm tác nhân (Actors) chính:")
 
     actors_headers = ["Tác nhân (Actor)", "Phân loại vai trò", "Mô tả trách nhiệm & Quyền hạn"]
@@ -675,7 +758,7 @@ def create_lab1_ainative_document():
     ]
     create_table(actors_data, [Inches(1.5), Inches(1.8), Inches(3.5)], actors_headers)
 
-    heading_3("1.2.4. Danh mục các module chức năng hệ thống")
+    add_h4("1.4.4. Danh mục các module chức năng hệ thống")
     p_body("Hệ thống gồm 16 module nền tảng được tổ chức thành 4 phân hệ chính:")
     module_headers = ["Phân hệ", "Mã Module", "Tên Module chức năng", "Mục tiêu & Phạm vi nghiệp vụ"]
     module_data = [
@@ -698,7 +781,7 @@ def create_lab1_ainative_document():
     ]
     create_table(module_data, [Inches(1.5), Inches(0.8), Inches(2.3), Inches(2.2)], module_headers)
 
-    heading_3("1.2.5. Phân tích luồng hoạt động tổng thể và sự liên kết giữa các chức năng")
+    add_h4("1.4.5. Phân tích luồng hoạt động tổng thể và sự liên kết")
     p_body(
         "Các chức năng trong hệ thống AI-Native Commerce vận hành theo chuỗi liên kết khép kín, phân chia thành 4 luồng nghiệp vụ cốt lõi:"
     )
@@ -719,13 +802,16 @@ def create_lab1_ainative_document():
         "4. Luồng Quản trị & Giám sát Hệ thống: "
     )
 
-    # ==================== SECTION 5: PHẦN NỘI DUNG - CHƯƠNG 2 ====================
-    sec_c2 = doc.add_section()
-    setup_header_footer(sec_c2, "PHẦN NỘI DUNG \t                                      Chương 2: KHẢO SÁT VÀ PHÂN TÍCH YÊU CẦU")
+    # ---------- CHƯƠNG 2 ----------
+    add_h2("CHƯƠNG 2: KHẢO SÁT VÀ PHÂN TÍCH YÊU CẦU")
 
-    heading_1("CHƯƠNG 2: KHẢO SÁT VÀ PHÂN TÍCH YÊU CẦU")
+    add_h3("2.1. Khảo sát hiện trạng và quy tắc vẽ Use Case (Bài 3)")
+    add_h4("2.1.1. Khảo sát các giải pháp E-Commerce hiện nay")
+    p_body(
+        "Khảo sát các nền tảng thương mại điện tử hàng đầu tại Việt Nam và quốc tế (Shopee, Lazada, Amazon, Shopify) cho thấy: Hầu hết các hệ thống này vẫn đang dùng thanh tìm kiếm từ khóa kết hợp bộ lọc danh mục và bộ lọc giá. Nhược điểm lớn nhất là không thể giải quyết được các câu hỏi ngữ cảnh phức tạp của người dùng. AI-Native Commerce giải quyết triệt để vấn đề này bằng việc đưa mô hình tìm kiếm ngữ nghĩa (Semantic Vector Search) và Trợ lý hội thoại vào làm phương thức tương tác chủ đạo."
+    )
 
-    heading_2("2.1. Quy tắc vẽ sơ đồ Use Case UML chuẩn")
+    add_h4("2.1.2. Các quy tắc vẽ sơ đồ Use Case UML chuẩn")
     p_body(
         "Để đảm bảo tính khoa học, chuẩn xác và dễ hiểu cho tài liệu kỹ thuật, Nhóm 5 tuân thủ các quy chuẩn UML 2.5:"
     )
@@ -734,7 +820,7 @@ def create_lab1_ainative_document():
     p_bullet("Hình chữ nhật bao quanh toàn bộ các ca sử dụng để định rõ phạm vi hệ thống.", "System Boundary: ")
     p_bullet("Đường nối liền nét thể hiện tương tác trực tiếp giữa Actor và Use Case.", "Association: ")
 
-    heading_2("2.2. Sơ đồ Use Case tổng quát hệ thống AI-Native Commerce")
+    add_h3("2.2. Sơ đồ Use Case tổng quát hệ thống AI-Native Commerce")
     p_body(
         "Dưới đây là sơ đồ Use Case tổng quát của Hệ thống Thương mại Điện tử AI-Native, thể hiện sự tương tác của 4 nhóm Actors với các phân hệ chức năng:"
     )
@@ -747,15 +833,15 @@ def create_lab1_ainative_document():
         p_cap = doc.add_paragraph()
         p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p_cap.paragraph_format.space_after = Pt(8)
-        r = p_cap.add_run("Hình 2.1: Sơ đồ Use Case tổng quát Hệ thống AI-Native Commerce")
+        r = p_cap.add_run("Hình 2. Sơ đồ Use Case tổng quát Hệ thống AI-Native Commerce")
         r.font.name = "Times New Roman"
         r.font.size = Pt(10.5)
         r.font.italic = True
 
-    heading_2("2.3. Sơ đồ Use Case phân rã theo phân hệ")
+    add_h3("2.3. Sơ đồ Use Case phân rã theo phân hệ")
     p_body("Hệ thống được phân rã thành 3 sơ đồ Use Case chuyên biệt tương ứng với từng nhóm nghiệp vụ:")
 
-    heading_3("2.3.1. Sơ đồ Use Case Phân hệ Khách hàng (Customer & Guest)")
+    add_h4("2.3.1. Phân hệ Khách hàng (Guest & Customer)")
     p_body(
         "Bao gồm các chức năng: Đăng ký/Đăng nhập, Tìm kiếm bằng ngôn ngữ tự nhiên, Tư vấn mua sắm với AI Shopping Assistant, Quản lý giỏ hàng thông minh, Đặt hàng & thanh toán, Tra cứu lịch sử đơn hàng."
     )
@@ -767,12 +853,12 @@ def create_lab1_ainative_document():
         p_cap = doc.add_paragraph()
         p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p_cap.paragraph_format.space_after = Pt(8)
-        r = p_cap.add_run("Hình 2.2: Sơ đồ Use Case Phân hệ Khách hàng (Guest & Customer)")
+        r = p_cap.add_run("Hình 3. Sơ đồ Use Case Phân hệ Khách hàng (Guest & Customer)")
         r.font.name = "Times New Roman"
         r.font.size = Pt(10.5)
         r.font.italic = True
 
-    heading_3("2.3.2. Sơ đồ Use Case Phân hệ Quản trị & Nhà bán (Merchant & Admin)")
+    add_h4("2.3.2. Phân hệ Quản trị & Nhà bán hàng (Merchant & Admin)")
     p_body(
         "Bao gồm các chức năng quản trị: Quản lý danh mục & sản phẩm chuẩn hóa cho AI, Quản lý đơn hàng, Quản lý tài khoản & phân quyền RBAC, Quản lý khuyến mãi, Báo cáo thống kê & phân tích hành vi AI."
     )
@@ -784,12 +870,12 @@ def create_lab1_ainative_document():
         p_cap = doc.add_paragraph()
         p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p_cap.paragraph_format.space_after = Pt(8)
-        r = p_cap.add_run("Hình 2.3: Sơ đồ Use Case Phân hệ Quản trị & Nhà bán hàng")
+        r = p_cap.add_run("Hình 4. Sơ đồ Use Case Phân hệ Quản trị & Nhà bán hàng")
         r.font.name = "Times New Roman"
         r.font.size = Pt(10.5)
         r.font.italic = True
 
-    heading_3("2.3.3. Sơ đồ Use Case Phân hệ Nền tảng Tác tử AI (AI Agent Platform)")
+    add_h4("2.3.3. Phân hệ Nền tảng Tác tử AI (AI Agent Platform)")
     p_body(
         "Bao gồm các chức năng tự hành: Định tuyến ý định (Intent Router), Tìm kiếm ngữ nghĩa (Semantic Search), Thực thi giao thức thương mại tác tử (ACP), Hỗ trợ khách hàng tự động 24/7."
     )
@@ -801,13 +887,13 @@ def create_lab1_ainative_document():
         p_cap = doc.add_paragraph()
         p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p_cap.paragraph_format.space_after = Pt(8)
-        r = p_cap.add_run("Hình 2.4: Sơ đồ Use Case Phân hệ Nền tảng Tác tử AI")
+        r = p_cap.add_run("Hình 5. Sơ đồ Use Case Phân hệ Nền tảng Tác tử AI")
         r.font.name = "Times New Roman"
         r.font.size = Pt(10.5)
         r.font.italic = True
 
-    heading_2("2.4. Phân loại danh sách chức năng theo từng Actor")
-    p_body("A. Bảng chức năng của Khách vãng lai (Guest):")
+    add_h3("2.4. Phân loại danh sách chức năng theo từng Actor")
+    add_h4("2.4.1. Chức năng của Guest")
     g_headers = ["STT", "Tên chức năng", "Mô tả nghiệp vụ"]
     g_data = [
         ["1", "Xem danh sách sản phẩm", "Xem sản phẩm nổi bật, sản phẩm theo danh mục và khuyến mãi trên trang chủ."],
@@ -817,7 +903,7 @@ def create_lab1_ainative_document():
     ]
     create_table(g_data, [Inches(0.6), Inches(2.2), Inches(4.0)], g_headers)
 
-    p_body("B. Bảng chức năng của Khách hàng (User / Customer):")
+    add_h4("2.4.2. Chức năng của User / Customer")
     u_headers = ["STT", "Tên chức năng", "Mô tả nghiệp vụ"]
     u_data = [
         ["1", "Đăng nhập / Đăng xuất", "Đăng nhập bằng Email/Password hoặc Google OAuth, khởi tạo phiên làm việc bảo mật."],
@@ -830,7 +916,7 @@ def create_lab1_ainative_document():
     ]
     create_table(u_data, [Inches(0.6), Inches(2.4), Inches(3.8)], u_headers)
 
-    p_body("C. Bảng chức năng của Quản trị viên & Nhà bán hàng (Admin / Merchant):")
+    add_h4("2.4.3. Chức năng của Admin / Merchant")
     a_headers = ["STT", "Tên chức năng", "Mô tả nghiệp vụ"]
     a_data = [
         ["1", "Quản lý sản phẩm & Chuẩn hóa cho AI", "Thêm, sửa, xóa sản phẩm, tạo thuộc tính chi tiết và nhúng vector phục vụ AI Search."],
@@ -842,13 +928,23 @@ def create_lab1_ainative_document():
     ]
     create_table(a_data, [Inches(0.6), Inches(2.4), Inches(3.8)], a_headers)
 
-    heading_2("2.5. Đặc tả chi tiết các Use Cases cốt lõi (14 bảng SRS chuẩn FPT Polytechnic)")
+    add_h4("2.4.4. Chức năng của AI Agent Platform")
+    ag_headers = ["STT", "Tên chức năng", "Mô tả nghiệp vụ"]
+    ag_data = [
+        ["1", "Định tuyến ý định (Intent Router)", "Phân tích ngữ cảnh câu nói của người dùng và chuyển tiếp đến Agent xử lý phù hợp."],
+        ["2", "Tìm kiếm ngữ nghĩa (Semantic Search)", "Tạo embedding vector và truy vấn cơ sở dữ liệu vector theo khoảng cách Cosine."],
+        ["3", "Thực thi giao thức thương mại (ACP)", "Cung cấp API và Tool Use chuẩn hóa cho phép Agent bên ngoài truy vấn và đặt hàng."],
+        ["4", "Hỗ trợ khách hàng tự động 24/7", "Tự động trả lời thắc mắc về đơn hàng, vận chuyển, đổi trả sản phẩm."],
+    ]
+    create_table(ag_data, [Inches(0.6), Inches(2.4), Inches(3.8)], ag_headers)
+
+    add_h3("2.5. Đặc tả chi tiết các Use Cases cốt lõi (14 bảng SRS chuẩn FPT)")
     p_body(
         "Dưới đây là đặc tả chi tiết toàn bộ 14 Use Cases cốt lõi của Hệ thống Thương mại Điện tử AI-Native theo đúng biểu mẫu bảng 10 trường của Trường Cao đẳng FPT Polytechnic:"
     )
 
     # 1. UC01
-    heading_3("2.5.1. Use Case 1: Đăng ký tài khoản (UC01)")
+    add_h4("2.5.1. Use Case 1: Đăng ký tài khoản (UC01)")
     add_srs_table(
         "UC01",
         "Đăng ký tài khoản người dùng",
@@ -872,7 +968,7 @@ def create_lab1_ainative_document():
     )
 
     # 2. UC02
-    heading_3("2.5.2. Use Case 2: Đăng nhập hệ thống (UC02)")
+    add_h4("2.5.2. Use Case 2: Đăng nhập hệ thống (UC02)")
     add_srs_table(
         "UC02",
         "Đăng nhập hệ thống",
@@ -896,7 +992,7 @@ def create_lab1_ainative_document():
     )
 
     # 3. UC03
-    heading_3("2.5.3. Use Case 3: Quên mật khẩu (UC03)")
+    add_h4("2.5.3. Use Case 3: Quên mật khẩu (UC03)")
     add_srs_table(
         "UC03",
         "Quên mật khẩu",
@@ -920,7 +1016,7 @@ def create_lab1_ainative_document():
     )
 
     # 4. UC04
-    heading_3("2.5.4. Use Case 4: Khám phá sản phẩm bằng ngôn ngữ tự nhiên (UC04)")
+    add_h4("2.5.4. Use Case 4: Tìm kiếm bằng ngôn ngữ tự nhiên (UC04)")
     add_srs_table(
         "UC04",
         "Tìm kiếm sản phẩm bằng ngôn ngữ tự nhiên (AI Natural Language Discovery)",
@@ -941,7 +1037,7 @@ def create_lab1_ainative_document():
     )
 
     # 5. UC05
-    heading_3("2.5.5. Use Case 5: Tương tác với AI Shopping Assistant (UC05)")
+    add_h4("2.5.5. Use Case 5: Tương tác với AI Shopping Assistant (UC05)")
     add_srs_table(
         "UC05",
         "Mua sắm tương tác với Trợ lý AI (Conversational Shopping Assistant)",
@@ -964,7 +1060,7 @@ def create_lab1_ainative_document():
     )
 
     # 6. UC06
-    heading_3("2.5.6. Use Case 6: Quản lý giỏ hàng thông minh (UC06)")
+    add_h4("2.5.6. Use Case 6: Quản lý giỏ hàng thông minh (UC06)")
     add_srs_table(
         "UC06",
         "Quản lý giỏ hàng thông minh (Smart Cart Management)",
@@ -986,7 +1082,7 @@ def create_lab1_ainative_document():
     )
 
     # 7. UC07
-    heading_3("2.5.7. Use Case 7: Đặt hàng và áp dụng khuyến mãi tự động (UC07)")
+    add_h4("2.5.7. Use Case 7: Đặt hàng và áp dụng khuyến mãi tự động (UC07)")
     add_srs_table(
         "UC07",
         "Đặt hàng và áp dụng khuyến mãi tự động (Checkout & Auto Promotion)",
@@ -1009,7 +1105,7 @@ def create_lab1_ainative_document():
     )
 
     # 8. UC08
-    heading_3("2.5.8. Use Case 8: Thanh toán trực tuyến (UC08)")
+    add_h4("2.5.8. Use Case 8: Thanh toán trực tuyến (UC08)")
     add_srs_table(
         "UC08",
         "Thanh toán trực tuyến (Online Payment Gateway)",
@@ -1032,7 +1128,7 @@ def create_lab1_ainative_document():
     )
 
     # 9. UC09
-    heading_3("2.5.9. Use Case 9: Tra cứu đơn hàng và theo dõi vận chuyển (UC09)")
+    add_h4("2.5.9. Use Case 9: Tra cứu đơn hàng và theo dõi vận chuyển (UC09)")
     add_srs_table(
         "UC09",
         "Tra cứu đơn hàng và theo dõi vận chuyển (Order Tracking)",
@@ -1052,7 +1148,7 @@ def create_lab1_ainative_document():
     )
 
     # 10. UC10
-    heading_3("2.5.10. Use Case 10: Quản lý danh mục & sản phẩm chuẩn hóa cho AI (UC10)")
+    add_h4("2.5.10. Use Case 10: Quản lý danh mục & sản phẩm chuẩn hóa cho AI (UC10)")
     add_srs_table(
         "UC10",
         "Quản lý danh mục & sản phẩm chuẩn hóa cho AI (Product Catalog Management)",
@@ -1076,7 +1172,7 @@ def create_lab1_ainative_document():
     )
 
     # 11. UC11
-    heading_3("2.5.11. Use Case 11: Quản lý đơn hàng và trạng thái đơn hàng (UC11)")
+    add_h4("2.5.11. Use Case 11: Quản lý đơn hàng và trạng thái đơn hàng (UC11)")
     add_srs_table(
         "UC11",
         "Quản lý đơn hàng và trạng thái xử lý (Order Management)",
@@ -1097,7 +1193,7 @@ def create_lab1_ainative_document():
     )
 
     # 12. UC12
-    heading_3("2.5.12. Use Case 12: Quản lý tài khoản và phân quyền RBAC (UC12)")
+    add_h4("2.5.12. Use Case 12: Quản lý tài khoản và phân quyền RBAC (UC12)")
     add_srs_table(
         "UC12",
         "Quản lý tài khoản và phân quyền người dùng (Role-Based Access Control)",
@@ -1118,7 +1214,7 @@ def create_lab1_ainative_document():
     )
 
     # 13. UC13
-    heading_3("2.5.13. Use Case 13: Báo cáo thống kê và phân tích hành vi AI (UC13)")
+    add_h4("2.5.13. Use Case 13: Báo cáo thống kê và phân tích hành vi AI (UC13)")
     add_srs_table(
         "UC13",
         "Báo cáo thống kê doanh thu và phân tích hành vi AI (Analytics & Reporting)",
@@ -1139,7 +1235,7 @@ def create_lab1_ainative_document():
     )
 
     # 14. UC14
-    heading_3("2.5.14. Use Case 14: Thực thi giao dịch qua giao thức tác tử AI (UC14)")
+    add_h4("2.5.14. Use Case 14: Thực thi giao dịch qua giao thức tác tử AI (UC14)")
     add_srs_table(
         "UC14",
         "Thực thi giao dịch qua giao thức Agentic Commerce Protocol (ACP)",
@@ -1161,11 +1257,9 @@ def create_lab1_ainative_document():
         "(6.1) Vi phạm quy tắc bảo mật (Token hết hạn hoặc gọi hàm sai phép): Hệ thống từ chối kết nối và ghi nhận log an ninh mạng."
     )
 
-    # ==================== SECTION 6: TÀI LIỆU THAM KHẢO ====================
-    sec_ref = doc.add_section()
-    setup_header_footer(sec_ref, "TÀI LIỆU THAM KHẢO")
-
-    heading_1("TÀI LIỆU THAM KHẢO")
+    # ==================== HEADING 1: TÀI LIỆU THAM KHẢO ====================
+    doc.add_page_break()
+    add_h1("TÀI LIỆU THAM KHẢO")
     p_bullet("Trường Cao đẳng FPT Polytechnic (2024), Giáo trình môn học Dự án Mẫu / Dự án .NET 1 (NET108), NXB FPT Edu.", "[1] ")
     p_bullet("IEEE Computer Society (1998), IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements Specifications.", "[2] ")
     p_bullet("Microsoft Learn (2024), ASP.NET Core documentation - Building Modern Web Apps and APIs with C# and .NET 8, Microsoft.", "[3] ")
@@ -1174,16 +1268,22 @@ def create_lab1_ainative_document():
     p_bullet("ChromaDB / LangChain Documentation (2024), Vector Databases and Semantic Hybrid Search for E-Commerce Architectures.", "[6] ")
     p_bullet("VNPay Gateway (2024), Tài liệu tích hợp thanh toán điện tử VNPay dành cho nhà phát triển.", "[7] ")
 
-    # Save final file to C:\Net108Khai\Các Bài Lab\Lab1_NET108_QuanLyQuanCaPhe.docx (and a copy with clean AI-Native name)
+    # Save to file
     out_dir = r"C:\Net108Khai\Các Bài Lab"
     os.makedirs(out_dir, exist_ok=True)
-    out_path1 = os.path.join(out_dir, "Lab1_NET108_QuanLyQuanCaPhe.docx")
-    out_path2 = os.path.join(out_dir, "Lab1_NET108_AINativeCommerce.docx")
+    out_file = os.path.join(out_dir, "Lab1_NET108_AI_Native_Commerce.docx")
+    doc.save(out_file)
+    print(f"File created successfully: {out_file}")
 
-    doc.save(out_path1)
-    doc.save(out_path2)
-    print(f"Generated successfully:\n  {out_path1}\n  {out_path2}")
-    return out_path1
+    # Also try overwriting Lab1_NET108_AINativeCommerce.docx if unlocked
+    alt_file = os.path.join(out_dir, "Lab1_NET108_AINativeCommerce.docx")
+    try:
+        doc.save(alt_file)
+        print(f"Also updated: {alt_file}")
+    except Exception as e:
+        print(f"Notice: {alt_file} is currently open in Word/WPS, saved to {out_file} instead.")
+
+    return out_file
 
 if __name__ == "__main__":
-    create_lab1_ainative_document()
+    create_lab1_document()
