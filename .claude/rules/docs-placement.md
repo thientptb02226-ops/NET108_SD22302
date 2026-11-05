@@ -30,3 +30,4 @@ docs/
    - `CLAUDE.md`
    *(Kèm các file gốc chuẩn: `README.md`, `package.json`, `docker-compose.yml`, `.gitignore`)*.
 2. Tuyệt đối không sinh file script nháp, file kết xuất hình ảnh hay tài liệu tạm thời tại thư mục gốc. Mọi script sinh tự động phải lưu trữ trong `scripts/`.
+

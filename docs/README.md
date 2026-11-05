@@ -55,3 +55,4 @@ docs/
 
 ### 📁 `99-ghi-chu/` (Ghi chú & Nháp)
 - Lưu trữ các ghi chú họp nhóm, phân công việc phát sinh và nhật ký lỗi.
+
