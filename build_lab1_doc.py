@@ -1093,3 +1093,4 @@ def generate_lab1_docx():
 
 if __name__ == "__main__":
     generate_lab1_docx()
+
