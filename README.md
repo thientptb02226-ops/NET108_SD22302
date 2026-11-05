@@ -1,84 +1,109 @@
-# 🎓 BÁO CÁO DỰ ÁN MÔN HỌC NET108 — LỚP SD22302
-### TRƯỜNG CAO ĐẲNG FPT POLYTECHNIC — KHOA CÔNG NGHỆ THÔNG TIN
+# 🎓 BÁO CÁO DỰ ÁN MÔN HỌC .NET 1 (NET108) — LỚP SD22302
+### TRƯỜNG CAO ĐẲNG FPT POLYTECHNIC ĐỒNG NAI — CÔNG NGHỆ THÔNG TIN (KHÓA K20)
 
 ---
 
-## 📋 THÔNG TIN ĐỀ TÀI & SINH VIÊN
-* **Môn học**: Dự án mẫu (Mã môn: **NET108** / PRO1041)
-* **Lớp**: **SD22302** (Chuyên ngành Lập trình / Phát triển phần mềm)
-* **Đề tài**: **Hệ thống Quản lý Bán hàng Quán Đồ Uống (Poly Drink Management System)**
-* **Sinh viên thực hiện**: **Trịnh Quốc Khải**
-* **Mã số sinh viên (MSSV)**: **PS38237**
-* **Giảng viên hướng dẫn**: Giảng viên Bộ môn CNTT — FPT Polytechnic
+## 📋 THÔNG TIN ĐỀ TÀI & NHÓM SINH VIÊN THỰC HIỆN
+* **Môn học**: Dự án .NET 1 (Mã môn: **NET108**)
+* **Lớp**: **SD22302** (Chuyên ngành Phát triển Phần mềm)
+* **Đề tài**: **Xây dựng Hệ thống Thương mại Điện tử AI-Native (AI-Native Commerce)**
+* **Giảng viên hướng dẫn**: **ThS. Phan Hoàng Khải**
+* **Nhóm thực hiện**: **Nhóm 5**
+  1. **Trần Phúc Thiên** (Nhóm trưởng — MSSV: **TB02226**)
+  2. **Trần Phạm Hoàng Minh** (Thành viên — MSSV: **TB02231**)
+  3. **Cho Hoàng Hiếu Trung** (Thành viên — MSSV: **TB02324**)
+  4. **Nguyễn Hoàng Quốc Anh** (Thành viên — MSSV: **TB02232**)
+  5. **Nguyễn Châu Văn Phát** (Thành viên — MSSV: **TB02274**)
+* **Hệ thống Quản lý Tiến độ (Jira Cloud)**: [thientptb02226.atlassian.net](https://thientptb02226.atlassian.net) (Dự án: **NET108**)
 
 ---
 
 ## 🌟 1. GIỚI THIỆU TỔNG QUAN HỆ THỐNG
-Dự án được xây dựng theo chuẩn công nghiệp, ứng dụng phương pháp **Vibe Coding & Multi-Agent Collaboration** (kết hợp các AI Agent: Claude Code CLI, Google Antigravity, OpenAI Codex) để phân tích, thiết kế và phát triển:
-- **Phân hệ Quán đồ uống (Poly Drink)**: Quản lý Menu (Loại đồ uống, Đồ uống), Bán hàng tại quầy (POS), Quản lý nhân viên, Phân quyền (Nhân viên, Quản lý), Hóa đơn, Thống kê doanh thu.
-- **Nền tảng mở rộng AI-Native Commerce**: 
-  - Trợ lý AI Shopping Assistant tư vấn theo nhu cầu thực tế.
-  - Tìm kiếm ngữ nghĩa (Semantic & Hybrid Search).
-  - Quy trình Checkout Saga an toàn, chống bán quá tồn kho (Over-selling) và Idempotency chống trùng giao dịch.
+Dự án được xây dựng theo chuẩn công nghiệp, ứng dụng phương pháp **Vibe Coding & Multi-Agent Collaboration** (phối hợp giữa các AI Agent: Google Antigravity, Claude Code CLI, OpenAI Codex) để phân tích, thiết kế và phát triển nền tảng **AI-Native Commerce**:
+- **Trợ lý Mua sắm AI (Shopping Assistant & Intent Router)**: Tư vấn theo nhu cầu hội thoại thực tế của khách hàng, thấu hiểu ngữ cảnh và gợi ý sản phẩm cá nhân hóa.
+- **Tìm kiếm Ngữ nghĩa (Semantic & Hybrid Search)**: Tích hợp RAG (Retrieval-Augmented Generation) kết hợp Vector Search và Full-text Search.
+- **Giao thức Thương mại Tác tử (Agentic Commerce Protocol - ACP)**: Chuẩn hóa quy trình giao dịch tự động của các AI Agent với cơ chế Guardrails (giới hạn hạn mức, OTP xác thực 2 lớp, chống gian lận).
+- **Giao dịch An toàn (Checkout Saga & Idempotency)**: Chống bán quá tồn kho (Over-selling), đảm bảo tính toàn vẹn dữ liệu giao dịch tài chính.
+- **Quản trị Toàn diện (Admin & Merchant Hub)**: Phân quyền vai trò RBAC (Khách vãng lai, Khách hàng, Nhà bán/Quản trị viên, Tác tử AI Platform).
 
 ---
 
-## 📂 2. CẤU TRÚC THƯ MỤC NỘP BÀI (DIRECTORY LAYOUT)
+## 📂 2. CẤU TRÚC THƯ MỤC DỰ ÁN (CHUẨN VIBE CODING)
+
+Dự án tuân thủ nghiêm ngặt nguyên tắc **Vibe Coding Workspace Protocol** — Thư mục gốc chỉ chứa các phân hệ module, tài liệu chuẩn hóa và đúng 2 file cấu hình AI Agent cốt lõi:
 
 ```
 NET108_SD22302/
-├── 📄 BaoCao_Lab1_NET108_Nhom5_QuanLyQuanCaPhe.docx  # File Word Báo cáo Lab 1 (Nhóm 5)
-├── 🖼️ usecase_tongquat.png                           # Sơ đồ Use Case tổng quát Lab 1
+├── 📁 Các Bài Lab/                                 # HỒ SƠ BÁO CÁO LAB CHUẨN FPT POLYTECHNIC
+│   └── 📄 Lab1_NET108_AI_Native_Commerce.docx      # Báo cáo Lab 1 chính thức (14 SRS, Sơ đồ Use Case)
 │
-├── 📚 docs/                                          # HỒ SƠ TÀI LIỆU KỸ THUẬT & HỌC THUẬT
-│   ├── 01-tong-quan/
-│   │   ├── BaoCao_Lab1_NET108_Nhom5_QuanLyQuanCaPhe.docx # Bản lưu báo cáo đề cương
-│   │   ├── usecase_tongquat.png                         # Sơ đồ Use Case
-│   │   ├── ai-native-commerce-blueprint.md              # Đặc tả tổng thể hệ thống
-│   │   ├── vibe-coding-workflow.md                      # Quy trình Vibe Coding chuẩn 10 bước
-│   │   └── karpathy-examples.md                         # Mẫu đối chiếu Karpathy Guidelines
-│   ├── 02-ky-thuat/
-│   │   ├── schema-transactional.sql                     # Thiết kế CSDL PostgreSQL DDL
-│   │   ├── openapi.yaml                                 # Hợp đồng API chuẩn OpenAPI 3.1
-│   │   └── test-cases-p0-p1.csv                         # Ma trận 30 kịch bản kiểm thử P0/P1
-│   ├── 03-san-pham/
-│   │   └── roadmap.md                                   # Lộ trình Sprint & Nhật ký Changelog
-│   └── 04-van-hanh/
-│       └── deployment-guide.md                          # Hướng dẫn triển khai & vận hành
+├── 📁 docs/                                        # HỒ SƠ TÀI LIỆU KỸ THUẬT & HỌC THUẬT
+│   ├── 📄 README.md                                # Bảng chỉ mục tổng hợp mọi tài liệu (Docs Index Map)
+│   ├── 📁 01-tong-quan/                            # Tổng quan, Blueprint kiến trúc, Vibe Coding, Karpathy
+│   │   ├── ai-native-commerce-blueprint.md         # Bản thiết kế kiến trúc toàn diện AI-Native Commerce
+│   │   ├── vibe-coding-workflow.md                 # Quy trình Vibe Coding chuẩn 10 bước
+│   │   ├── multi-agent-workflow.md                 # Giao thức phối hợp Antigravity, Claude Code, Codex
+│   │   └── karpathy-examples.md                    # Đối chiếu 4 nguyên tắc kỹ thuật chuẩn Andrej Karpathy
+│   ├── 📁 02-ky-thuat/                             # Đặc tả kỹ thuật, CSDL, API, MCP, Test Cases
+│   │   ├── mcp-reference-architecture.md           # Kiến trúc tham chiếu Model Context Protocol (MCP)
+│   │   ├── api-spec.md                             # Đặc tả chi tiết RESTful API & WebSocket
+│   │   ├── architecture.md                         # Sơ đồ kiến trúc phân tầng hệ thống
+│   │   ├── openapi.yaml                            # Hợp đồng API chuẩn OpenAPI 3.0
+│   │   ├── schema-transactional.sql                # Thiết kế CSDL quan hệ PostgreSQL DDL
+│   │   ├── test-cases-p0-p1.csv                    # Ma trận 25 kịch bản kiểm thử trọng yếu P0/P1
+│   │   └── references/                             # Bộ tiêu chuẩn kỹ thuật (Accessibility, Performance, Security)
+│   ├── 📁 03-san-pham/                             # Lộ trình sản phẩm & Sprint
+│   │   └── roadmap.md                              # Kế hoạch phát triển qua 4 Sprint (Lab 1 -> Lab 4)
+│   ├── 📁 04-van-hanh/                             # Hướng dẫn triển khai & vận hành
+│   │   └── deployment-guide.md                     # Hướng dẫn Docker Compose, .env, CI/CD
+│   ├── 📁 05-mau/                                  # Biểu mẫu báo cáo FPT Polytechnic tái sử dụng
+│   ├── 📁 06-design/                               # Thiết kế & Sơ đồ mô hình hóa UML
+│   │   └── use-cases/                              # Thư mục chứa toàn bộ hình ảnh sơ đồ Use Case
+│   │       ├── usecase_ainative_tongquat.png       # Sơ đồ Use Case tổng quát AI-Native Commerce (Hình 2)
+│   │       ├── usecase_ainative_customer.png       # Sơ đồ Use Case phân hệ Khách hàng (Hình 3)
+│   │       ├── usecase_ainative_admin.png          # Sơ đồ Use Case phân hệ Quản trị & Nhà bán (Hình 4)
+│   │       └── usecase_ainative_agent.png          # Sơ đồ Use Case phân hệ Tác tử AI Platform (Hình 5)
+│   └── 📁 99-ghi-chu/                              # Biên bản họp nhóm & ghi chú kỹ thuật
 │
-├── 💻 Mã nguồn các Module:
-│   ├── Trello-Clone-Frontend/     # Giao diện Web / Kanban Board
-│   ├── Trello-Clone-Backend/      # REST API & WebSocket Server
-│   ├── Trello-Clone-MCP/          # Server MCP kết nối AI Agent với dữ liệu
-│   ├── Trello-Clone-AI-RAG/       # Dịch vụ RAG tìm kiếm ngữ nghĩa
-│   ├── Chatbot-Frontend/          # Widget Trợ lý AI Assistant
-│   ├── Trello-Clone-Desktop/      # Ứng dụng Desktop
-│   └── Trello-Clone-Mobile/       # Ứng dụng Di động
+├── 📁 scripts/                                     # TẬP LỆNH TỰ ĐỘNG HÓA & SINH DỮ LIỆU
+│   └── 📁 lab-generators/                          # Các script sinh tài liệu Word & sơ đồ UML tự động
 │
-├── 🤖 .agent/ & .claude/ & .cursor/ # Cấu hình Multi-Agent, Karpathy Skills & Rules
-├── 📜 AGENTS.md                   # Thỏa ước điều phối đa tác nhân AI
-├── 📜 CLAUDE.md                   # Hướng dẫn thực thi cho Claude Code (tích hợp Karpathy)
-├── 🐳 docker-compose.yml          # Hạ tầng PostgreSQL, Redis, ChromaDB
-├── 📦 package.json                # Root Monorepo Workspaces
-└── 📜 README.md                   # Tài liệu hướng dẫn này
+├── 💻 Mã nguồn các Phân hệ Module:
+│   ├── 📁 Trello-Clone-Backend/                    # REST API Core (.NET / Node.js Express)
+│   ├── 📁 Trello-Clone-Frontend/                   # Giao diện Web Client (React 19 / Next.js)
+│   ├── 📁 Trello-Clone-MCP/                        # Model Context Protocol Server tích hợp AI Agent
+│   ├── 📁 Trello-Clone-AI-RAG/                     # Dịch vụ RAG & Semantic Search (FastAPI / Vector DB)
+│   ├── 📁 Chatbot-Frontend/                        # Widget Trợ lý AI Shopping Assistant
+│   ├── 📁 Trello-Clone-Desktop/                    # Ứng dụng Desktop (Electron / Tauri)
+│   ├── 📁 Trello-Clone-Mobile/                     # Ứng dụng Di động (React Native / Expo)
+│   └── 📁 Trello-Clone-Infra/                      # Hạ tầng Docker, Kubernetes, CI/CD
+│
+├── 🤖 .agent/ & .claude/ & .codex/                 # Cấu hình Multi-Agent, Rules (docs-placement.md) & Skills
+├── 📜 AGENTS.md                                    # Thỏa ước điều phối đa tác tử AI (Master Coordination)
+├── 📜 CLAUDE.md                                    # Hướng dẫn thực thi cho Claude Code CLI
+├── 🐳 docker-compose.yml                           # Hạ tầng PostgreSQL, Redis, MinIO
+├── 📦 package.json                                 # Monorepo Workspace Root
+└── 📜 README.md                                    # Tài liệu tổng quan dự án này
 ```
 
 ---
 
 ## 📑 3. LIÊN KẾT NHANH TÀI LIỆU QUAN TRỌNG CHO GIẢNG VIÊN
 
-| Tài liệu | Định dạng | Mô tả nội dung |
-| :--- | :---: | :--- |
-| [**Báo Cáo Lab 1 Word (Nhóm 5)**](docs/01-tong-quan/BaoCao_Lab1_NET108_Nhom5_QuanLyQuanCaPhe.docx) | `.docx` | Báo cáo chi tiết theo biểu mẫu FPT Poly (Use Case, 2 Actor, 13 Chức năng). |
-| [**Sơ Đồ Use Case Tổng Quát**](docs/01-tong-quan/usecase_tongquat.png) | `.png` | Sơ đồ 13 Use Cases & 2 Actor (Nhân viên, Quản lý). |
-| [**Đặc Tả Hệ Thống**](docs/01-tong-quan/ai-native-commerce-blueprint.md) | `.md` | Kiến trúc 7 lớp, 16 Module, 12 Agent, Quy trình nghiệp vụ. |
-| [**Thiết Kế CSDL DDL**](docs/02-ky-thuat/schema-transactional.sql) | `.sql` | Schema PostgreSQL: Quotes, Idempotency, Reservations, Outbox. |
-| [**Hợp Đồng OpenAPI 3.1**](docs/02-ky-thuat/openapi.yaml) | `.yaml` | Đặc tả chi tiết các REST Endpoint theo chuẩn OpenAPI. |
-| [**Ma Trận Kiểm Thử P0/P1**](docs/02-ky-thuat/test-cases-p0-p1.csv) | `.csv` | 30 kịch bản test case (Precondition, Steps, Expected). |
-| [**Quy Trình Vibe Coding**](docs/01-tong-quan/vibe-coding-workflow.md) | `.md` | Quy trình phát triển phần mềm chuẩn mực cùng AI. |
-| [**Karpathy Guidelines & Examples**](docs/01-tong-quan/karpathy-examples.md) | `.md` | 4 nguyên tắc kỹ thuật chuẩn Andrej Karpathy (Think, Simplicity, Surgical, Goals). |
-| [**Bản Đồ Kiến Trúc Graphify**](graphify-out/graph.html) | `.html` | Bản đồ mạng tri thức trực quan 280 nodes & 330 edges AST của hệ thống. |
-| [**Bộ 24 Agent Skills (Addy Osmani)**](skills/) | `24 skills` | Bộ quy trình công nghiệp 24 kỹ năng SDLC (Spec, Plan, Build, Test, Review, Ship). |
+| STT | Tài liệu | Định dạng | Vị trí lưu trữ | Tóm tắt nội dung |
+| :---: | :--- | :---: | :--- | :--- |
+| 1 | **Báo Cáo Lab 1 Chính Thức** | `.docx` | [`Các Bài Lab/Lab1_NET108_AI_Native_Commerce.docx`](Các%20Bài%20Lab/Lab1_NET108_AI_Native_Commerce.docx) | Báo cáo hoàn chỉnh: Khảo sát AI, Giới thiệu đề tài, 4 sơ đồ Use Case, 14 bảng SRS chuẩn 10 trường, Thiết kế thực thể. |
+| 2 | **Chỉ Mục Toàn Bộ Docs** | `.md` | [`docs/README.md`](docs/README.md) | Bảng mục lục tổng hợp toàn bộ tài liệu kỹ thuật, kiến trúc và vận hành. |
+| 3 | **Sơ Đồ Use Case Tổng Quát** | `.png` | [`docs/06-design/use-cases/usecase_ainative_tongquat.png`](docs/06-design/use-cases/usecase_ainative_tongquat.png) | Sơ đồ Use Case tổng thể toàn hệ thống AI-Native Commerce (Hình 2). |
+| 4 | **Sơ Đồ Use Case Khách Hàng** | `.png` | [`docs/06-design/use-cases/usecase_ainative_customer.png`](docs/06-design/use-cases/usecase_ainative_customer.png) | Phân hệ Khách hàng: Tìm kiếm tự nhiên, AI tư vấn, Giỏ hàng, Checkout Saga (Hình 3). |
+| 5 | **Sơ Đồ Use Case Quản Trị** | `.png` | [`docs/06-design/use-cases/usecase_ainative_admin.png`](docs/06-design/use-cases/usecase_ainative_admin.png) | Phân hệ Admin/Merchant: Quản lý sản phẩm, đơn hàng, cấu hình AI Assistant (Hình 4). |
+| 6 | **Sơ Đồ Use Case AI Platform** | `.png` | [`docs/06-design/use-cases/usecase_ainative_agent.png`](docs/06-design/use-cases/usecase_ainative_agent.png) | Phân hệ Tác tử AI: Tự động đặt hàng, ACP Protocol, Guardrails an toàn (Hình 5). |
+| 7 | **Kiến Trúc MCP Reference** | `.md` | [`docs/02-ky-thuat/mcp-reference-architecture.md`](docs/02-ky-thuat/mcp-reference-architecture.md) | Kiến trúc giao thức Model Context Protocol tích hợp AI Agent với dữ liệu. |
+| 8 | **Đặc Tả Hệ Thống (Blueprint)** | `.md` | [`docs/01-tong-quan/ai-native-commerce-blueprint.md`](docs/01-tong-quan/ai-native-commerce-blueprint.md) | Kiến trúc 7 lớp, 16 Module, 12 Agent, quy trình nghiệp vụ mua sắm thông minh. |
+| 9 | **Thiết Kế CSDL DDL** | `.sql` | [`docs/02-ky-thuat/schema-transactional.sql`](docs/02-ky-thuat/schema-transactional.sql) | DDL PostgreSQL: Quotes, Idempotency, Reservations, Outbox Pattern. |
+| 10 | **Hợp Đồng OpenAPI 3.0** | `.yaml` | [`docs/02-ky-thuat/openapi.yaml`](docs/02-ky-thuat/openapi.yaml) | Đặc tả toàn bộ API RESTful endpoints chuẩn OpenAPI 3.0. |
+| 11 | **Ma Trận Kiểm Thử P0/P1** | `.csv` | [`docs/02-ky-thuat/test-cases-p0-p1.csv`](docs/02-ky-thuat/test-cases-p0-p1.csv) | 25 kịch bản kiểm thử trọng yếu (Precondition, Steps, Expected Results). |
+| 12 | **Bản Đồ Tri Thức Graphify** | `.html` | [`graphify-out/graph.html`](graphify-out/graph.html) | Bản đồ trực quan 319 nodes & 413 edges AST toàn bộ mã nguồn và tài liệu. |
 
 ---
 
@@ -88,7 +113,7 @@ NET108_SD22302/
 ```bash
 docker compose up -d
 ```
-*Khởi động PostgreSQL trên port `5432` và Redis trên port `6379`.*
+*Khởi động PostgreSQL trên port `5432`, Redis trên port `6379`, MinIO trên port `9000`.*
 
 ### Bước 2: Khởi chạy Backend API
 ```bash
@@ -98,7 +123,7 @@ npm run dev
 ```
 *API hoạt động tại `http://localhost:5000` (Healthcheck: `/health`).*
 
-### Bước 3: Khởi chạy Giao diện Frontend
+### Bước 3: Khởi chạy Giao diện Web Frontend
 ```bash
 cd ../Trello-Clone-Frontend
 npm install
@@ -106,9 +131,17 @@ npm run dev
 ```
 *Truy cập giao diện tại `http://localhost:3000`.*
 
+### Bước 4: Khởi chạy AI-RAG Service (Python)
+```bash
+cd ../Trello-Clone-AI-RAG
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+*Dịch vụ RAG & Semantic Search hoạt động tại `http://localhost:8000`.*
+
 ---
 
 ## 🏆 5. CAM KẾT CHẤT LƯỢNG & ĐẠO ĐỨC HỌC THUẬT
-- Mọi tài liệu và mã nguồn được tổ chức tuần tự theo chuẩn **Karpathy Guidelines** (Simplicity First, Surgical Changes, Goal-Driven).
-- Lịch sử Git thể hiện rõ ràng các bước thực hiện từng phần.
-- Bảo mật thông tin: Không commit file cấu hình nhạy cảm (`.env`), không lộ token.
+- Mọi tài liệu và mã nguồn được xây dựng tuân thủ nghiêm ngặt **Karpathy Guidelines** (Simplicity First, Surgical Changes, Goal-Driven).
+- Lịch sử Git thể hiện minh bạch, chi tiết quá trình hoàn thành từng hạng mục theo các Epic/Task trên Jira Cloud.
+- Bảo mật thông tin: Tuyệt đối không commit file cấu hình nhạy cảm (`.env`), không để lộ API Token hay Private Key.
