@@ -77,6 +77,8 @@ NET108_SD22302/
 | [**Ma Trận Kiểm Thử P0/P1**](docs/02-ky-thuat/test-cases-p0-p1.csv) | `.csv` | 30 kịch bản test case (Precondition, Steps, Expected). |
 | [**Quy Trình Vibe Coding**](docs/01-tong-quan/vibe-coding-workflow.md) | `.md` | Quy trình phát triển phần mềm chuẩn mực cùng AI. |
 | [**Karpathy Guidelines & Examples**](docs/01-tong-quan/karpathy-examples.md) | `.md` | 4 nguyên tắc kỹ thuật chuẩn Andrej Karpathy (Think, Simplicity, Surgical, Goals). |
+| [**Bản Đồ Kiến Trúc Graphify**](graphify-out/graph.html) | `.html` | Bản đồ mạng tri thức trực quan 280 nodes & 330 edges AST của hệ thống. |
+| [**Bộ 24 Agent Skills (Addy Osmani)**](skills/) | `24 skills` | Bộ quy trình công nghiệp 24 kỹ năng SDLC (Spec, Plan, Build, Test, Review, Ship). |
 
 ---
 

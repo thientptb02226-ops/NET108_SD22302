@@ -1,0 +1,459 @@
+{
+  "communities": {
+    "0": [
+      "ref_cors",
+      "ref_dotenv",
+      "ref_express",
+      "ref_http",
+      "ref_jsonwebtoken",
+      "ref_socket_io",
+      "ref_types_cors",
+      "ref_types_express",
+      "ref_types_jsonwebtoken",
+      "ref_zod",
+      "trello_clone_backend_package",
+      "trello_clone_backend_package_dependencies",
+      "trello_clone_backend_package_dependencies_cors",
+      "trello_clone_backend_package_dependencies_express",
+      "trello_clone_backend_package_dependencies_jsonwebtoken",
+      "trello_clone_backend_package_dependencies_socket_io",
+      "trello_clone_backend_package_dependencies_zod",
+      "trello_clone_backend_package_description",
+      "trello_clone_backend_package_devdependencies",
+      "trello_clone_backend_package_devdependencies_tsx",
+      "trello_clone_backend_package_devdependencies_types_cors",
+      "trello_clone_backend_package_devdependencies_types_express",
+      "trello_clone_backend_package_devdependencies_types_jsonwebtoken",
+      "trello_clone_backend_package_devdependencies_typescript",
+      "trello_clone_backend_package_json_ref_tsx",
+      "trello_clone_backend_package_main",
+      "trello_clone_backend_package_name",
+      "trello_clone_backend_package_scripts",
+      "trello_clone_backend_package_scripts_build",
+      "trello_clone_backend_package_scripts_dev",
+      "trello_clone_backend_package_scripts_start",
+      "trello_clone_backend_package_scripts_test",
+      "trello_clone_backend_package_version",
+      "trello_clone_backend_src_index",
+      "trello_clone_backend_src_index_app",
+      "trello_clone_backend_src_index_io",
+      "trello_clone_backend_src_index_server"
+    ],
+    "1": [
+      "chatbot_frontend_package_json_ref_lucide_react",
+      "chatbot_frontend_package_json_ref_react_dom",
+      "ref_autoprefixer",
+      "ref_dnd_kit_core",
+      "ref_dnd_kit_sortable",
+      "ref_dnd_kit_utilities",
+      "ref_postcss",
+      "ref_socket_io_client",
+      "ref_tailwindcss",
+      "ref_zustand",
+      "trello_clone_frontend_package",
+      "trello_clone_frontend_package_dependencies",
+      "trello_clone_frontend_package_dependencies_dnd_kit_core",
+      "trello_clone_frontend_package_dependencies_dnd_kit_sortable",
+      "trello_clone_frontend_package_dependencies_dnd_kit_utilities",
+      "trello_clone_frontend_package_dependencies_lucide_react",
+      "trello_clone_frontend_package_dependencies_react",
+      "trello_clone_frontend_package_dependencies_react_dom",
+      "trello_clone_frontend_package_dependencies_socket_io_client",
+      "trello_clone_frontend_package_dependencies_zustand",
+      "trello_clone_frontend_package_description",
+      "trello_clone_frontend_package_devdependencies",
+      "trello_clone_frontend_package_devdependencies_autoprefixer",
+      "trello_clone_frontend_package_devdependencies_postcss",
+      "trello_clone_frontend_package_devdependencies_tailwindcss",
+      "trello_clone_frontend_package_devdependencies_vite",
+      "trello_clone_frontend_package_json_ref_react",
+      "trello_clone_frontend_package_json_ref_vite",
+      "trello_clone_frontend_package_name",
+      "trello_clone_frontend_package_scripts",
+      "trello_clone_frontend_package_scripts_build",
+      "trello_clone_frontend_package_scripts_dev",
+      "trello_clone_frontend_package_scripts_preview",
+      "trello_clone_frontend_package_version"
+    ],
+    "2": [
+      "chatbot_frontend_package",
+      "chatbot_frontend_package_dependencies",
+      "chatbot_frontend_package_dependencies_lucide_react",
+      "chatbot_frontend_package_dependencies_react",
+      "chatbot_frontend_package_dependencies_react_dom",
+      "chatbot_frontend_package_description",
+      "chatbot_frontend_package_devdependencies",
+      "chatbot_frontend_package_devdependencies_types_react",
+      "chatbot_frontend_package_devdependencies_types_react_dom",
+      "chatbot_frontend_package_devdependencies_typescript",
+      "chatbot_frontend_package_devdependencies_vite",
+      "chatbot_frontend_package_devdependencies_vitejs_plugin_react",
+      "chatbot_frontend_package_json_ref_react",
+      "chatbot_frontend_package_json_ref_types_react",
+      "chatbot_frontend_package_json_ref_types_react_dom",
+      "chatbot_frontend_package_json_ref_typescript",
+      "chatbot_frontend_package_json_ref_vite",
+      "chatbot_frontend_package_json_ref_vitejs_plugin_react",
+      "chatbot_frontend_package_name",
+      "chatbot_frontend_package_scripts",
+      "chatbot_frontend_package_scripts_build",
+      "chatbot_frontend_package_scripts_dev",
+      "chatbot_frontend_package_version",
+      "trello_clone_frontend_package_devdependencies_types_react",
+      "trello_clone_frontend_package_devdependencies_types_react_dom",
+      "trello_clone_frontend_package_devdependencies_typescript",
+      "trello_clone_frontend_package_devdependencies_vitejs_plugin_react"
+    ],
+    "3": [
+      "ref_axios",
+      "ref_modelcontextprotocol_sdk",
+      "trello_clone_backend_package_dependencies_dotenv",
+      "trello_clone_backend_package_devdependencies_types_node",
+      "trello_clone_mcp_package",
+      "trello_clone_mcp_package_dependencies",
+      "trello_clone_mcp_package_dependencies_axios",
+      "trello_clone_mcp_package_dependencies_dotenv",
+      "trello_clone_mcp_package_dependencies_modelcontextprotocol_sdk",
+      "trello_clone_mcp_package_description",
+      "trello_clone_mcp_package_devdependencies",
+      "trello_clone_mcp_package_devdependencies_tsx",
+      "trello_clone_mcp_package_devdependencies_types_node",
+      "trello_clone_mcp_package_devdependencies_typescript",
+      "trello_clone_mcp_package_json_ref_dotenv",
+      "trello_clone_mcp_package_json_ref_tsx",
+      "trello_clone_mcp_package_json_ref_types_node",
+      "trello_clone_mcp_package_main",
+      "trello_clone_mcp_package_name",
+      "trello_clone_mcp_package_scripts",
+      "trello_clone_mcp_package_scripts_build",
+      "trello_clone_mcp_package_scripts_dev",
+      "trello_clone_mcp_package_scripts_start",
+      "trello_clone_mcp_package_version",
+      "trello_clone_mcp_src_index",
+      "trello_clone_mcp_src_index_run",
+      "trello_clone_mcp_src_index_server"
+    ],
+    "4": [
+      "docx",
+      "docx_enum_table",
+      "docx_enum_text",
+      "docx_oxml",
+      "docx_oxml_ns",
+      "docx_shared",
+      "generate_lab1",
+      "generate_lab1_add_bullet",
+      "generate_lab1_add_p",
+      "generate_lab1_add_srs_table",
+      "generate_lab1_create_styled_table",
+      "generate_lab1_final",
+      "generate_lab1_final_create_full_lab1_document",
+      "generate_lab1_final_create_full_lab1_document_add_bullet",
+      "generate_lab1_final_create_full_lab1_document_add_p",
+      "generate_lab1_final_create_full_lab1_document_add_srs_table",
+      "generate_lab1_final_create_full_lab1_document_apply_standard_header_footer",
+      "generate_lab1_final_create_full_lab1_document_create_styled_table",
+      "generate_lab1_final_create_full_lab1_document_style_heading_1",
+      "generate_lab1_final_create_full_lab1_document_style_heading_2",
+      "generate_lab1_final_create_full_lab1_document_style_heading_3",
+      "generate_lab1_style_heading_1",
+      "generate_lab1_style_heading_2",
+      "generate_lab1_style_heading_3",
+      "os"
+    ],
+    "5": [
+      "docker_compose",
+      "docker_compose_chromadb_container_name",
+      "docker_compose_chromadb_image",
+      "docker_compose_chromadb_ports",
+      "docker_compose_chromadb_volumes",
+      "docker_compose_redis_container_name",
+      "docker_compose_redis_image",
+      "docker_compose_redis_ports",
+      "docker_compose_redis_restart",
+      "docker_compose_redis_volumes",
+      "docker_compose_services",
+      "docker_compose_services_chromadb",
+      "docker_compose_services_redis",
+      "docker_compose_version",
+      "docker_compose_volumes",
+      "docker_compose_volumes_chroma_data",
+      "docker_compose_volumes_postgres_data",
+      "docker_compose_volumes_redis_data"
+    ],
+    "6": [
+      "package",
+      "package_description",
+      "package_keywords",
+      "package_license",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build_all",
+      "package_scripts_dev_backend",
+      "package_scripts_dev_chatbot",
+      "package_scripts_dev_frontend",
+      "package_scripts_dev_mcp",
+      "package_scripts_infra_down",
+      "package_scripts_infra_up",
+      "package_version",
+      "package_workspaces"
+    ],
+    "7": [
+      "ref_expo",
+      "ref_react_native",
+      "trello_clone_mobile_package",
+      "trello_clone_mobile_package_dependencies",
+      "trello_clone_mobile_package_dependencies_expo",
+      "trello_clone_mobile_package_dependencies_react",
+      "trello_clone_mobile_package_dependencies_react_native",
+      "trello_clone_mobile_package_description",
+      "trello_clone_mobile_package_json_ref_react",
+      "trello_clone_mobile_package_name",
+      "trello_clone_mobile_package_scripts",
+      "trello_clone_mobile_package_scripts_android",
+      "trello_clone_mobile_package_scripts_ios",
+      "trello_clone_mobile_package_scripts_start",
+      "trello_clone_mobile_package_version"
+    ],
+    "8": [
+      "ref_electron",
+      "ref_electron_builder",
+      "trello_clone_desktop_package",
+      "trello_clone_desktop_package_description",
+      "trello_clone_desktop_package_devdependencies",
+      "trello_clone_desktop_package_devdependencies_electron",
+      "trello_clone_desktop_package_devdependencies_electron_builder",
+      "trello_clone_desktop_package_main",
+      "trello_clone_desktop_package_name",
+      "trello_clone_desktop_package_scripts",
+      "trello_clone_desktop_package_scripts_build",
+      "trello_clone_desktop_package_scripts_start",
+      "trello_clone_desktop_package_version"
+    ],
+    "9": [
+      "trello_clone_backend_tsconfig",
+      "trello_clone_backend_tsconfig_compileroptions",
+      "trello_clone_backend_tsconfig_compileroptions_esmoduleinterop",
+      "trello_clone_backend_tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "trello_clone_backend_tsconfig_compileroptions_module",
+      "trello_clone_backend_tsconfig_compileroptions_moduleresolution",
+      "trello_clone_backend_tsconfig_compileroptions_outdir",
+      "trello_clone_backend_tsconfig_compileroptions_rootdir",
+      "trello_clone_backend_tsconfig_compileroptions_skiplibcheck",
+      "trello_clone_backend_tsconfig_compileroptions_strict",
+      "trello_clone_backend_tsconfig_compileroptions_target",
+      "trello_clone_backend_tsconfig_include"
+    ],
+    "10": [
+      "trello_clone_mcp_tsconfig",
+      "trello_clone_mcp_tsconfig_compileroptions",
+      "trello_clone_mcp_tsconfig_compileroptions_esmoduleinterop",
+      "trello_clone_mcp_tsconfig_compileroptions_module",
+      "trello_clone_mcp_tsconfig_compileroptions_moduleresolution",
+      "trello_clone_mcp_tsconfig_compileroptions_outdir",
+      "trello_clone_mcp_tsconfig_compileroptions_rootdir",
+      "trello_clone_mcp_tsconfig_compileroptions_skiplibcheck",
+      "trello_clone_mcp_tsconfig_compileroptions_strict",
+      "trello_clone_mcp_tsconfig_compileroptions_target",
+      "trello_clone_mcp_tsconfig_include"
+    ],
+    "11": [
+      "docker_compose_environment_postgres_db",
+      "docker_compose_environment_postgres_password",
+      "docker_compose_environment_postgres_user",
+      "docker_compose_postgres_container_name",
+      "docker_compose_postgres_environment",
+      "docker_compose_postgres_image",
+      "docker_compose_postgres_ports",
+      "docker_compose_postgres_restart",
+      "docker_compose_postgres_volumes",
+      "docker_compose_services_postgres"
+    ],
+    "12": [
+      "basemodel",
+      "fastapi",
+      "get",
+      "post",
+      "pydantic",
+      "trello_clone_ai_rag_app_main",
+      "trello_clone_ai_rag_app_main_health_check",
+      "trello_clone_ai_rag_app_main_searchquery",
+      "trello_clone_ai_rag_app_main_semantic_search"
+    ],
+    "13": [
+      "agent_skills_constraint_driven_development_scripts_quality_gate",
+      "agent_skills_constraint_driven_development_scripts_quality_gate_tool_file_extra",
+      "claude_skills_constraint_driven_development_scripts_quality_gate",
+      "claude_skills_constraint_driven_development_scripts_quality_gate_tool_file_extra",
+      "ref_node_fs",
+      "skills_constraint_driven_development_scripts_quality_gate",
+      "skills_constraint_driven_development_scripts_quality_gate_tool_file_extra"
+    ],
+    "14": [
+      "ref_react",
+      "ref_react_dom",
+      "trello_clone_frontend_src_app",
+      "trello_clone_frontend_src_app_app",
+      "trello_clone_frontend_src_app_card",
+      "trello_clone_frontend_src_app_column",
+      "trello_clone_frontend_src_main"
+    ],
+    "15": [
+      "generate_diagram",
+      "generate_diagram_draw_actor",
+      "pil"
+    ],
+    "16": [
+      "ref_vite",
+      "ref_vitejs_plugin_react",
+      "trello_clone_frontend_vite_config"
+    ],
+    "17": [
+      "agent_skills_idea_refine_scripts_idea_refine",
+      "agent_skills_idea_refine_scripts_idea_refine_sh__entry"
+    ],
+    "18": [
+      "claude_skills_idea_refine_scripts_idea_refine",
+      "claude_skills_idea_refine_scripts_idea_refine_sh__entry"
+    ],
+    "19": [
+      "skills_idea_refine_scripts_idea_refine",
+      "skills_idea_refine_scripts_idea_refine_sh__entry"
+    ]
+  },
+  "cohesion": {
+    "0": 0.07057057057057058,
+    "1": 0.08021390374331551,
+    "2": 0.09116809116809117,
+    "3": 0.08831908831908832,
+    "4": 0.10333333333333333,
+    "5": 0.1111111111111111,
+    "6": 0.125,
+    "7": 0.1619047619047619,
+    "8": 0.1794871794871795,
+    "9": 0.16666666666666666,
+    "10": 0.18181818181818182,
+    "11": 0.2,
+    "12": 0.25,
+    "13": 0.2857142857142857,
+    "14": 0.38095238095238093,
+    "15": 0.6666666666666666,
+    "16": 0.6666666666666666,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0
+  },
+  "gods": [
+    {
+      "id": "trello_clone_backend_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 10
+    },
+    {
+      "id": "generate_lab1_final_create_full_lab1_document",
+      "label": "create_full_lab1_document()",
+      "degree": 10
+    },
+    {
+      "id": "trello_clone_mcp_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 9
+    },
+    {
+      "id": "chatbot_frontend_package_json_ref_typescript",
+      "label": "typescript",
+      "degree": 8
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 8
+    },
+    {
+      "id": "docker_compose_services_postgres",
+      "label": "postgres",
+      "degree": 7
+    },
+    {
+      "id": "docker_compose_services_redis",
+      "label": "redis",
+      "degree": 6
+    },
+    {
+      "id": "trello_clone_backend_package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "docker_compose_services_chromadb",
+      "label": "chromadb",
+      "degree": 5
+    },
+    {
+      "id": "chatbot_frontend_package_json_ref_lucide_react",
+      "label": "lucide-react",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "typescript@^5.5.2",
+      "target": "typescript",
+      "source_files": [
+        "Trello-Clone-Backend/package.json",
+        "Chatbot-Frontend/package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "declares",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `typescript@^5.5.2` unexpectedly reaches hub `typescript`"
+    },
+    {
+      "source": "typescript@^5.5.2",
+      "target": "typescript",
+      "source_files": [
+        "Trello-Clone-MCP/package.json",
+        "Chatbot-Frontend/package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "declares",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `typescript@^5.5.2` unexpectedly reaches hub `typescript`"
+    },
+    {
+      "source": "typescript@^5.5.2",
+      "target": "typescript",
+      "source_files": [
+        "Trello-Clone-Frontend/package.json",
+        "Chatbot-Frontend/package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "declares",
+      "why": "connects across different repos/directories; peripheral node `typescript@^5.5.2` unexpectedly reaches hub `typescript`"
+    },
+    {
+      "source": "lucide-react@^0.395.0",
+      "target": "lucide-react",
+      "source_files": [
+        "Trello-Clone-Frontend/package.json",
+        "Chatbot-Frontend/package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "declares",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "react-dom@^18.3.1",
+      "target": "react-dom",
+      "source_files": [
+        "Trello-Clone-Frontend/package.json",
+        "Chatbot-Frontend/package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "declares",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

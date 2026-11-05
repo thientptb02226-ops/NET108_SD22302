@@ -1,0 +1,166 @@
+{
+  ".agent/skills/constraint-driven-development/scripts/quality-gate.mjs": {
+    "mtime": 1793842225.2498064,
+    "seen": 1793842397.0353565,
+    "ast_hash": "21010d4f04e0a98a30edfafeb79ef356",
+    "semantic_hash": "21010d4f04e0a98a30edfafeb79ef356"
+  },
+  ".agent/skills/idea-refine/scripts/idea-refine.sh": {
+    "mtime": 1793842225.2553773,
+    "seen": 1793842397.0353565,
+    "ast_hash": "7d09d06b836527b5261a27027b1d8548",
+    "semantic_hash": "7d09d06b836527b5261a27027b1d8548"
+  },
+  ".claude/skills/constraint-driven-development/scripts/quality-gate.mjs": {
+    "mtime": 1793842225.2498064,
+    "seen": 1793842397.0363686,
+    "ast_hash": "21010d4f04e0a98a30edfafeb79ef356",
+    "semantic_hash": "21010d4f04e0a98a30edfafeb79ef356"
+  },
+  ".claude/skills/idea-refine/scripts/idea-refine.sh": {
+    "mtime": 1793842225.2553773,
+    "seen": 1793842397.0363686,
+    "ast_hash": "7d09d06b836527b5261a27027b1d8548",
+    "semantic_hash": "7d09d06b836527b5261a27027b1d8548"
+  },
+  ".codex/hooks.json": {
+    "mtime": 1793842332.7865977,
+    "seen": 1793842397.0363686,
+    "ast_hash": "9096a00197aa221fa9ea895cc42b5c4f",
+    "semantic_hash": "9096a00197aa221fa9ea895cc42b5c4f",
+    "ast_empty": true
+  },
+  "Chatbot-Frontend/package.json": {
+    "mtime": 1793801691.0698516,
+    "seen": 1793842397.0363686,
+    "ast_hash": "96eae84986f8b7d8b576b7bab383165d",
+    "semantic_hash": "96eae84986f8b7d8b576b7bab383165d"
+  },
+  "Trello-Clone-AI-RAG/app/main.py": {
+    "mtime": 1793801691.3829956,
+    "seen": 1793842397.0373664,
+    "ast_hash": "a64dff367979d70fec5ae2ef61d9ff0c",
+    "semantic_hash": "a64dff367979d70fec5ae2ef61d9ff0c"
+  },
+  "Trello-Clone-Backend/package.json": {
+    "mtime": 1793801692.1276135,
+    "seen": 1793842397.0373664,
+    "ast_hash": "63069af3084c89ce9058b7ea0e1c5ad8",
+    "semantic_hash": "63069af3084c89ce9058b7ea0e1c5ad8"
+  },
+  "Trello-Clone-Backend/src/index.ts": {
+    "mtime": 1793801692.2283986,
+    "seen": 1793842397.0373664,
+    "ast_hash": "2f6690997166525d9f48531aaf430fdb",
+    "semantic_hash": "2f6690997166525d9f48531aaf430fdb"
+  },
+  "Trello-Clone-Backend/tsconfig.json": {
+    "mtime": 1793801692.2469423,
+    "seen": 1793842397.0373664,
+    "ast_hash": "bc99e2008f7e5edd65a5e91b20abbade",
+    "semantic_hash": "bc99e2008f7e5edd65a5e91b20abbade"
+  },
+  "Trello-Clone-Desktop/package.json": {
+    "mtime": 1793801692.2480109,
+    "seen": 1793842397.0383658,
+    "ast_hash": "58236c87176255aaa440b0338cc16f6e",
+    "semantic_hash": "58236c87176255aaa440b0338cc16f6e"
+  },
+  "Trello-Clone-Frontend/package.json": {
+    "mtime": 1793801692.3686118,
+    "seen": 1793842397.0383658,
+    "ast_hash": "493bbd7e43b741bee1d4c18de7fc1d43",
+    "semantic_hash": "493bbd7e43b741bee1d4c18de7fc1d43"
+  },
+  "Trello-Clone-Frontend/src/App.tsx": {
+    "mtime": 1793801692.4405842,
+    "seen": 1793842397.0383658,
+    "ast_hash": "dfcf529033f4a1c601008ae787a2534f",
+    "semantic_hash": "dfcf529033f4a1c601008ae787a2534f"
+  },
+  "Trello-Clone-Frontend/src/main.tsx": {
+    "mtime": 1793801692.478638,
+    "seen": 1793842397.0383658,
+    "ast_hash": "82d6a9ef54204e00c8417213fa8043d7",
+    "semantic_hash": "82d6a9ef54204e00c8417213fa8043d7"
+  },
+  "Trello-Clone-Frontend/vite.config.ts": {
+    "mtime": 1793801692.5363042,
+    "seen": 1793842397.039366,
+    "ast_hash": "f3e0c96f191c6969f2bbf89b3f9203c7",
+    "semantic_hash": "f3e0c96f191c6969f2bbf89b3f9203c7"
+  },
+  "Trello-Clone-MCP/package.json": {
+    "mtime": 1793801693.1826353,
+    "seen": 1793842397.039366,
+    "ast_hash": "fe90b1b2ec3eabd89e9faee21dde438a",
+    "semantic_hash": "fe90b1b2ec3eabd89e9faee21dde438a"
+  },
+  "Trello-Clone-MCP/src/index.ts": {
+    "mtime": 1793801693.3728366,
+    "seen": 1793842397.039366,
+    "ast_hash": "1d99874043a19e90ae3d5fcc2dba6ec4",
+    "semantic_hash": "1d99874043a19e90ae3d5fcc2dba6ec4"
+  },
+  "Trello-Clone-MCP/tsconfig.json": {
+    "mtime": 1793801693.5187018,
+    "seen": 1793842397.040362,
+    "ast_hash": "f1aacab49dd1bfcd3a8c94efd4cc1dff",
+    "semantic_hash": "f1aacab49dd1bfcd3a8c94efd4cc1dff"
+  },
+  "Trello-Clone-Mobile/package.json": {
+    "mtime": 1793801693.56034,
+    "seen": 1793842397.040362,
+    "ast_hash": "47d115bc12628aaad3810713d0961e04",
+    "semantic_hash": "47d115bc12628aaad3810713d0961e04"
+  },
+  "docker-compose.yml": {
+    "mtime": 1793801693.657557,
+    "seen": 1793842397.0413601,
+    "ast_hash": "daf545ef4ca9b4b6b42f8bf8902e55a7",
+    "semantic_hash": "daf545ef4ca9b4b6b42f8bf8902e55a7"
+  },
+  "docs/02-ky-thuat/openapi.yaml": {
+    "mtime": 1793803142.4500408,
+    "seen": 1793842397.0413601,
+    "ast_hash": "08b55d50ac27243bbcc0d67cb189ab57",
+    "semantic_hash": "08b55d50ac27243bbcc0d67cb189ab57",
+    "ast_empty": true
+  },
+  "generate_diagram.py": {
+    "mtime": 1793804882.1138074,
+    "seen": 1793842397.0413601,
+    "ast_hash": "a1d2bfaab09a5445359ca37121528ba3",
+    "semantic_hash": "a1d2bfaab09a5445359ca37121528ba3"
+  },
+  "generate_lab1.py": {
+    "mtime": 1793804056.054572,
+    "seen": 1793842397.0413601,
+    "ast_hash": "25baf75ef7e746c86f7466b292dbbb30",
+    "semantic_hash": "25baf75ef7e746c86f7466b292dbbb30"
+  },
+  "generate_lab1_final.py": {
+    "mtime": 1793805059.861161,
+    "seen": 1793842397.0413601,
+    "ast_hash": "f6a5826e5caf3fa1a670c5f29c7a16ec",
+    "semantic_hash": "f6a5826e5caf3fa1a670c5f29c7a16ec"
+  },
+  "package.json": {
+    "mtime": 1793801693.9294941,
+    "seen": 1793842397.0423586,
+    "ast_hash": "0e4fa226c74ad5f36f86b87f03197059",
+    "semantic_hash": "0e4fa226c74ad5f36f86b87f03197059"
+  },
+  "skills/constraint-driven-development/scripts/quality-gate.mjs": {
+    "mtime": 1793842225.2498064,
+    "seen": 1793842397.0423586,
+    "ast_hash": "21010d4f04e0a98a30edfafeb79ef356",
+    "semantic_hash": "21010d4f04e0a98a30edfafeb79ef356"
+  },
+  "skills/idea-refine/scripts/idea-refine.sh": {
+    "mtime": 1793842225.2553773,
+    "seen": 1793842397.0423586,
+    "ast_hash": "7d09d06b836527b5261a27027b1d8548",
+    "semantic_hash": "7d09d06b836527b5261a27027b1d8548"
+  }
+}

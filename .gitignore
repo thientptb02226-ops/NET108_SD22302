@@ -21,4 +21,6 @@ coverage/
 .turbo/
 ~$*
 *.tmp
+graphify-out/cache/
+graphify-out/converted/
 
