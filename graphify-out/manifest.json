@@ -1334,9 +1334,9 @@
     "semantic_hash": ""
   },
   "build_lab1_ainative_doc.py": {
-    "mtime": 1793882680.3537958,
-    "seen": 1793882736.500384,
-    "ast_hash": "94f88fd78150a8feb091ec29072ead75",
+    "mtime": 1793883310.6482263,
+    "seen": 1793883361.0657876,
+    "ast_hash": "46d09024de0f3664e757bb2d47d7019c",
     "semantic_hash": ""
   },
   "graphify-out/converted/Lab1_NET108_AINativeCommerce_6b69684c.md": {
@@ -1367,6 +1367,12 @@
     "mtime": 1793882496.173213,
     "seen": 1793882736.5207639,
     "ast_hash": "ef1dc4a685a05c6f2f459ac490405baa",
+    "semantic_hash": ""
+  },
+  "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_06d6073a.md": {
+    "mtime": 1793883359.5869193,
+    "seen": 1793883361.081225,
+    "ast_hash": "821670c83624d88c034f5f89b3e6ff31",
     "semantic_hash": ""
   }
 }
