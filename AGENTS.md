@@ -17,6 +17,7 @@ trello-clone/
 ├── certs/                   # SSL/TLS and local dev certificates
 ├── Chatbot-Frontend/        # Embeddable AI Assistant widget (React + Vite)
 ├── docs/                    # System documentation, architecture diagrams, API specs
+├── scripts/                 # Automation & utility scripts
 ├── Trello-Clone-AI-RAG/     # Semantic search & contextual RAG service (FastAPI / LangChain)
 ├── Trello-Clone-Backend/    # Core REST / WebSocket API (Node.js / Express / Prisma)
 ├── Trello-Clone-Desktop/    # Desktop client (Electron / Tauri)
@@ -25,8 +26,7 @@ trello-clone/
 ├── Trello-Clone-MCP/        # Model Context Protocol server exposing board operations to AI
 ├── Trello-Clone-Mobile/     # Mobile client (React Native / Expo)
 ├── AGENTS.md                # Multi-agent coordination agreement (THIS FILE)
-├── CLAUDE.md                # Claude Code specific execution guide
-└── mcp-reference-architecture.md # MCP integration architecture
+└── CLAUDE.md                # Claude Code specific execution guide
 ```
 
 ---
@@ -81,7 +81,7 @@ This repo exposes an internal MCP server at `Trello-Clone-MCP`. AI agents can us
 4. `move_card`: Update status (e.g., In Progress -> Code Review -> Done).
 5. `rag_search_tasks`: Query historical cards and documentation semantically.
 
-Refer to `mcp-reference-architecture.md` for tool schemas and connection parameters.
+Refer to `docs/02-ky-thuat/mcp-reference-architecture.md` for tool schemas and connection parameters.
 
 ---
 

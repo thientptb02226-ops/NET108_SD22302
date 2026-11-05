@@ -1,7 +1,7 @@
 # Graph Report - Net108Khai  (2026-11-05)
 
 ## Corpus Check
-- 32 files · ~351,071 words
+- 32 files · ~352,111 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 2, .mdc 1, .example 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `dbcd75c6`
+- Built from commit: `60beb08e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,7 +27,7 @@
 - Trello-Clone-Desktop/package.json
 - compilerOptions
 - compilerOptions
-- create_full_lab1_document
+- create_lab1_document
 - main.py
 - ref_node_fs
 - App.tsx
@@ -58,9 +58,9 @@
   Trello-Clone-Frontend/package.json → Chatbot-Frontend/package.json
 - `typescript@^5.5.2` --declares--> `typescript`  [EXTRACTED]
   Trello-Clone-MCP/package.json → Chatbot-Frontend/package.json
-- `@types/react@^18.3.3` --declares--> `@types/react`  [EXTRACTED]
-  Trello-Clone-Frontend/package.json → Chatbot-Frontend/package.json
 - `lucide-react@^0.395.0` --declares--> `lucide-react`  [EXTRACTED]
+  Trello-Clone-Frontend/package.json → Chatbot-Frontend/package.json
+- `react-dom@^18.3.1` --declares--> `react-dom`  [EXTRACTED]
   Trello-Clone-Frontend/package.json → Chatbot-Frontend/package.json
 
 ## Import Cycles
@@ -86,7 +86,7 @@ Nodes (27): typescript, axios, @modelcontextprotocol/sdk, dotenv@^16.4.5, @types
 
 ### Community 4 - "generate_lab1.py"
 Cohesion: 0.08
-Nodes (4): create_lab1_document(), generate_lab1_docx(), insert_missing_section(), style_table()
+Nodes (4): generate_lab1_docx(), create_full_lab1_document(), insert_missing_section(), style_table()
 
 ### Community 5 - "postgres"
 Cohesion: 0.07
@@ -150,10 +150,12 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **Should `Trello-Clone-Backend/package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.07301587301587302 - nodes in this community are weakly interconnected._
+- **Why does `create_lab1_document()` connect `create_lab1_document` to `generate_lab1.py`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Should `Trello-Clone-MCP/package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.08045977011494253 - nodes in this community are weakly interconnected._
 - **Should `generate_lab1.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.07716701902748414 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08414634146341464 - nodes in this community are weakly interconnected._
 - **Should `postgres` be split into smaller, more focused modules?**
   _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
