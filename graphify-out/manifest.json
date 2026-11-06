@@ -1280,9 +1280,9 @@
     "semantic_hash": ""
   },
   "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_06d6073a.md": {
-    "mtime": 1793934463.331803,
-    "seen": 1793934465.073759,
-    "ast_hash": "7a328dff99aadec0822fbed7a4a3cb5c",
+    "mtime": 1793935710.970186,
+    "seen": 1793935712.5245826,
+    "ast_hash": "33d217fee6581ece439594aaced35546",
     "semantic_hash": ""
   },
   "scripts/lab-generators/build_lab1_ainative_doc.py": {
@@ -1457,6 +1457,12 @@
     "mtime": 1793934437.9239638,
     "seen": 1793934465.056444,
     "ast_hash": "dde932e67a80093161ab3aab295ef7bf",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/make_interactive_toc.py": {
+    "mtime": 1793935686.219065,
+    "seen": 1793935712.507463,
+    "ast_hash": "34368df7ef2c5fae052f10911ce6352f",
     "semantic_hash": ""
   }
 }
