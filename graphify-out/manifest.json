@@ -1466,15 +1466,15 @@
     "semantic_hash": ""
   },
   "scripts/lab-generators/generate_14_usecase_diagrams.py": {
-    "mtime": 1793936481.8369453,
-    "seen": 1793936589.513794,
-    "ast_hash": "fac779899e6f0495935236684d7b811c",
+    "mtime": 1793936616.2377863,
+    "seen": 1793936730.3151436,
+    "ast_hash": "a7dda7453fc83486e78f1abf4a3994b1",
     "semantic_hash": ""
   },
   "scripts/lab-generators/insert_14_usecase_diagrams.py": {
-    "mtime": 1793936551.1349585,
-    "seen": 1793936589.513794,
-    "ast_hash": "7c8a1b5141c5f5d01b0eb033e3cb491d",
+    "mtime": 1793936616.3122625,
+    "seen": 1793936730.3161635,
+    "ast_hash": "0baf72a7c61d8f6cc0eb2ca7ac4bf54d",
     "semantic_hash": ""
   },
   "docs/06-design/use-cases/usecase_detail_uc01_register.png": {
