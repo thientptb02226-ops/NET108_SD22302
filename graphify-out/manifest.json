@@ -1273,18 +1273,6 @@
     "ast_hash": "cd1f5a86c0630a2d10d090abbf3d3c2d",
     "semantic_hash": ""
   },
-  "graphify-out/converted/Lab1_NET108_AINativeCommerce_6b69684c.md": {
-    "mtime": 1793887235.851281,
-    "seen": 1793887237.2107294,
-    "ast_hash": "223b9a24c742d19ed82bf563f665cbdb",
-    "semantic_hash": ""
-  },
-  "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_06d6073a.md": {
-    "mtime": 1793936587.9451444,
-    "seen": 1793936589.5277157,
-    "ast_hash": "6be7b075e99029f522eccce694ff6ec8",
-    "semantic_hash": ""
-  },
   "scripts/lab-generators/build_lab1_ainative_doc.py": {
     "mtime": 1793885843.6130755,
     "seen": 1793887872.6293173,
@@ -1568,27 +1556,141 @@
     "semantic_hash": ""
   },
   "scripts/lab-generators/generate_waterfall_diagram.py": {
-    "mtime": 1793943651.544845,
-    "seen": 1793944556.2385683,
-    "ast_hash": "a60f6bb58cdb661277794e5193e0e2ad",
-    "semantic_hash": ""
-  },
-  "scripts/lab-generators/sync_doc.py": {
-    "mtime": 1793944071.8666499,
-    "seen": 1793944556.2385683,
-    "ast_hash": "07b6dcb5d3972c55685e24ed8966e3ea",
-    "semantic_hash": ""
-  },
-  "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_Updated_38eefa4b.md": {
-    "mtime": 1793944554.02206,
-    "seen": 1793944556.2946177,
-    "ast_hash": "bc2dc7c3bc012312e5788725ae9932c0",
+    "mtime": 1793946010.272845,
+    "seen": 1793952435.0845184,
+    "ast_hash": "4dfe78a54b0e1d52a31530a90851a8f8",
     "semantic_hash": ""
   },
   "docs/06-design/waterfall_model_diagram.png": {
     "mtime": 1793943674.4546661,
     "seen": 1793944556.3276992,
     "ast_hash": "857c3f40613a93a0c7c7c54686ff8190",
+    "semantic_hash": ""
+  },
+  "graphify-out/converted/Lab1_NET108_AINativeCommerce_3a095b18.md": {
+    "mtime": 1793952413.8051984,
+    "seen": 1793952435.1299345,
+    "ast_hash": "223b9a24c742d19ed82bf563f665cbdb",
+    "semantic_hash": ""
+  },
+  "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_c6d25322.md": {
+    "mtime": 1793952414.0486412,
+    "seen": 1793952435.1299345,
+    "ast_hash": "d7b3d38e92097b898b72d64a5caf2825",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Assignment.pdf": {
+    "mtime": 1777399428.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "f68a9ac22aeb9a120ad7876f40a63551",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/B\u00e0i lab/LAB 1.pdf": {
+    "mtime": 1777399454.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "2970327b1f42a9a690a947e90aee8768",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/B\u00e0i lab/LAB 2.pdf": {
+    "mtime": 1777399470.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "4ed820a80d90bd7ab05e778348705dfe",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/B\u00e0i lab/LAB 3.pdf": {
+    "mtime": 1777399484.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "229ca89e305b4ca3e1c35b7a2fa8a98a",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/B\u00e0i lab/LAB 4.pdf": {
+    "mtime": 1777399500.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "4756c29c3598700925f028c29759a660",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/B\u00e0i lab/LAB 5.pdf": {
+    "mtime": 1777399514.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "07db89c5363256e61205fadd401b97f7",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/B\u00e0i lab/LAB 6.pdf": {
+    "mtime": 1777399530.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "ed2552c6f6d1504fe31dddcd188943d7",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/B\u00e0i lab/LAB 7.pdf": {
+    "mtime": 1777399546.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "23f164072e26e1366d42f9c31459befc",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/B\u00e0i lab/LAB 8.pdf": {
+    "mtime": 1777399562.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "a3425511994f162f08619aba1a6f0732",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Slide PDF/Slide 1 - Gi\u1edbi thi\u1ec7u chung.pdf": {
+    "mtime": 1777399602.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "275755d568ad524799a3e25b711f9706",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Slide PDF/Slide 2 - Thi\u1ebft k\u1ebf d\u1ef1 \u00e1n.pdf": {
+    "mtime": 1777399620.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "8dc35be1435391ea7980d076bb09b130",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Slide PDF/Slide 3 - Th\u1ef1c hi\u1ec7n d\u1ef1 \u00e1n 1.pdf": {
+    "mtime": 1777399640.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "f88dda52089cf76df1775e2da29a4036",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Slide PDF/Slide 4 - Th\u1ef1c hi\u1ec7n d\u1ef1 \u00e1n 2.pdf": {
+    "mtime": 1777399658.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "463d3d6ffeb5d06b0cec9ff649cc0ec5",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Slide PDF/Slide 5 - Th\u1ef1c hi\u1ec7n d\u1ef1 \u00e1n 3.pdf": {
+    "mtime": 1777399676.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "ea98953ae32ada6f44db2ebd3f335a33",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Slide PDF/Slide 6 - Th\u1ef1c hi\u1ec7n d\u1ef1 \u00e1n 4.pdf": {
+    "mtime": 1777399696.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "4578a6226b3380aa77f44b2fa5ab4b3d",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Slide PDF/Slide 7 - Ki\u1ec3m th\u1eed d\u1ef1 \u00e1n.pdf": {
+    "mtime": 1777399716.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "c1a905022064d946e5e8d79b1ae3ce0a",
+    "semantic_hash": ""
+  },
+  "FIle b\u00e1o c\u00e1o m\u1eabu \u00e1p d\u1ee5ng cho lab v\u00e0 B\u00e1o c\u00e1o cu\u1ed1i/\u0110\u1ec1 lab v\u00e0 slide b\u00e0i gi\u1ea3ng/Slide PDF/Slide 8 - T\u00e0i li\u1ec7u v\u00e0 tri\u1ec3n khai d\u1ef1 \u00e1n.pdf": {
+    "mtime": 1777399742.0,
+    "seen": 1793952435.1415598,
+    "ast_hash": "da570ffbb4febd2578ac1d51015fe33b",
+    "semantic_hash": ""
+  },
+  "C\u00e1c B\u00e0i Lab/Lab 1/Screenshot 2026-11-04 202257.png": {
+    "mtime": 1793798578.0755196,
+    "seen": 1793952435.1415598,
+    "ast_hash": "564380a2764d78739875bedc73f4f84e",
+    "semantic_hash": ""
+  },
+  "C\u00e1c B\u00e0i Lab/Lab 1/Screenshot 2026-11-04 202319.png": {
+    "mtime": 1793798599.7422302,
+    "seen": 1793952435.1415598,
+    "ast_hash": "d2f88bf2365699d85e3b45487ce96832",
     "semantic_hash": ""
   }
 }
