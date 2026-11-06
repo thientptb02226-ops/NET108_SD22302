@@ -1692,5 +1692,41 @@
     "seen": 1793952435.1415598,
     "ast_hash": "d2f88bf2365699d85e3b45487ce96832",
     "semantic_hash": ""
+  },
+  "scripts/lab-generators/generate_lab2_diagrams.py": {
+    "mtime": 1793966904.12861,
+    "seen": 1793967395.0154135,
+    "ast_hash": "bf6003b857ca22d015d0975e8130b4a8",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/generate_lab2_document.py": {
+    "mtime": 1793967158.8586898,
+    "seen": 1793967395.0154135,
+    "ast_hash": "abba427b83f742cdde650b56f905dad8",
+    "semantic_hash": ""
+  },
+  "graphify-out/converted/Lab2_NET108_AI_Native_Commerce_d3ff6f96.md": {
+    "mtime": 1793967392.5515761,
+    "seen": 1793967395.0641274,
+    "ast_hash": "ab62ce7a0ca6b332061bfb7e460a4a15",
+    "semantic_hash": ""
+  },
+  "docs/06-design/ai_erd_evaluation_evidence.png": {
+    "mtime": 1793966936.216575,
+    "seen": 1793967395.095743,
+    "ast_hash": "21e194b2035c77e84ab985014266fdcb",
+    "semantic_hash": ""
+  },
+  "docs/06-design/erd_ainative_level2.png": {
+    "mtime": 1793966936.1486876,
+    "seen": 1793967395.096742,
+    "ast_hash": "6c6558d319f56e5d76952ec115d9d7eb",
+    "semantic_hash": ""
+  },
+  "docs/06-design/ui_navigation_flow.png": {
+    "mtime": 1793966936.1835995,
+    "seen": 1793967395.097742,
+    "ast_hash": "93ea153464be4f84c332155f72047dc5",
+    "semantic_hash": ""
   }
 }
