@@ -23,5 +23,7 @@
   "21": "devDependencies",
   "22": "scripts",
   "23": "generate_all_lab1_diagrams.py",
-  "24": "create_full_lab1_document"
+  "24": "generate_lab1_docx",
+  "25": "@types/react",
+  "26": "scripts"
 }

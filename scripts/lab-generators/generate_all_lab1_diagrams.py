@@ -882,3 +882,4 @@ if __name__ == "__main__":
     generate_appmap_diagram()
     generate_tech_stack_diagram()
     print("=== ALL 8 DIAGRAMS GENERATED SUCCESSFULLY! ===")
+

@@ -1280,9 +1280,9 @@
     "semantic_hash": ""
   },
   "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_06d6073a.md": {
-    "mtime": 1793933604.6851037,
-    "seen": 1793933613.1624155,
-    "ast_hash": "967c83624fbf6ce1cf71d54bd96d34f5",
+    "mtime": 1793934463.331803,
+    "seen": 1793934465.073759,
+    "ast_hash": "7a328dff99aadec0822fbed7a4a3cb5c",
     "semantic_hash": ""
   },
   "scripts/lab-generators/build_lab1_ainative_doc.py": {
@@ -1400,15 +1400,15 @@
     "semantic_hash": ""
   },
   "scripts/lab-generators/generate_all_lab1_diagrams.py": {
-    "mtime": 1793933315.3650157,
-    "seen": 1793933613.1212595,
-    "ast_hash": "d34325818ded06b0ad6f1955b3ba0875",
+    "mtime": 1793933661.635253,
+    "seen": 1793934465.056444,
+    "ast_hash": "a0eaa82af14e0e5fc1f33d55e49a0d7e",
     "semantic_hash": ""
   },
   "scripts/lab-generators/insert_chapter3_and_diagrams.py": {
-    "mtime": 1793933539.8002188,
-    "seen": 1793933613.1222622,
-    "ast_hash": "07a2ac6375a577a72334dbe0ee8bbdb8",
+    "mtime": 1793933663.3533216,
+    "seen": 1793934465.056444,
+    "ast_hash": "148fd52db9c36d681d6ab39bad4a8791",
     "semantic_hash": ""
   },
   "docs/06-design/appmap_diagram.png": {
@@ -1451,6 +1451,12 @@
     "mtime": 1793933366.9456959,
     "seen": 1793933613.1764126,
     "ast_hash": "cc83bc39ccfa432b0fc27457d6992cea",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/insert_toc_and_finalize_lab1.py": {
+    "mtime": 1793934437.9239638,
+    "seen": 1793934465.056444,
+    "ast_hash": "dde932e67a80093161ab3aab295ef7bf",
     "semantic_hash": ""
   }
 }
