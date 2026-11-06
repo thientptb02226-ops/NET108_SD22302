@@ -48,10 +48,18 @@ docs/
 
 ### 📁 `06-design/` (Thiết kế & Sơ đồ mô hình hóa)
 - `use-cases/`:
-  - [`usecase_ainative_tongquat.png`](06-design/use-cases/usecase_ainative_tongquat.png): Sơ đồ Use Case tổng quát hệ thống AI-Native Commerce (Hình 2).
-  - [`usecase_ainative_customer.png`](06-design/use-cases/usecase_ainative_customer.png): Sơ đồ Use Case phân hệ Khách hàng (Hình 3).
-  - [`usecase_ainative_admin.png`](06-design/use-cases/usecase_ainative_admin.png): Sơ đồ Use Case phân hệ Quản trị & Nhà bán (Hình 4).
-  - [`usecase_ainative_agent.png`](06-design/use-cases/usecase_ainative_agent.png): Sơ đồ Use Case phân hệ Tác tử AI Platform (Hình 5).
+  - [`usecase_ainative_tongquat.png`](06-design/use-cases/usecase_ainative_tongquat.png): Sơ đồ Use Case tổng quát hệ thống AI-Native Commerce (Hình 2 - 28 UCs).
+  - [`usecase_ainative_customer.png`](06-design/use-cases/usecase_ainative_customer.png): Sơ đồ Use Case phân hệ Khách hàng (Hình 3 - 14 UCs).
+  - [`usecase_ainative_admin.png`](06-design/use-cases/usecase_ainative_admin.png): Sơ đồ Use Case phân hệ Quản trị & Nhà bán (Hình 4 - 10 UCs).
+  - [`usecase_ainative_agent.png`](06-design/use-cases/usecase_ainative_agent.png): Sơ đồ Use Case phân hệ Tác tử AI Platform (Hình 5 - 8 UCs).
+- Kiến trúc tổng thể & Sơ đồ hệ thống:
+  - [`erd_ainative_conceptual.png`](06-design/erd_ainative_conceptual.png): Sơ đồ mô hình quan hệ thực thể mức khái niệm Conceptual ERD (Hình 6).
+  - [`deploy_diagram.png`](06-design/deploy_diagram.png): Sơ đồ triển khai hệ thống phân tầng Docker Compose (Hình 7).
+  - [`appmap_diagram.png`](06-design/appmap_diagram.png): Sơ đồ tổ chức của ứng dụng & luồng điều hướng Appmap (Hình 8).
+  - [`tech_stack_diagram.png`](06-design/tech_stack_diagram.png): Sơ đồ phân tầng mô hình kiến trúc công nghệ Tech Stack (Hình 9).
+  - [`ui_wireframe_shared.png`](06-design/ui_wireframe_shared.png): Thiết kế giao diện UI chức năng dùng chung (Hình 10).
+  - [`ui_wireframe_customer.png`](06-design/ui_wireframe_customer.png): Thiết kế giao diện UI phân hệ Khách hàng & Mua sắm AI (Hình 11).
+  - [`ui_wireframe_admin.png`](06-design/ui_wireframe_admin.png): Thiết kế giao diện UI phân hệ Quản trị & Nhà bán hàng (Hình 12).
 
 ### 📁 `99-ghi-chu/` (Ghi chú & Nháp)
 - Lưu trữ các ghi chú họp nhóm, phân công việc phát sinh và nhật ký lỗi.

@@ -1,17 +1,17 @@
-# Graph Report - Net108Khai  (2026-11-05)
+# Graph Report - Net108Khai  (2026-11-06)
 
 ## Corpus Check
-- 32 files · ~352,111 words
+- 34 files · ~364,135 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 2, .mdc 1, .example 1)
 
 ## Summary
-- 319 nodes · 413 edges · 23 communities (18 shown, 5 thin omitted)
+- 346 nodes · 477 edges · 25 communities (19 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `60beb08e`
+- Built from commit: `6ac0f105`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,18 +38,20 @@
 - typescript
 - devDependencies
 - scripts
+- generate_all_lab1_diagrams.py
+- create_full_lab1_document
 
 ## God Nodes (most connected - your core abstractions)
 1. `create_lab1_document()` - 14 edges
 2. `generate_lab1_docx()` - 11 edges
 3. `create_full_lab1_document()` - 10 edges
 4. `compilerOptions` - 10 edges
-5. `compilerOptions` - 9 edges
-6. `typescript` - 8 edges
-7. `scripts` - 8 edges
-8. `draw_arrow()` - 7 edges
-9. `postgres` - 7 edges
-10. `redis` - 6 edges
+5. `get_fonts()` - 9 edges
+6. `compilerOptions` - 9 edges
+7. `typescript` - 8 edges
+8. `scripts` - 8 edges
+9. `draw_arrow()` - 7 edges
+10. `draw_arrow()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `typescript@^5.5.2` --declares--> `typescript`  [EXTRACTED]
@@ -66,11 +68,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (23 total, 5 thin omitted)
+## Communities (25 total, 6 thin omitted)
 
 ### Community 0 - "Trello-Clone-Backend/package.json"
 Cohesion: 0.07
-Nodes (32): cors, express, jsonwebtoken, socket.io, @types/cors, @types/express, @types/jsonwebtoken, zod (+24 more)
+Nodes (33): cors, express, jsonwebtoken, socket.io, @types/cors, @types/express, @types/jsonwebtoken, zod (+25 more)
 
 ### Community 1 - "Trello-Clone-Frontend/package.json"
 Cohesion: 0.16
@@ -82,11 +84,11 @@ Nodes (15): dependencies, lucide-react@^0.395.0, react@^18.3.1, react-dom@^18.3.
 
 ### Community 3 - "Trello-Clone-MCP/package.json"
 Cohesion: 0.08
-Nodes (27): typescript, axios, @modelcontextprotocol/sdk, dotenv@^16.4.5, @types/node@^20.14.9, typescript@^5.5.2, typescript@^5.5.2, dependencies (+19 more)
+Nodes (26): typescript, axios, @modelcontextprotocol/sdk, dotenv@^16.4.5, @types/node@^20.14.9, typescript@^5.5.2, dependencies, axios@^1.7.2 (+18 more)
 
 ### Community 4 - "generate_lab1.py"
-Cohesion: 0.08
-Nodes (4): generate_lab1_docx(), create_full_lab1_document(), insert_missing_section(), style_table()
+Cohesion: 0.10
+Nodes (9): generate_lab1_docx(), add_body_paragraph(), add_image_with_caption(), add_styled_heading(), create_styled_table(), main(), set_cell_properties(), insert_missing_section() (+1 more)
 
 ### Community 5 - "postgres"
 Cohesion: 0.07
@@ -140,22 +142,26 @@ Nodes (12): @types/react-dom@^18.3.0, @types/react-dom, autoprefixer, postcss, t
 Cohesion: 0.50
 Nodes (4): scripts, build, dev, preview
 
+### Community 23 - "generate_all_lab1_diagrams.py"
+Cohesion: 0.23
+Nodes (13): draw_actor(), draw_arrow(), draw_dashed_line(), draw_ellipse_uc(), generate_admin_usecase(), generate_agent_usecase(), generate_appmap_diagram(), generate_customer_usecase() (+5 more)
+
 ## Knowledge Gaps
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `typescript` connect `Trello-Clone-MCP/package.json` to `Trello-Clone-Backend/package.json`, `Trello-Clone-Frontend/package.json`, `Chatbot-Frontend/package.json`, `typescript`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
 - **Should `Trello-Clone-Backend/package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.07301587301587302 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07057057057057058 - nodes in this community are weakly interconnected._
 - **Why does `create_lab1_document()` connect `create_lab1_document` to `generate_lab1.py`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **Should `Trello-Clone-MCP/package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.08045977011494253 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08374384236453201 - nodes in this community are weakly interconnected._
 - **Should `generate_lab1.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.08414634146341464 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10128205128205128 - nodes in this community are weakly interconnected._
 - **Should `postgres` be split into smaller, more focused modules?**
   _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**

@@ -554,9 +554,9 @@
     "semantic_hash": ""
   },
   ".claude/rules/docs-placement.md": {
-    "mtime": 1793887784.9036212,
-    "seen": 1793887872.6495721,
-    "ast_hash": "23c4e7db69d73bce35ca74c69d20d514",
+    "mtime": 1793887908.0146306,
+    "seen": 1793933613.1414108,
+    "ast_hash": "472092e2d689f939d830e812bbb3be08",
     "semantic_hash": ""
   },
   ".claude/rules/karpathy-guidelines.md": {
@@ -854,9 +854,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1793842442.9813128,
-    "seen": 1793881151.6992626,
-    "ast_hash": "b2ecf1066e0c939f6fffcf28158bd04d",
+    "mtime": 1793933593.2139368,
+    "seen": 1793933613.155415,
+    "ast_hash": "9c90383f27ed459abc28e6ab0297d321",
     "semantic_hash": ""
   },
   "Trello-Clone-AI-RAG/README.md": {
@@ -1280,9 +1280,9 @@
     "semantic_hash": ""
   },
   "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_06d6073a.md": {
-    "mtime": 1793887235.9760718,
-    "seen": 1793887237.2107294,
-    "ast_hash": "4d46920e23b3cce8de2fa9664d2bd078",
+    "mtime": 1793933604.6851037,
+    "seen": 1793933613.1624155,
+    "ast_hash": "967c83624fbf6ce1cf71d54bd96d34f5",
     "semantic_hash": ""
   },
   "scripts/lab-generators/build_lab1_ainative_doc.py": {
@@ -1328,9 +1328,9 @@
     "semantic_hash": ""
   },
   ".agent/rules/docs-placement.md": {
-    "mtime": 1793887784.9036212,
-    "seen": 1793887872.632842,
-    "ast_hash": "23c4e7db69d73bce35ca74c69d20d514",
+    "mtime": 1793887908.0146306,
+    "seen": 1793933613.1252618,
+    "ast_hash": "472092e2d689f939d830e812bbb3be08",
     "semantic_hash": ""
   },
   "docs/02-ky-thuat/mcp-reference-architecture.md": {
@@ -1340,33 +1340,33 @@
     "semantic_hash": ""
   },
   "docs/README.md": {
-    "mtime": 1793887757.3599565,
-    "seen": 1793887872.6769104,
-    "ast_hash": "bdb66b51a23cf7ca543151bb26bfb4c3",
+    "mtime": 1793933573.4150484,
+    "seen": 1793933613.161411,
+    "ast_hash": "a0ae25cfa5088edbf02cb75fadf9823b",
     "semantic_hash": ""
   },
   "docs/06-design/use-cases/usecase_ainative_admin.png": {
-    "mtime": 1793885685.482942,
-    "seen": 1793887872.6970336,
-    "ast_hash": "0fa2c2157fb089d282662f6b9e4d6719",
+    "mtime": 1793933320.5672624,
+    "seen": 1793933613.1764126,
+    "ast_hash": "56bec895c43d88d96ffc9db605373256",
     "semantic_hash": ""
   },
   "docs/06-design/use-cases/usecase_ainative_agent.png": {
-    "mtime": 1793885685.515365,
-    "seen": 1793887872.6970336,
-    "ast_hash": "d0eafd07ce90a87281931d5d9447b32c",
+    "mtime": 1793933320.6090539,
+    "seen": 1793933613.1764126,
+    "ast_hash": "512037c20e5587a427f468d20b150bc0",
     "semantic_hash": ""
   },
   "docs/06-design/use-cases/usecase_ainative_customer.png": {
-    "mtime": 1793885685.442843,
-    "seen": 1793887872.6970336,
-    "ast_hash": "e399a0efbecb602561d6ff705e9748bb",
+    "mtime": 1793933320.5184639,
+    "seen": 1793933613.1764126,
+    "ast_hash": "23d0ffe292b7be98cc7070d310d42f59",
     "semantic_hash": ""
   },
   "docs/06-design/use-cases/usecase_ainative_tongquat.png": {
-    "mtime": 1793885685.4011388,
-    "seen": 1793887872.6970336,
-    "ast_hash": "0ddaf2cd7cf36ad904c7d3fa35b7d111",
+    "mtime": 1793933320.4549947,
+    "seen": 1793933613.1764126,
+    "ast_hash": "8f08604386c8f6c87ea28398c2db95dd",
     "semantic_hash": ""
   },
   "docs/06-design/use-cases/usecase_debai_lab1.jpeg": {
@@ -1397,6 +1397,60 @@
     "mtime": 1793880844.3641174,
     "seen": 1793887872.6970336,
     "ast_hash": "8cd70e43ed87fed7a5dc4cb76cc2729b",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/generate_all_lab1_diagrams.py": {
+    "mtime": 1793933315.3650157,
+    "seen": 1793933613.1212595,
+    "ast_hash": "d34325818ded06b0ad6f1955b3ba0875",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/insert_chapter3_and_diagrams.py": {
+    "mtime": 1793933539.8002188,
+    "seen": 1793933613.1222622,
+    "ast_hash": "07a2ac6375a577a72334dbe0ee8bbdb8",
+    "semantic_hash": ""
+  },
+  "docs/06-design/appmap_diagram.png": {
+    "mtime": 1793933320.9116278,
+    "seen": 1793933613.1764126,
+    "ast_hash": "b55e4a7be24b9111204973166e144363",
+    "semantic_hash": ""
+  },
+  "docs/06-design/deploy_diagram.png": {
+    "mtime": 1793933320.808393,
+    "seen": 1793933613.1764126,
+    "ast_hash": "11b3b5c14d83bee8626efaa01b32f502",
+    "semantic_hash": ""
+  },
+  "docs/06-design/erd_ainative_conceptual.png": {
+    "mtime": 1793933320.6852324,
+    "seen": 1793933613.1764126,
+    "ast_hash": "5843e05b9c8fee8961615d3a68e78f0e",
+    "semantic_hash": ""
+  },
+  "docs/06-design/tech_stack_diagram.png": {
+    "mtime": 1793933321.025503,
+    "seen": 1793933613.1764126,
+    "ast_hash": "2a32fdaa5b5d4b7326a65e35adfec779",
+    "semantic_hash": ""
+  },
+  "docs/06-design/ui_wireframe_admin.png": {
+    "mtime": 1793933400.8132937,
+    "seen": 1793933613.1764126,
+    "ast_hash": "11c670294954a24b0c5e31ffc9511da7",
+    "semantic_hash": ""
+  },
+  "docs/06-design/ui_wireframe_customer.png": {
+    "mtime": 1793933400.7481208,
+    "seen": 1793933613.1764126,
+    "ast_hash": "ab80a2638b15061a842f85681b1f75ad",
+    "semantic_hash": ""
+  },
+  "docs/06-design/ui_wireframe_shared.png": {
+    "mtime": 1793933366.9456959,
+    "seen": 1793933613.1764126,
+    "ast_hash": "cc83bc39ccfa432b0fc27457d6992cea",
     "semantic_hash": ""
   }
 }

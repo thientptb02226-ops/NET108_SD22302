@@ -21,5 +21,7 @@
   "19": "skills/idea-refine/scripts/idea-refine.sh",
   "20": "typescript",
   "21": "devDependencies",
-  "22": "scripts"
+  "22": "scripts",
+  "23": "generate_all_lab1_diagrams.py",
+  "24": "create_full_lab1_document"
 }
