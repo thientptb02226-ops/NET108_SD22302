@@ -6,11 +6,13 @@ Script to make all entries in MỤC LỤC interactive and clickable:
 3. Preserves exact layout, dot leaders, font sizes and page numbers.
 """
 
+import sys
 import docx
 from docx.oxml import parse_xml
 from docx.oxml.ns import nsdecls
 
-DOC_PATH = r"C:\Net108Khai\Các Bài Lab\Lab1_NET108_AI_Native_Commerce.docx"
+DEFAULT_DOC_PATH = r"C:\Net108Khai\Các Bài Lab\Lab1_NET108_AI_Native_Commerce.docx"
+DOC_PATH = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_DOC_PATH
 
 toc_items = [
     # (title in TOC, search keyword, page, level, is_bold)

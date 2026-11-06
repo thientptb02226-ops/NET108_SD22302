@@ -1460,9 +1460,9 @@
     "semantic_hash": ""
   },
   "scripts/lab-generators/make_interactive_toc.py": {
-    "mtime": 1793935686.219065,
-    "seen": 1793935712.507463,
-    "ast_hash": "34368df7ef2c5fae052f10911ce6352f",
+    "mtime": 1793943987.879458,
+    "seen": 1793944556.2385683,
+    "ast_hash": "c79114a496d2f5f093a7d570a4548236",
     "semantic_hash": ""
   },
   "scripts/lab-generators/generate_14_usecase_diagrams.py": {
@@ -1559,6 +1559,36 @@
     "mtime": 1793936486.9351783,
     "seen": 1793936589.5364287,
     "ast_hash": "96c183f04f09aa9775eb7a7b714832b6",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/apply_waterfall_model.py": {
+    "mtime": 1793943961.555089,
+    "seen": 1793944556.2317827,
+    "ast_hash": "44312cc4d83e8d01fcb6f71d85d2590e",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/generate_waterfall_diagram.py": {
+    "mtime": 1793943651.544845,
+    "seen": 1793944556.2385683,
+    "ast_hash": "a60f6bb58cdb661277794e5193e0e2ad",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/sync_doc.py": {
+    "mtime": 1793944071.8666499,
+    "seen": 1793944556.2385683,
+    "ast_hash": "07b6dcb5d3972c55685e24ed8966e3ea",
+    "semantic_hash": ""
+  },
+  "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_Updated_38eefa4b.md": {
+    "mtime": 1793944554.02206,
+    "seen": 1793944556.2946177,
+    "ast_hash": "bc2dc7c3bc012312e5788725ae9932c0",
+    "semantic_hash": ""
+  },
+  "docs/06-design/waterfall_model_diagram.png": {
+    "mtime": 1793943674.4546661,
+    "seen": 1793944556.3276992,
+    "ast_hash": "857c3f40613a93a0c7c7c54686ff8190",
     "semantic_hash": ""
   }
 }

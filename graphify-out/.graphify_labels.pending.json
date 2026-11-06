@@ -19,9 +19,13 @@
   "17": ".agent/skills/idea-refine/scripts/idea-refine.sh",
   "18": ".claude/skills/idea-refine/scripts/idea-refine.sh",
   "19": "skills/idea-refine/scripts/idea-refine.sh",
-  "20": "devDependencies",
+  "20": "typescript",
   "21": "devDependencies",
   "22": "scripts",
   "23": "generate_all_lab1_diagrams.py",
-  "25": "create_full_lab1_document"
+  "24": "generate_14_usecase_diagrams.py",
+  "25": "create_full_lab1_document",
+  "26": "generate_lab1_docx",
+  "27": "@types/react",
+  "28": "scripts"
 }
