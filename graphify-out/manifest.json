@@ -1280,9 +1280,9 @@
     "semantic_hash": ""
   },
   "graphify-out/converted/Lab1_NET108_AI_Native_Commerce_06d6073a.md": {
-    "mtime": 1793935710.970186,
-    "seen": 1793935712.5245826,
-    "ast_hash": "33d217fee6581ece439594aaced35546",
+    "mtime": 1793936587.9451444,
+    "seen": 1793936589.5277157,
+    "ast_hash": "6be7b075e99029f522eccce694ff6ec8",
     "semantic_hash": ""
   },
   "scripts/lab-generators/build_lab1_ainative_doc.py": {
@@ -1463,6 +1463,102 @@
     "mtime": 1793935686.219065,
     "seen": 1793935712.507463,
     "ast_hash": "34368df7ef2c5fae052f10911ce6352f",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/generate_14_usecase_diagrams.py": {
+    "mtime": 1793936481.8369453,
+    "seen": 1793936589.513794,
+    "ast_hash": "fac779899e6f0495935236684d7b811c",
+    "semantic_hash": ""
+  },
+  "scripts/lab-generators/insert_14_usecase_diagrams.py": {
+    "mtime": 1793936551.1349585,
+    "seen": 1793936589.513794,
+    "ast_hash": "7c8a1b5141c5f5d01b0eb033e3cb491d",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc01_register.png": {
+    "mtime": 1793936486.6445117,
+    "seen": 1793936589.5364287,
+    "ast_hash": "3ad93ff0305c287fc36691efff234350",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc02_login.png": {
+    "mtime": 1793936486.6653621,
+    "seen": 1793936589.5364287,
+    "ast_hash": "4f6f3f4c77ca5d423673ac2e64c908ae",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc03_forgot_pwd.png": {
+    "mtime": 1793936486.686025,
+    "seen": 1793936589.5364287,
+    "ast_hash": "a67b80815298b65e867e144d9cb4a62a",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc04_nlp_search.png": {
+    "mtime": 1793936486.7079642,
+    "seen": 1793936589.5364287,
+    "ast_hash": "c9e4f608670cb35031e7187af3fe7480",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc05_ai_assistant.png": {
+    "mtime": 1793936486.7287114,
+    "seen": 1793936589.5364287,
+    "ast_hash": "2b4ad3fe4e9dc8acc4828425e5d64c1e",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc06_smart_cart.png": {
+    "mtime": 1793936486.748664,
+    "seen": 1793936589.5364287,
+    "ast_hash": "6157bb58a1bc9c61ba3bc1a07ba60b9d",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc07_checkout.png": {
+    "mtime": 1793936486.7709215,
+    "seen": 1793936589.5364287,
+    "ast_hash": "39c38c0f47b4b711a44e51ca0902a16b",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc08_payment.png": {
+    "mtime": 1793936486.7912793,
+    "seen": 1793936589.5364287,
+    "ast_hash": "67e3769d109a45a7bf15d0756322618c",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc09_order_tracking.png": {
+    "mtime": 1793936486.8141842,
+    "seen": 1793936589.5364287,
+    "ast_hash": "a53b0931312723769a4a2db3bdb6b2a8",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc10_product_mgmt.png": {
+    "mtime": 1793936486.836877,
+    "seen": 1793936589.5364287,
+    "ast_hash": "f0cd059aee65932b7904450c02d8c234",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc11_order_mgmt.png": {
+    "mtime": 1793936486.8600209,
+    "seen": 1793936589.5364287,
+    "ast_hash": "bfe49dd838ea91918bfc390c1c0a0c84",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc12_rbac_mgmt.png": {
+    "mtime": 1793936486.882792,
+    "seen": 1793936589.5364287,
+    "ast_hash": "0d2bff42098610703699f9cc5768381b",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc13_analytics.png": {
+    "mtime": 1793936486.9114912,
+    "seen": 1793936589.5364287,
+    "ast_hash": "9e3c8433d8d1a54b253593d9939357b8",
+    "semantic_hash": ""
+  },
+  "docs/06-design/use-cases/usecase_detail_uc14_ai_agent_tx.png": {
+    "mtime": 1793936486.9351783,
+    "seen": 1793936589.5364287,
+    "ast_hash": "96c183f04f09aa9775eb7a7b714832b6",
     "semantic_hash": ""
   }
 }
