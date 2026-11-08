@@ -93,6 +93,21 @@ const FALLBACK_PRODUCTS: Product[] = [
     aiTags: ['cafe', 'tinh-tao', 'huong-hoa-qua', 'thu-cong'],
     specs: { origin: 'Cầu Đất, Đà Lạt', roast: 'Medium Light', weight: '500g' },
     status: 'ACTIVE'
+  },
+  {
+    id: 7,
+    sku: 'LAP-HP-15S',
+    name: 'Laptop HP 15s-fq5078TU (Core i3-1215U / 8GB / 256GB SSD)',
+    slug: 'laptop-hp-15s-fq5078tu',
+    description: 'Laptop học tập sinh viên giá mềm dưới 10 triệu, thiết kế mỏng nhẹ trang nhã, hiệu năng Intel Gen 12 mượt mà, màn hình lớn 15.6 inch.',
+    priceMinor: 9990000,
+    stockQty: 30,
+    categoryId: 1,
+    category: { id: 1, name: 'Laptop & Máy tính', slug: 'laptops' },
+    imageUrl: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&auto=format&fit=crop&q=80',
+    aiTags: ['hoc-tap', 'sinh-vien', 'gia-re', 'van-phong', 'mong-nhe'],
+    specs: { cpu: 'Intel Core i3-1215U', ram: '8GB DDR4', storage: '256GB SSD', display: '15.6 inch FHD' },
+    status: 'ACTIVE'
   }
 ];
 
@@ -295,15 +310,45 @@ export const useCommerceStore = create<CommerceState>((set, get) => ({
     } catch {
       // Mock client NLP filter
       const q = query.toLowerCase();
-      const filtered = FALLBACK_PRODUCTS.filter(p =>
-        p.name.toLowerCase().includes(q) ||
-        p.aiTags?.some(t => q.includes(t.replace('-', ' '))) ||
-        (q.includes('dưới 35 triệu') && p.priceMinor <= 35000000)
-      );
+      let maxBudget: number | null = null;
+      const budgetMatch = q.match(/(?:dưới|tôi có|khoảng|tầm|ngân sách|<=?)\s*(\d+)\s*(triệu|tr|k)?/i) || q.match(/(\d+)\s*(triệu|tr)/i);
+      if (budgetMatch) {
+        const num = parseFloat(budgetMatch[1]);
+        const unit = budgetMatch[2]?.toLowerCase();
+        if (unit === 'k') maxBudget = num * 1000;
+        else maxBudget = num * 1000000;
+      }
+
+      const scored = FALLBACK_PRODUCTS.map(p => {
+        let score = 0;
+        const corpus = `${p.name} ${p.description} ${p.aiTags?.join(' ')} ${p.category.name}`.toLowerCase();
+        
+        if (q.includes('laptop') && p.categoryId === 1) score += 6;
+        if (q.includes('tai nghe') && p.categoryId === 2) score += 6;
+        if (q.includes('mỏng nhẹ') && corpus.includes('mong-nhe')) score += 4;
+        if (q.includes('sinh viên') || q.includes('học tập')) {
+          if (corpus.includes('hoc-tap') || corpus.includes('sinh-vien')) score += 5;
+        }
+
+        if (maxBudget) {
+          if (p.priceMinor <= maxBudget) score += 8;
+          else score -= 15; // heavy penalty for exceeding budget
+        }
+
+        return { product: p, score };
+      })
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map(x => ({
+        ...x.product,
+        matchScore: x.score,
+        aiExplanation: `Phù hợp với nhu cầu '${query}'`
+      }));
+
       set({
-        products: filtered,
+        products: scored,
         isNlpSearching: false,
-        nlpIntent: { query, count: filtered.length }
+        nlpIntent: { query, maxPriceMinor: maxBudget, count: scored.length }
       });
     }
   },

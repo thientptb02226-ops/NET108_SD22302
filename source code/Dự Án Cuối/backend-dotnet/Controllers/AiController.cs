@@ -29,19 +29,14 @@ public class AiController : ControllerBase
 
         var q = req.Query.ToLower();
 
-        // 1. Detect Price Constraints
+        // 1. Detect Price Constraints with Regex
         long? maxPrice = null;
-        if (q.Contains("dưới 35 triệu") || q.Contains("duoi 35tr") || q.Contains("< 35tr"))
+        var budgetMatch = Regex.Match(q, @"(?:dưới|tôi có|khoảng|tầm|ngân sách|<=?)\s*(\d+)\s*(triệu|tr|k)?", RegexOptions.IgnoreCase);
+        if (!budgetMatch.Success) budgetMatch = Regex.Match(q, @"(\d+)\s*(triệu|tr)", RegexOptions.IgnoreCase);
+        if (budgetMatch.Success && long.TryParse(budgetMatch.Groups[1].Value, out var num))
         {
-            maxPrice = 35000000;
-        }
-        else if (q.Contains("dưới 10 triệu") || q.Contains("duoi 10tr"))
-        {
-            maxPrice = 10000000;
-        }
-        else if (q.Contains("dưới 50 triệu"))
-        {
-            maxPrice = 50000000;
+            var unit = budgetMatch.Groups[2].Value.ToLower();
+            maxPrice = unit == "k" ? num * 1000 : num * 1000000;
         }
 
         // 2. Fetch all active products

@@ -1,4 +1,4 @@
-﻿# AI-Native Commerce - PowerShell Launcher for NET108
+# AI-Native Commerce - PowerShell Launcher for NET108
 Write-Host "======================================================================" -ForegroundColor Cyan
 Write-Host "   AI-NATIVE COMMERCE - FPT POLYTECHNIC NET108 FINAL PROJECT" -ForegroundColor Yellow
 Write-Host "======================================================================" -ForegroundColor Cyan
