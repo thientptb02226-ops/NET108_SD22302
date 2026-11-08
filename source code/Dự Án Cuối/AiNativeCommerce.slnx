@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/backend-dotnet/">
+    <Project Path="backend-dotnet/AiNativeCommerce.Api.csproj" />
+  </Folder>
+</Solution>
