@@ -1826,9 +1826,9 @@
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/tsconfig.json": {
-    "mtime": 1794111100.3991387,
-    "seen": 1794111678.2686372,
-    "ast_hash": "c932e2104187e03067322e1d44935289",
+    "mtime": 1794111722.8336186,
+    "seen": 1794112335.902381,
+    "ast_hash": "d9c461a2e02424e071f11e213bd045e7",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/frontend/package.json": {
@@ -1982,9 +1982,9 @@
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/README.md": {
-    "mtime": 1794111628.81811,
-    "seen": 1794111678.3232033,
-    "ast_hash": "db4a77a362eb055e62cb706b20358183",
+    "mtime": 1794112323.8096054,
+    "seen": 1794112335.9480479,
+    "ast_hash": "1fe1e6fd66240c3fa9e1bc93218d02fd",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/ai-service/requirements.txt": {
@@ -1997,6 +1997,114 @@
     "mtime": 1794111285.2924151,
     "seen": 1794111678.3232033,
     "ast_hash": "0b96b6bf875eb22ca3fb0269867c3b2b",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/AiNativeCommerce.Api.csproj": {
+    "mtime": 1794112114.3801372,
+    "seen": 1794112335.902381,
+    "ast_hash": "633229539967dfa95092ae9a7461fa83",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/AdminController.cs": {
+    "mtime": 1794112254.1525643,
+    "seen": 1794112335.902381,
+    "ast_hash": "73abd455ee1a2bb7b50c802118db6e1e",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/AiController.cs": {
+    "mtime": 1794112245.4924,
+    "seen": 1794112335.902381,
+    "ast_hash": "fede409d0c3dba309ba510c604068631",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/AuthController.cs": {
+    "mtime": 1794112176.7257302,
+    "seen": 1794112335.902381,
+    "ast_hash": "c16bf62bb04b94a04ef8a4a9836d0066",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/CartController.cs": {
+    "mtime": 1794112200.0317335,
+    "seen": 1794112335.902381,
+    "ast_hash": "c15b2123859c53a803d251662f002cbc",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/CatalogController.cs": {
+    "mtime": 1794112186.532846,
+    "seen": 1794112335.902381,
+    "ast_hash": "be2dce9fbbd381181e498773baed8725",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/CheckoutController.cs": {
+    "mtime": 1794112218.615603,
+    "seen": 1794112335.902381,
+    "ast_hash": "11376bb40f6f5abd06638447911476bb",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/OrdersController.cs": {
+    "mtime": 1794112227.4705327,
+    "seen": 1794112335.902381,
+    "ast_hash": "56e0d9f3120278c170eeb5dad6d9429b",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/WeatherForecastController.cs": {
+    "mtime": 1794112088.1737578,
+    "seen": 1794112335.902381,
+    "ast_hash": "24069a89d9dbb14b2535be22c21db7be",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/DTOs/CommerceDtos.cs": {
+    "mtime": 1794112165.5252905,
+    "seen": 1794112335.902381,
+    "ast_hash": "7df167364f22f3af0fbda3b2220f589f",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Data/CommerceDbContext.cs": {
+    "mtime": 1794112138.2729917,
+    "seen": 1794112335.902381,
+    "ast_hash": "518d0b52b90ad36c652eec39bb412b1e",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Data/DbInitializer.cs": {
+    "mtime": 1794112160.773829,
+    "seen": 1794112335.902381,
+    "ast_hash": "301f63d2058c85b07876d55b8ec964bc",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Models/Entities.cs": {
+    "mtime": 1794112132.6275623,
+    "seen": 1794112335.902381,
+    "ast_hash": "0bfa9e3dd4ff3243e5528ceb1b6aa016",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Program.cs": {
+    "mtime": 1794112264.0175133,
+    "seen": 1794112335.902381,
+    "ast_hash": "c6fb4e45ae99a3de2a2fe256bb51d582",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Properties/launchSettings.json": {
+    "mtime": 1794112088.1775198,
+    "seen": 1794112335.902381,
+    "ast_hash": "aa3200c8c611c66b600b72bb08b17ace",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/WeatherForecast.cs": {
+    "mtime": 1794112088.1996918,
+    "seen": 1794112335.902381,
+    "ast_hash": "cdc54cde7bdeb2dc28141a159d3fcd80",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/appsettings.Development.json": {
+    "mtime": 1794112088.17968,
+    "seen": 1794112335.902381,
+    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/appsettings.json": {
+    "mtime": 1794112268.953355,
+    "seen": 1794112335.902381,
+    "ast_hash": "52fedde8605050c73ba259e094181a78",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/package-lock.json": {

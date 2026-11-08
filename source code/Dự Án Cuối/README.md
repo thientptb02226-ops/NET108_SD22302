@@ -29,33 +29,19 @@
 
 ```
 Dự Án Cuối/
-├── database/                   # Thiết kế CSDL quan hệ 3NF
-│   ├── schema_postgresql.sql   # PostgreSQL DDL tiêu chuẩn Enterprise (12 bảng)
-│   └── seed_data.sql           # Dữ liệu mẫu danh mục, sản phẩm, AI tags, tài khoản
-├── backend/                    # Core REST API & Business Saga
-│   ├── prisma/
-│   │   ├── schema.prisma       # Prisma ORM schema (sẵn sàng SQLite dev.db / PostgreSQL)
-│   │   └── seed.ts             # Script seed dữ liệu tự động với bcrypt hash
-│   ├── src/
-│   │   ├── middleware/         # JWT Auth, RBAC Guard, Idempotency Middleware
-│   │   ├── routes/             # auth, catalog, cart, checkout, orders, ai, admin
-│   │   ├── lib/prisma.ts       # Prisma Client singleton
-│   │   └── index.ts            # Entrypoint cổng 5000
-│   └── package.json
-├── ai-service/                 # Microservice Trí tuệ Nhân tạo (FastAPI)
-│   ├── main.py                 # Router phân tích ý định, NLP Search & HITL Agent
-│   ├── requirements.txt
-│   └── .env.example
-├── frontend/                   # Ứng dụng Web Storefront & Admin Portal
-│   ├── src/
-│   │   ├── components/         # Navbar, HeroBanner, ProductCard, CartDrawer,
-│   │   │                       # CheckoutModal, OrderSuccessModal, AiAssistantWidget, AdminDashboard
-│   │   ├── services/api.ts     # Client gọi API Backend với Idempotency Key
-│   │   ├── store/              # Zustand Store quản lý Giỏ hàng, Quote 15 phút, AI Chat
-│   │   └── App.tsx
-│   ├── index.html
-│   └── package.json
-├── start-all.bat               # File khởi động 1-click cho giảng viên / người chấm
+├── backend-dotnet/             # Core REST API C# ASP.NET Core Web API (Chuẩn NET108)
+│   ├── Controllers/            # AuthController, CatalogController, CartController,
+│   │                           # CheckoutController (Idempotency Saga), OrdersController, AiController, AdminController
+│   ├── Data/                   # CommerceDbContext & DbInitializer (Tự động tạo dev.db & nạp dữ liệu mẫu)
+│   ├── Models/                 # User, Product, Category, Cart, CommerceQuote, Order, AiActionApproval
+│   ├── DTOs/                   # Data Transfer Objects chuẩn OpenAPI của ChatGPT
+│   ├── Program.cs              # Entry point cấu hình JWT, CORS, EF Core Sqlite trên Cổng 5000
+│   └── AiNativeCommerce.Api.csproj # Chạy trực tiếp bằng lệnh: dotnet run
+├── backend/                    # Core REST API Node.js + TypeScript (Phiên bản Node.js song song)
+├── database/                   # Thiết kế CSDL quan hệ 3NF (PostgreSQL DDL & Seed SQL)
+├── ai-service/                 # Microservice AI Python FastAPI (Cổng 8000)
+├── frontend/                   # Ứng dụng Web Storefront & Admin Portal (React 18 + Vite + TailwindCSS)
+├── start-all.bat               # File khởi động 1-click toàn bộ hệ thống
 └── README.md                   # Tài liệu hướng dẫn này
 ```
 
@@ -77,16 +63,13 @@ Script sẽ tự động khởi động đồng thời:
 
 ### Cách 2: Khởi động từng phần thủ công
 
-#### Bước 1: Khởi động Backend API
-```bash
-cd "source code/Dự Án Cuối/backend"
-npm install
-npx prisma generate
-npx prisma db push
-npx ts-node prisma/seed.ts
-npm run dev
+#### Bước 1: Khởi động Backend C# ASP.NET Core API (Chuẩn NET108)
+```powershell
+cd "source code/Dự Án Cuối/backend-dotnet"
+dotnet run
 ```
 *API hoạt động tại: `http://localhost:5000` | Kiểm tra sức khỏe: `http://localhost:5000/health`*
+*(Hoặc bạn có thể dùng Backend Node.js tại `backend/` bằng lệnh `npm run dev`)*
 
 #### Bước 2: Khởi động AI Microservice (Tùy chọn)
 ```bash

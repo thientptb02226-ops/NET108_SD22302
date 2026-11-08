@@ -1,0 +1,6 @@
+@AiNativeCommerce.Api_HostAddress = http://localhost:5080
+
+GET {{AiNativeCommerce.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
