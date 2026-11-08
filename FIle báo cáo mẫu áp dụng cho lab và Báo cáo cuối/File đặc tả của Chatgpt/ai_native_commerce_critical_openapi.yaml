@@ -1,0 +1,940 @@
+openapi: 3.1.0
+info:
+  title: AI Native Commerce - Critical Transaction API
+  version: 2.0.0
+  description: Proposed contract. Final approval and provider integrations pending.
+servers:
+- url: https://api.example.invalid
+security:
+- BearerAuth: []
+tags:
+- name: Catalog
+- name: Cart
+- name: Checkout
+- name: Orders
+- name: Payments
+- name: Returns
+- name: AI
+- name: Approvals
+paths:
+  /api/v1/search/query:
+    post:
+      tags:
+      - Catalog
+      operationId: search_products
+      summary: search products
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+  /api/v1/carts:
+    post:
+      tags:
+      - Cart
+      operationId: create_cart
+      summary: create cart
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartCreate'
+  /api/v1/carts/{cart_id}/items:
+    post:
+      tags:
+      - Cart
+      operationId: add_cart_item
+      summary: add cart item
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+      parameters:
+      - name: cart_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartItemInput'
+  /api/v1/checkouts:
+    post:
+      tags:
+      - Checkout
+      operationId: create_checkout
+      summary: create checkout
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckoutCreate'
+  /api/v1/checkouts/{checkout_id}:
+    get:
+      tags:
+      - Checkout
+      operationId: get_checkout
+      summary: get checkout
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+      parameters:
+      - name: checkout_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /api/v1/checkouts/{checkout_id}/confirm:
+    post:
+      tags:
+      - Checkout
+      operationId: confirm_checkout
+      summary: confirm checkout
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+      parameters:
+      - name: checkout_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Confirmation'
+  /api/v1/orders/{order_id}:
+    get:
+      tags:
+      - Orders
+      operationId: get_order
+      summary: get order
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /api/v1/orders/{order_id}/cancel:
+    post:
+      tags:
+      - Orders
+      operationId: cancel_order
+      summary: cancel order
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+  /api/v1/payments/intents:
+    post:
+      tags:
+      - Payments
+      operationId: create_payment_intent
+      summary: create payment intent
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentIntent'
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Confirmation'
+  /api/v1/payments/{payment_id}:
+    get:
+      tags:
+      - Payments
+      operationId: get_payment
+      summary: get payment
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentIntent'
+      parameters:
+      - name: payment_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /api/v1/returns:
+    post:
+      tags:
+      - Returns
+      operationId: create_return
+      summary: create return
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnCase'
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReturnRequest'
+  /api/v1/ai/conversations/{conversation_id}/messages:
+    post:
+      tags:
+      - AI
+      operationId: create_agent_message
+      summary: create agent message
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentReply'
+      parameters:
+      - name: conversation_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentMessage'
+  /api/v1/approvals/{approval_id}/decisions:
+    post:
+      tags:
+      - Approvals
+      operationId: decide_approval
+      summary: decide approval
+      responses:
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict/stale state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limited
+        '500':
+          description: Internal error
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentReply'
+      parameters:
+      - name: approval_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 12
+          maxLength: 160
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApprovalDecision'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Error:
+      type: object
+      required:
+      - code
+      - message
+      - trace_id
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        trace_id:
+          type: string
+        details:
+          type: object
+          additionalProperties: true
+    Money:
+      type: object
+      required:
+      - amount_minor
+      - currency
+      properties:
+        amount_minor:
+          type: integer
+          format: int64
+          minimum: 0
+        currency:
+          type: string
+          pattern: ^[A-Z]{3}$
+    CartItemInput:
+      type: object
+      required:
+      - sku_id
+      - quantity
+      properties:
+        sku_id:
+          type: string
+          format: uuid
+        quantity:
+          type: integer
+          minimum: 1
+          maximum: 99
+      additionalProperties: false
+    Quote:
+      type: object
+      required:
+      - quote_id
+      - version
+      - expires_at
+      - fingerprint
+      - total
+      properties:
+        quote_id:
+          type: string
+          format: uuid
+        version:
+          type: integer
+          minimum: 1
+        expires_at:
+          type: string
+          format: date-time
+        fingerprint:
+          type: string
+        total:
+          $ref: '#/components/schemas/Money'
+    Confirmation:
+      type: object
+      required:
+      - quote_id
+      - quote_version
+      - quote_fingerprint
+      - approval_token
+      properties:
+        quote_id:
+          type: string
+          format: uuid
+        quote_version:
+          type: integer
+        quote_fingerprint:
+          type: string
+        approval_token:
+          type: string
+          minLength: 16
+      additionalProperties: false
+    Order:
+      type: object
+      required:
+      - order_id
+      - status
+      - total
+      properties:
+        order_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - PENDING_PAYMENT
+          - CONFIRMED
+          - PROCESSING
+          - SHIPPED
+          - DELIVERED
+          - COMPLETED
+          - CANCELLED
+        total:
+          $ref: '#/components/schemas/Money'
+    PaymentIntent:
+      type: object
+      required:
+      - payment_id
+      - status
+      - amount
+      properties:
+        payment_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - CREATED
+          - REQUIRES_ACTION
+          - AUTHORIZED
+          - CAPTURED
+          - FAILED
+          - VOIDED
+        amount:
+          $ref: '#/components/schemas/Money'
+        next_action_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+    AgentMessage:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          minLength: 1
+          maxLength: 10000
+        locale:
+          type: string
+          default: vi-VN
+      additionalProperties: false
+    AgentReply:
+      type: object
+      required:
+      - run_id
+      - status
+      - reply
+      properties:
+        run_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - COMPLETED
+          - PENDING_APPROVAL
+          - FAILED
+        reply:
+          type: string
+        approval_id:
+          type:
+          - string
+          - 'null'
+          format: uuid
+    ApprovalDecision:
+      type: object
+      required:
+      - decision
+      - action_hash
+      properties:
+        decision:
+          type: string
+          enum:
+          - APPROVE
+          - REJECT
+        action_hash:
+          type: string
+          minLength: 64
+          maxLength: 64
+      additionalProperties: false
+    ReturnRequest:
+      type: object
+      required:
+      - order_id
+      - item_ids
+      - reason_code
+      properties:
+        order_id:
+          type: string
+          format: uuid
+        item_ids:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            format: uuid
+        reason_code:
+          type: string
+          maxLength: 80
+        comment:
+          type: string
+          maxLength: 2000
+      additionalProperties: false
+    SearchRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 500
+        limit:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 20
+      additionalProperties: false
+    SearchResult:
+      type: object
+      required:
+      - items
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            required:
+            - product_id
+            - title
+            properties:
+              product_id:
+                type: string
+                format: uuid
+              title:
+                type: string
+              price:
+                $ref: '#/components/schemas/Money'
+    CartCreate:
+      type: object
+      required:
+      - items
+      properties:
+        items:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/CartItemInput'
+      additionalProperties: false
+    Cart:
+      type: object
+      required:
+      - cart_id
+      - items
+      - currency
+      properties:
+        cart_id:
+          type: string
+          format: uuid
+        currency:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CartItemInput'
+    CheckoutCreate:
+      type: object
+      required:
+      - cart_id
+      - address_id
+      - shipping_option_id
+      properties:
+        cart_id:
+          type: string
+          format: uuid
+        address_id:
+          type: string
+          format: uuid
+        shipping_option_id:
+          type: string
+          format: uuid
+      additionalProperties: false
+    ReturnCase:
+      type: object
+      required:
+      - return_id
+      - status
+      - order_id
+      properties:
+        return_id:
+          type: string
+          format: uuid
+        order_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - REQUESTED
+          - ELIGIBILITY_CHECKED
+          - APPROVED
+          - REJECTED
+          - RECEIVED
+          - REFUNDED
