@@ -30,95 +30,11 @@
     "semantic_hash": "9096a00197aa221fa9ea895cc42b5c4f",
     "ast_empty": true
   },
-  "Chatbot-Frontend/package.json": {
-    "mtime": 1793801691.0698516,
-    "seen": 1793842397.0363686,
-    "ast_hash": "96eae84986f8b7d8b576b7bab383165d",
-    "semantic_hash": "96eae84986f8b7d8b576b7bab383165d"
-  },
-  "Trello-Clone-AI-RAG/app/main.py": {
-    "mtime": 1793801691.3829956,
-    "seen": 1793842397.0373664,
-    "ast_hash": "a64dff367979d70fec5ae2ef61d9ff0c",
-    "semantic_hash": "a64dff367979d70fec5ae2ef61d9ff0c"
-  },
-  "Trello-Clone-Backend/package.json": {
-    "mtime": 1793801692.1276135,
-    "seen": 1793842397.0373664,
-    "ast_hash": "63069af3084c89ce9058b7ea0e1c5ad8",
-    "semantic_hash": "63069af3084c89ce9058b7ea0e1c5ad8"
-  },
-  "Trello-Clone-Backend/src/index.ts": {
-    "mtime": 1793801692.2283986,
-    "seen": 1793842397.0373664,
-    "ast_hash": "2f6690997166525d9f48531aaf430fdb",
-    "semantic_hash": "2f6690997166525d9f48531aaf430fdb"
-  },
-  "Trello-Clone-Backend/tsconfig.json": {
-    "mtime": 1793801692.2469423,
-    "seen": 1793842397.0373664,
-    "ast_hash": "bc99e2008f7e5edd65a5e91b20abbade",
-    "semantic_hash": "bc99e2008f7e5edd65a5e91b20abbade"
-  },
-  "Trello-Clone-Desktop/package.json": {
-    "mtime": 1793801692.2480109,
-    "seen": 1793842397.0383658,
-    "ast_hash": "58236c87176255aaa440b0338cc16f6e",
-    "semantic_hash": "58236c87176255aaa440b0338cc16f6e"
-  },
-  "Trello-Clone-Frontend/package.json": {
-    "mtime": 1793801692.3686118,
-    "seen": 1793842397.0383658,
-    "ast_hash": "493bbd7e43b741bee1d4c18de7fc1d43",
-    "semantic_hash": "493bbd7e43b741bee1d4c18de7fc1d43"
-  },
-  "Trello-Clone-Frontend/src/App.tsx": {
-    "mtime": 1793801692.4405842,
-    "seen": 1793842397.0383658,
-    "ast_hash": "dfcf529033f4a1c601008ae787a2534f",
-    "semantic_hash": "dfcf529033f4a1c601008ae787a2534f"
-  },
-  "Trello-Clone-Frontend/src/main.tsx": {
-    "mtime": 1793801692.478638,
-    "seen": 1793842397.0383658,
-    "ast_hash": "82d6a9ef54204e00c8417213fa8043d7",
-    "semantic_hash": "82d6a9ef54204e00c8417213fa8043d7"
-  },
-  "Trello-Clone-Frontend/vite.config.ts": {
-    "mtime": 1793801692.5363042,
-    "seen": 1793842397.039366,
-    "ast_hash": "f3e0c96f191c6969f2bbf89b3f9203c7",
-    "semantic_hash": "f3e0c96f191c6969f2bbf89b3f9203c7"
-  },
-  "Trello-Clone-MCP/package.json": {
-    "mtime": 1793801693.1826353,
-    "seen": 1793842397.039366,
-    "ast_hash": "fe90b1b2ec3eabd89e9faee21dde438a",
-    "semantic_hash": "fe90b1b2ec3eabd89e9faee21dde438a"
-  },
-  "Trello-Clone-MCP/src/index.ts": {
-    "mtime": 1793801693.3728366,
-    "seen": 1793842397.039366,
-    "ast_hash": "1d99874043a19e90ae3d5fcc2dba6ec4",
-    "semantic_hash": "1d99874043a19e90ae3d5fcc2dba6ec4"
-  },
-  "Trello-Clone-MCP/tsconfig.json": {
-    "mtime": 1793801693.5187018,
-    "seen": 1793842397.040362,
-    "ast_hash": "f1aacab49dd1bfcd3a8c94efd4cc1dff",
-    "semantic_hash": "f1aacab49dd1bfcd3a8c94efd4cc1dff"
-  },
-  "Trello-Clone-Mobile/package.json": {
-    "mtime": 1793801693.56034,
-    "seen": 1793842397.040362,
-    "ast_hash": "47d115bc12628aaad3810713d0961e04",
-    "semantic_hash": "47d115bc12628aaad3810713d0961e04"
-  },
   "docker-compose.yml": {
-    "mtime": 1793801693.657557,
-    "seen": 1793842397.0413601,
-    "ast_hash": "daf545ef4ca9b4b6b42f8bf8902e55a7",
-    "semantic_hash": "daf545ef4ca9b4b6b42f8bf8902e55a7"
+    "mtime": 1794192209.0649002,
+    "seen": 1794192259.7261305,
+    "ast_hash": "5a7b295e942d879124d124d8fe7ad3c9",
+    "semantic_hash": ""
   },
   "docs/02-ky-thuat/openapi.yaml": {
     "mtime": 1793803142.4500408,
@@ -128,10 +44,10 @@
     "ast_empty": true
   },
   "package.json": {
-    "mtime": 1793801693.9294941,
-    "seen": 1793842397.0423586,
-    "ast_hash": "0e4fa226c74ad5f36f86b87f03197059",
-    "semantic_hash": "0e4fa226c74ad5f36f86b87f03197059"
+    "mtime": 1794192202.862629,
+    "seen": 1794192259.72713,
+    "ast_hash": "9cd39822f7228c3f88e26082e140be87",
+    "semantic_hash": ""
   },
   "skills/constraint-driven-development/scripts/quality-gate.mjs": {
     "mtime": 1793842225.2498064,
@@ -836,9 +752,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1793887857.7690372,
-    "seen": 1793887872.6683815,
-    "ast_hash": "ccdb4d71051c33e8e967d58434842f38",
+    "mtime": 1794192241.8796294,
+    "seen": 1794192259.743649,
+    "ast_hash": "7b13b5522806036700d4d890c6032da1",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -847,76 +763,10 @@
     "ast_hash": "4664dd05c82a10764647f81a9de3254b",
     "semantic_hash": ""
   },
-  "Chatbot-Frontend/README.md": {
-    "mtime": 1793801690.8500934,
-    "seen": 1793881151.6992626,
-    "ast_hash": "27c17df17e699436b52d6bc42b746b7d",
-    "semantic_hash": ""
-  },
   "README.md": {
     "mtime": 1793933593.2139368,
     "seen": 1793933613.155415,
     "ast_hash": "9c90383f27ed459abc28e6ab0297d321",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-AI-RAG/README.md": {
-    "mtime": 1793801691.346216,
-    "seen": 1793881151.6992626,
-    "ast_hash": "c77fd0ab5bc02b8d5665d14c7209ac10",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-AI-RAG/requirements.txt": {
-    "mtime": 1793801691.4339075,
-    "seen": 1793881151.6992626,
-    "ast_hash": "679b278eabf70f9448a3cd5ea978d579",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-Backend/README.md": {
-    "mtime": 1793801690.5216448,
-    "seen": 1793881151.6992626,
-    "ast_hash": "0ffe4f6d7b8619bf4361076ad5319281",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-Desktop/README.md": {
-    "mtime": 1793801692.2469423,
-    "seen": 1793881151.6992626,
-    "ast_hash": "110849e78ae9a6456b24e58eed6236a5",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-Frontend/README.md": {
-    "mtime": 1793801692.2480109,
-    "seen": 1793881151.6992626,
-    "ast_hash": "a6dfa8309959d0654146258f55840e02",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-Frontend/index.html": {
-    "mtime": 1793801692.351196,
-    "seen": 1793881151.6992626,
-    "ast_hash": "10ddce218a4090f1700982e4289a2dd6",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-Infra/README.md": {
-    "mtime": 1793801692.582898,
-    "seen": 1793881151.6992626,
-    "ast_hash": "37b7e5d0baa2622c31f73c2e516fc6b3",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-MCP/README.md": {
-    "mtime": 1793801692.6371224,
-    "seen": 1793881151.6992626,
-    "ast_hash": "d63df6a25375cfedff52b3f23cf0dd53",
-    "semantic_hash": ""
-  },
-  "Trello-Clone-Mobile/README.md": {
-    "mtime": 1793801693.5334246,
-    "seen": 1793881151.6992626,
-    "ast_hash": "254d8ee4e55a375cac0a1dc1382e758b",
-    "semantic_hash": ""
-  },
-  "certs/README.md": {
-    "mtime": 1793801693.6050828,
-    "seen": 1793881151.6992626,
-    "ast_hash": "0edb4b0afa03cce41eb65d6ea0a9538a",
     "semantic_hash": ""
   },
   "docs/01-tong-quan/ai-native-commerce-blueprint.md": {
@@ -1741,96 +1591,6 @@
     "ast_hash": "3f6907983f3097cde0ea0f8cc6ac9046",
     "semantic_hash": ""
   },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/package.json": {
-    "mtime": 1794110791.5475075,
-    "seen": 1794111678.2686372,
-    "ast_hash": "5879b49d42ed1df232e82e9da955ed31",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/prisma/seed.js": {
-    "mtime": 1794111090.3145108,
-    "seen": 1794111678.2686372,
-    "ast_hash": "884c495cc4c95fdd15d4083f73213c1d",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/prisma/seed.ts": {
-    "mtime": 1794110863.7905118,
-    "seen": 1794111678.2686372,
-    "ast_hash": "579bfcaf5b9167871b4c85bb3ad0eebc",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/index.ts": {
-    "mtime": 1794111016.0133865,
-    "seen": 1794111678.2686372,
-    "ast_hash": "0f0f3df82e09470fe88d69eb74e3406a",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/lib/prisma.ts": {
-    "mtime": 1794110870.7918801,
-    "seen": 1794111678.2686372,
-    "ast_hash": "1413a0c2c7b1864516a26e770a13be13",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/middleware/auth.ts": {
-    "mtime": 1794110879.3236992,
-    "seen": 1794111678.2686372,
-    "ast_hash": "b62edc54cf50b71489e3164c606c8df3",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/middleware/idempotency.ts": {
-    "mtime": 1794110902.0997007,
-    "seen": 1794111678.2686372,
-    "ast_hash": "e9225da8e30f8003c11abfda71575864",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/routes/admin.ts": {
-    "mtime": 1794111007.7188444,
-    "seen": 1794111678.2686372,
-    "ast_hash": "9b268a3f890cdd899f7b27ddf6c76f78",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/routes/ai.ts": {
-    "mtime": 1794110995.4323955,
-    "seen": 1794111678.2686372,
-    "ast_hash": "b2ddf9745ee2d62a364e73fe591eda1b",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/routes/auth.ts": {
-    "mtime": 1794110915.570793,
-    "seen": 1794111678.2686372,
-    "ast_hash": "0131eeaa9335942529e5af388bddac63",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/routes/cart.ts": {
-    "mtime": 1794110948.1174498,
-    "seen": 1794111678.2686372,
-    "ast_hash": "8a09116cd35bcb0365bd8b9cda16dcca",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/routes/catalog.ts": {
-    "mtime": 1794110930.549939,
-    "seen": 1794111678.2686372,
-    "ast_hash": "e960ca0b4002ea8c6411dad87b11a5e7",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/routes/checkout.ts": {
-    "mtime": 1794110963.3228076,
-    "seen": 1794111678.2686372,
-    "ast_hash": "4ed730d24492123b0a29ae1658c0806f",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/src/routes/orders.ts": {
-    "mtime": 1794110975.9282491,
-    "seen": 1794111678.2686372,
-    "ast_hash": "ddc585ec533b01c2fa4cc260f2149ea1",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/tsconfig.json": {
-    "mtime": 1794111722.8336186,
-    "seen": 1794112335.902381,
-    "ast_hash": "d9c461a2e02424e071f11e213bd045e7",
-    "semantic_hash": ""
-  },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/frontend/package.json": {
     "mtime": 1794111252.28748,
     "seen": 1794111678.2686372,
@@ -1892,9 +1652,9 @@
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/frontend/src/components/ProductCard.tsx": {
-    "mtime": 1794111421.256615,
-    "seen": 1794111678.2686372,
-    "ast_hash": "ecfbd83c8c5eae751a1db1dc9a0bd447",
+    "mtime": 1794113170.9358442,
+    "seen": 1794192259.7311275,
+    "ast_hash": "82ea5077640772f8acbf2ef3e8a08388",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/frontend/src/components/ProductModal.tsx": {
@@ -1916,9 +1676,9 @@
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/frontend/src/store/useCommerceStore.ts": {
-    "mtime": 1794111375.842017,
-    "seen": 1794111678.2686372,
-    "ast_hash": "4df63774ccee0a1f17205692eda22079",
+    "mtime": 1794113210.1459396,
+    "seen": 1794192259.7321463,
+    "ast_hash": "c5d95dd9e3450ab37b397a796f5e8526",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/frontend/src/types/index.ts": {
@@ -2012,9 +1772,9 @@
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/AiController.cs": {
-    "mtime": 1794112245.4924,
-    "seen": 1794112335.902381,
-    "ast_hash": "fede409d0c3dba309ba510c604068631",
+    "mtime": 1794113219.2144084,
+    "seen": 1794192259.729128,
+    "ast_hash": "3f351d1e2a95a04fa266d782f93dd77e",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/AuthController.cs": {
@@ -2047,12 +1807,6 @@
     "ast_hash": "56e0d9f3120278c170eeb5dad6d9429b",
     "semantic_hash": ""
   },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Controllers/WeatherForecastController.cs": {
-    "mtime": 1794112088.1737578,
-    "seen": 1794112335.902381,
-    "ast_hash": "24069a89d9dbb14b2535be22c21db7be",
-    "semantic_hash": ""
-  },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/DTOs/CommerceDtos.cs": {
     "mtime": 1794112165.5252905,
     "seen": 1794112335.902381,
@@ -2078,21 +1832,15 @@
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Program.cs": {
-    "mtime": 1794112264.0175133,
-    "seen": 1794112335.902381,
-    "ast_hash": "c6fb4e45ae99a3de2a2fe256bb51d582",
+    "mtime": 1794112986.6452045,
+    "seen": 1794192259.7301276,
+    "ast_hash": "c6a7791e9c7d04329f60d903b409d8e9",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/Properties/launchSettings.json": {
     "mtime": 1794112088.1775198,
     "seen": 1794112335.902381,
     "ast_hash": "aa3200c8c611c66b600b72bb08b17ace",
-    "semantic_hash": ""
-  },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/WeatherForecast.cs": {
-    "mtime": 1794112088.1996918,
-    "seen": 1794112335.902381,
-    "ast_hash": "cdc54cde7bdeb2dc28141a159d3fcd80",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend-dotnet/appsettings.Development.json": {
@@ -2107,10 +1855,22 @@
     "ast_hash": "52fedde8605050c73ba259e094181a78",
     "semantic_hash": ""
   },
-  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/backend/package-lock.json": {
-    "mtime": 1794111064.1514006,
-    "seen": 1794111678.3374355,
-    "ast_hash": "b5a4d757b119604f635fd5e93d2212d7",
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/AiNativeCommerce.slnx": {
+    "mtime": 1794112584.606815,
+    "seen": 1794192259.729128,
+    "ast_hash": "0e9be5718a991e61d482e1e7d3dbcade",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/run.ps1": {
+    "mtime": 1794112875.1439426,
+    "seen": 1794192259.7321463,
+    "ast_hash": "a7546389648df2cbf7c72d1acc66a418",
+    "semantic_hash": ""
+  },
+  "source code/D\u1ef1 \u00c1n Cu\u1ed1i/CHECKLIST.md": {
+    "mtime": 1794191901.7983782,
+    "seen": 1794192259.7509012,
+    "ast_hash": "5e471597df003b41563bf86ece5ffcaf",
     "semantic_hash": ""
   },
   "source code/D\u1ef1 \u00c1n Cu\u1ed1i/frontend/package-lock.json": {

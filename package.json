@@ -1,33 +1,21 @@
 {
-  "name": "trello-clone-monorepo",
+  "name": "ai-native-commerce-monorepo",
   "version": "1.0.0",
-  "description": "Multi-agent AI-powered Trello clone monorepo",
+  "description": "AI-Native Commerce Platform - FPT Polytechnic NET108 Final Project",
   "private": true,
-  "workspaces": [
-    "Trello-Clone-Backend",
-    "Trello-Clone-Frontend",
-    "Trello-Clone-MCP",
-    "Chatbot-Frontend",
-    "Trello-Clone-Desktop"
-  ],
   "scripts": {
-    "dev:backend": "npm --workspace=Trello-Clone-Backend run dev",
-    "dev:frontend": "npm --workspace=Trello-Clone-Frontend run dev",
-    "dev:mcp": "npm --workspace=Trello-Clone-MCP run dev",
-    "dev:chatbot": "npm --workspace=Chatbot-Frontend run dev",
-    "build:all": "npm run --workspaces --if-present build",
-    "infra:up": "docker compose up -d",
-    "infra:down": "docker compose down"
+    "start": "cmd /c \"cd /d source code\\Dự Án Cuối && call start-all.bat\"",
+    "dev:dotnet": "cd \"source code/Dự Án Cuối/backend-dotnet\" && dotnet run",
+    "dev:frontend": "cd \"source code/Dự Án Cuối/frontend\" && npm run dev",
+    "dev:ai": "cd \"source code/Dự Án Cuối/ai-service\" && python main.py"
   },
   "keywords": [
-    "trello",
-    "multi-agent",
-    "claude-code",
-    "antigravity",
-    "codex",
-    "mcp",
-    "rag"
+    "ai-native-commerce",
+    "fpt-polytechnic",
+    "net108",
+    "dotnet",
+    "react",
+    "fastapi"
   ],
   "license": "MIT"
 }
-

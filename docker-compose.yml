@@ -2,13 +2,13 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:16-alpine
-    container_name: trello_postgres
+    image: pgvector/pgvector:pg16
+    container_name: ainative_postgres
     restart: always
     environment:
-      POSTGRES_USER: trello_user
-      POSTGRES_PASSWORD: trello_password
-      POSTGRES_DB: trello_db
+      POSTGRES_USER: ainative_user
+      POSTGRES_PASSWORD: ainative_password
+      POSTGRES_DB: ainative_commerce
     ports:
       - "5432:5432"
     volumes:
@@ -16,23 +16,13 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: trello_redis
+    container_name: ainative_redis
     restart: always
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
 
-  chromadb:
-    image: chromadb/chroma:latest
-    container_name: trello_chromadb
-    ports:
-      - "8000:8000"
-    volumes:
-      - chroma_data:/chroma/chroma
-
 volumes:
   postgres_data:
   redis_data:
-  chroma_data:
-

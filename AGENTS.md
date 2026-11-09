@@ -6,25 +6,30 @@
 
 ## 1. System Overview
 
-This repository is a full-stack, enterprise-grade, multi-platform **Trello Clone** augmented with AI capabilities (MCP Server, RAG Pipeline, and Chatbot).
+This repository is an enterprise-grade **AI-Native Commerce Platform** designed for FPT Polytechnic NET108 (.NET Project 1), featuring:
+- C# ASP.NET Core Web API Backend (.NET 10/8, Entity Framework Core)
+- React 18 + Vite + TailwindCSS Frontend Storefront & Admin Portal
+- Python FastAPI AI Microservice (NLP Semantic Search & HITL Agent)
+- 15-Minute Quote Lock Fingerprinting & Idempotency Saga Checkout
 
 ### Workspace Architecture
 ```
-trello-clone/
+NET108_SD22302/
 ├── .agent/                  # Antigravity agent configuration, rules, workflows
 ├── .claude/                 # Claude Code CLI configuration (commands, skills, policies)
 ├── .codex/                  # OpenAI Codex configuration & agent templates
-├── certs/                   # SSL/TLS and local dev certificates
-├── Chatbot-Frontend/        # Embeddable AI Assistant widget (React + Vite)
 ├── docs/                    # System documentation, architecture diagrams, API specs
 ├── scripts/                 # Automation & utility scripts
-├── Trello-Clone-AI-RAG/     # Semantic search & contextual RAG service (FastAPI / LangChain)
-├── Trello-Clone-Backend/    # Core REST / WebSocket API (Node.js / Express / Prisma)
-├── Trello-Clone-Desktop/    # Desktop client (Electron / Tauri)
-├── Trello-Clone-Frontend/   # Web application (Next.js / React Kanban UI)
-├── Trello-Clone-Infra/      # Docker Compose, Kubernetes, CI/CD pipelines
-├── Trello-Clone-MCP/        # Model Context Protocol server exposing board operations to AI
-├── Trello-Clone-Mobile/     # Mobile client (React Native / Expo)
+├── source code/
+│   └── Dự Án Cuối/
+│       ├── backend-dotnet/  # C# ASP.NET Core Web API (NET108 Core)
+│       ├── frontend/        # React 18 + Vite + Tailwind Storefront & Admin
+│       ├── ai-service/      # Python FastAPI NLP & Agent Service
+│       ├── database/        # PostgreSQL 3NF DDL & Seed Data
+│       ├── CHECKLIST.md     # Granular task checklist for AI agents
+│       ├── start-all.bat    # 1-Click Multi-service Launcher
+│       └── run.ps1          # PowerShell launcher
+├── Các Bài Lab/             # FPT Polytechnic Lab assignments (Lab 1 - Lab 8)
 ├── AGENTS.md                # Multi-agent coordination agreement (THIS FILE)
 └── CLAUDE.md                # Claude Code specific execution guide
 ```
@@ -37,11 +42,11 @@ When two or more AI agents run concurrently via CLI (e.g. `claude` in Terminal 1
 
 ### 2.1 Domain Allocation (Separation of Concerns)
 To avoid merge conflicts and file thrashing, agents should operate primarily on designated domains:
-* **Agent 1 (Frontend & Experience Focus - e.g., Claude Code)**:
-  * Primary: `Trello-Clone-Frontend/`, `Chatbot-Frontend/`, `Trello-Clone-Mobile/`, `Trello-Clone-Desktop/`
-* **Agent 2 (Backend, Core & RAG Focus - e.g., Antigravity / Codex)**:
-  * Primary: `Trello-Clone-Backend/`, `Trello-Clone-AI-RAG/`, `Trello-Clone-MCP/`, `Trello-Clone-Infra/`
-* **Shared Territory**: `docs/`, `certs/`, root configuration (`package.json`, `docker-compose.yml`).
+* **Frontend & Experience Focus (e.g., Claude Code)**:
+  * Primary: `source code/Dự Án Cuối/frontend/`
+* **Backend, C# & AI Core Focus (e.g., Antigravity / Codex)**:
+  * Primary: `source code/Dự Án Cuối/backend-dotnet/`, `source code/Dự Án Cuối/ai-service/`, `source code/Dự Án Cuối/database/`
+* **Shared Territory**: `docs/`, `Các Bài Lab/`, root configuration (`package.json`, `docker-compose.yml`, `source code/Dự Án Cuối/CHECKLIST.md`).
   * *Rule for Shared Territory*: Always read before write. Use atomic edits. Never overwrite whole configuration files without inspecting previous commits.
 
 ### 2.2 File Locking & Coordination Protocol
@@ -61,14 +66,11 @@ To avoid merge conflicts and file thrashing, agents should operate primarily on 
 
 | Module | Stack | Dev Command | Build / Test |
 | :--- | :--- | :--- | :--- |
-| **Backend** | Node.js, Express, TypeScript, Prisma, PostgreSQL, Redis | `npm run dev` (in `Trello-Clone-Backend`) | `npm run build` / `npm test` |
-| **Frontend** | React 19, Vite / Next.js, TailwindCSS, Zustand, DnD Kit | `npm run dev` (in `Trello-Clone-Frontend`) | `npm run build` / `npm test` |
-| **MCP Server** | TypeScript, @modelcontextprotocol/sdk | `npm run build && npm start` (in `Trello-Clone-MCP`) | `npm test` |
-| **AI-RAG** | Python 3.11+, FastAPI, LangChain, ChromaDB / pgvector | `uvicorn app.main:app --reload` | `pytest` |
-| **Chatbot Frontend** | React, TailwindCSS, Vite | `npm run dev` (in `Chatbot-Frontend`) | `npm run build` |
-| **Mobile** | React Native, Expo | `npx expo start` | `npm test` |
-| **Desktop** | Electron / Tauri, React | `npm run dev` | `npm run build` |
-| **Infra** | Docker Compose, Postgres, Redis, MinIO | `docker compose up -d` (in root or `Trello-Clone-Infra`) | - |
+| **Backend C# (.NET 10/8)** | C#, ASP.NET Core Web API, Entity Framework Core, SQLite / PostgreSQL | `dotnet run` (in `source code/Dự Án Cuối/backend-dotnet`) | `dotnet build` / `dotnet test` |
+| **Frontend Web** | React 18, Vite, TailwindCSS, Zustand, Lucide Icons | `npm run dev` (in `source code/Dự Án Cuối/frontend`) | `npm run build` |
+| **AI Microservice** | Python 3.12, FastAPI, Pydantic, HTTPX, Gemini API | `python main.py` (in `source code/Dự Án Cuối/ai-service`) | `python -m py_compile main.py` |
+| **Database** | SQLite (`dev.db`) & PostgreSQL 3NF DDL (`schema_postgresql.sql`) | Tự động tạo khi `dotnet run` | - |
+| **All-in-one** | Multi-service script (Backend + Frontend + AI + Browser) | `.\start-all.bat` hoặc `.\run.ps1` (in `source code/Dự Án Cuối`) | - |
 
 ---
 
